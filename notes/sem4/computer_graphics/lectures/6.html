@@ -1,0 +1,2196 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://levyry.github.io/grafika_biblia/notes/sem4/computer_graphics/lectures/6.html">
+      
+      
+        <link rel="prev" href="5.html">
+      
+      
+        <link rel="next" href="7.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>6. 2D textúrázás - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2d-texturazas" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. 2D textúrázás
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../for_contributors/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="6.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_14" id="__nav_4_1_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Függelékek
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_14">
+            <span class="md-nav__icon md-icon"></span>
+            Függelékek
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix/math_appendix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A. Matematikai kifejezések
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="2d-texturazas">2D Textúrázás</h1>
+<h2 id="alapok">Alapok</h2>
+<p>Egy kétdimenziós területre vagy egy háromdimenziós felületre szeretnénk egy képet, más szóval tapétát ragasztani. Ez a kép meghatározná a terület vagy felület színét, megjelenését, így akár komplex kinézetű objektumokat is meg tudunk jeleníteni.</p>
+<p>Ezt a felületet meg kell feleltetnünk annak a koordináta-rendszernek, amelyben a képet ábrázoljuk. Ezt a koordináta-rendszert <em>textúra koordináta-rendszernek</em> nevezzük, és a <span class="arithmatex">\((0,0)\)</span>, <span class="arithmatex">\((1,1)\)</span> tartományban értelmezzük.</p>
+<div class="admonition info">
+<p class="admonition-title">6.1 Definíció (Paraméterezés)</p>
+<p>Azt a folyamatot, amikor a felület egyes pontjait leképezzük ebbe az egységnégyzetbe (textúra térbe) <em>paraméterezésnek</em> nevezzük.</p>
+</div>
+<p>Ha a felületünk összes pontja le van képezve ebbe az egységnégyzetbe, és mi "kifestjük" ezt a négyzetet azzal a mintázattal, amit a felületünkre szeretnénk rakni, akkor ezáltal a felületünk pontjait megfeleltettük a mintázat pontjainak, tehát az eredeti felület is ki lesz festve az általunk válaszott mintázattal. Ehhez persze szükségünk lesz a paraméterezés <em>inverzéhez</em>, azaz ahhoz a transzformációhoz, ami a textúra koordináta-rendszer egyes pontjait megfelelteti a geometriánk felületének egyes pontjaival.</p>
+<p>A textúrázáshoz használt kép elemei a <em>texelek</em> (mint ahogy a pixel a "picture element"-ből származik, a texel a "texture element"-ből).</p>
+<p>A textúrázást elég csak háromszögekre megvalósítani, hiszen az összes többi bonyolultabb felületet háromszögekből építjük fel. Az a célunk, hogy a textúraterünk háromszögeit valahogy megfeleltessük a modellterünk háromszögeivel. A leggyakrabban használt egyik ilyen megfeleltetés a <em>lineáris leképzés</em>.</p>
+<h2 id="linearis-lekepzes">Lineáris leképzés</h2>
+<p>A fő ötlet az, hogy <em>"bármely két háromszög között létezik olyan affin transzformáció, ami az egyik háromszöget a másikba viszi át"</em> és ez az affin transzformáció Descartes koordinátákban kifejezve egy <em>lineáris kifejezés</em>, azaz mind <span class="arithmatex">\(u\)</span>, mind <span class="arithmatex">\(v\)</span> elsőfokú hatványokként jelennek meg. Más szóval az a megfeleltetést keressük, ami az <span class="arithmatex">\((u,v)\)</span> textúra térbeli koordinátákat megfelelteti a modell térbeli <span class="arithmatex">\((x,y,z)\)</span> koordinátáknak, és a kapcsolatuk lineáris, azaz:</p>
+<div class="arithmatex">\[
+\begin{align*}
+x &amp;= a_x u + b_x v + c_x \\
+y &amp;= a_y u + b_y v + c_y \\
+z &amp;= a_z u + b_z v + c_z
+\end{align*}
+\]</div>
+<p>alakúak.</p>
+<h3 id="egyutthatok-meghatarozasa">Együtthatók meghatározása</h3>
+<p>Az <span class="arithmatex">\(a_x, b_x, \dots\)</span> kilenc darab ismeretlent jelöl, ezeket akarjuk kiszámolni. Mivel a modell térbeli háromszögeknek 3 csúcsa van, amik egyenként 3 koordinátából állnak, és mindegyik megfelel pontosan egy textúra térbeli pontnak, ezért <span class="arithmatex">\(3 \cdot 3 = 9\)</span> feltételünk van. A feltételeket úgy kell elképzelni, hogy a fenti képletben az <span class="arithmatex">\(x, y, z, u, v\)</span>-k helyére beírjuk azokat a konkrét értékeket, amikkel az adott háromszög adott csúcsa rendelkezik. Ez csúcsonként három, azaz összesen kilenc egyenlet, ahol már csak az <span class="arithmatex">\(a_x, b_x, \dots\)</span> együtthatók az ismeretlenek. Kilenc ismeretlen és kilenc feltétel esetén mindig van egyértelmű megoldása az egyenleteknek (hacsak nem elfajult háromszögeink vannak).</p>
+<h3 id="kepszintezis">Képszintézis</h3>
+<p>A fentieket felhasználva már van átjárásunk a textúra tér és a modell tér között, viszont nekünk a modell tér és a képernyő koordináta-rendszere között is kell tudnunk transzformálni. A képszintézis a modell háromszögeit áttranszformálja fizikai képernyőkoordinátákba. Ez általánosan egy <em>homogén lineáris transzformáció</em>, azaz a pont koordinátákat homogén koordinátáknak tekintve egy mátrix szorzással kapjuk meg a képernyőkoordináta-rendszerbeli pontokat, mégpedig homogén koordinátás alakban. A homogén osztást elvégezve a konkrét fizikai pixelek koordinátáit kapjuk meg. Ha ezt a folyamatot elvégezzük a háromszög mindhárom csúcsára, akkor megkapjuk a kirajzoláshoz szükséges pixeleket.</p>
+<h3 id="osszevonas">Összevonás</h3>
+<p>A képszintézis egy homogén lineáris transzformáció, a paraméterezés egy affin transzformáció (ami egyben egy homogén lineáris transzformáció is). Ezeket össze lehet vonni egy transzformációvá, így a textúra térből egyenesen a fizikai képernyő koordináta-rendszerbe tudunk váltani. Ez az összevonás is egy homogén lineáris transzformáció. Erre főleg a következő lépésben lesz szükségünk, a <em>raszterizáció</em> során.</p>
+<h2 id="raszterizacio">Raszterizáció</h2>
+<p>Ez az a folyamat, amikor a háromszögön belüli pixelekre eldöntjük, hogy a textúra téren belül melyik texel felel meg neki. Ehhez a pixelt vissza kell transzformálnunk a textúra térbe, mert ezt csak ott tudjuk eldönteni. Mivel ezt minden egyes pixelre a háromszögön belül végre kell hajtani, ezért figyelni kell arra, gyors megoldást találjunk. Vezessük le az összevont homogén lineáris transzformációt és annak inverzét:</p>
+<h3 id="a-textura-terbol-a-kepernyobe">A textúra térből a képernyőbe</h3>
+<p>Az összevont homogén lineáris transzformációt a következő alakban fejezhetjük ki:</p>
+<div class="arithmatex">\[
+[X, Y, w] = \mathbf{P} \cdot [u, v, 1]
+\]</div>
+<p>ahol az <span class="arithmatex">\([X,Y,w]\)</span> pixelkoordináták (homogén alakban) az <span class="arithmatex">\([u, v, 1]\)</span> textúrakoordinátáknak a homogén lineáris transzformáltjai, mely transzformáció mátrixa <span class="arithmatex">\(\mathbf{P}\)</span>.</p>
+<p>A pixelek kitöltése során persze nem a homogén alakban kell dolgoznunk, a konkrét pixel koordináták kifejezéséhéz el kell végeznünk a homogén osztást:</p>
+<div class="arithmatex">\[
+(x_{\text{pix}},y_{\text{pix}}) = [X/w, Y/w]
+\]</div>
+<h3 id="a-kepernyo-koordinatakbol-a-textura-terbe">A képernyő koordinátákból a textúra térbe</h3>
+<p>Erre a transzformációra van szükségünk a raszterizáció során. Mivel a fentinek az inverze, ezért az alábbi módon vezethető le:</p>
+<p>1. Osszunk le <span class="arithmatex">\(w\)</span>-vel mindkét oldalon</p>
+<div class="arithmatex">\[
+[X/w, Y/w, w/w] = \mathbf{P} \cdot  [u/w, v/w, 1/w]
+\]</div>
+<p>Itt tudunk picit egyszerűsíteni (homogén osztás miatt <span class="arithmatex">\(x_{\text{pix}} = X/w\)</span>):</p>
+<div class="arithmatex">\[
+[x_{\text{pix}},y_{\text{pix}}, 1] = \mathbf{P} \cdot [u/w, v/w, 1/w]
+\]</div>
+<p>2. Szorozzuk meg mindkét oldalt balról <span class="arithmatex">\(\mathbf{P}\)</span> inverzével</p>
+<div class="arithmatex">\[
+\mathbf{P}^{-1} \cdot [x_{\text{pix}},y_{\text{pix}}, 1]  = \cancel{\mathbf{P}^{-1} \cdot \mathbf{P}} \cdot [u/w, v/w, 1/w]
+\]</div>
+<p>A lényegi részével végeztünk is, annyit tehetünk még, hogy bevezetjük az <span class="arithmatex">\(U = u/w, V = v/w, W = 1/w\)</span> jelölést, hogy picit tömörebb legyen a képletünk:</p>
+<div class="arithmatex">\[
+\boxed{
+    \mathbf{P}^{-1} \cdot [x_{\text{pix}},y_{\text{pix}}, 1]  = [U, V, W]
+}
+\]</div>
+<p>Most már csak hatékonyan ki kéne tudni számolni az <span class="arithmatex">\(U, V, W\)</span> koordinátákat, és készen lennénk a raszterizációval. A hatékony kiszámolás érdekében a <em>lineáris interpolációt</em> fogjuk igénybe venni.</p>
+<h2 id="linearis-interpolacio">Lineáris interpoláció</h2>
+<p>A raszterizáció során pásztázva meglátogatjuk az összes pixelt a háromszögön belül, és minden pixelre kiszámoljuk a textúra koordinátákat, azok alapján pedig ki tudjuk olvasni, hogy melyik texel kerüljön a pixelünkre.</p>
+<p>Az <span class="arithmatex">\(U\)</span> (homogén koordinátás textúra koordináta) egy mátrixszorzással kapható meg a pixelkoordinátákból, azaz azoknak egy lineáris függvénye:</p>
+<div class="arithmatex">\[
+U(x_{\text{pix}},y_{\text{pix}}) = A_u \cdot x_{\text{pix}} + B_u \cdot y_{\text{pix}} + C_u
+\]</div>
+<p>A kiszámítása egy pixelre alap esetben két szorzást és két összeadást igényel. Viszont ezt minden pixelre megcsinálni eléggé lassú lenne, ezért az <em>inkrementális elvet</em> fogjuk használni. Ez arra alapul, hogy ha már tudjuk <span class="arithmatex">\(U(x,y)\)</span>-t, akkor <span class="arithmatex">\(U(x+1, y)\)</span> (a pásztában a következő pixel) kiszámításához fel tudjuk használni az előző pixelt:</p>
+<div class="arithmatex">\[
+\begin{align*}
+U(x,y) &amp;= A_u \cdot x + B_u \cdot y + C_u \\
+U(x+1, y) &amp;= A_u \cdot (x+1) + B_u \cdot y + C_u \\
+&amp;= A_u + A_u \cdot x + B_u \cdot y + C_u \\
+&amp;= A_u + U(x,y)
+\end{align*}
+\]</div>
+<p>így egy pásztán belül az első pixel után minden másik kiszámítása csak egy összeadás. Ugyan ez a logika alkalmazható a <span class="arithmatex">\(V, W\)</span> koordinátákra is. Erre van hardver támogatás (interpolációs hardver). Nézzük meg, hogyan kell <span class="arithmatex">\(A_u, A_v, \dots\)</span> együtthatókat meghatározni.</p>
+<h2 id="triangle-setup">Triangle setup</h2>
+<p>Bármely két háromszög között létezik olyan affin transzformáció, ami az egyik háromszöget a másikba viszi át. Ez az affin transzformáció Descartes koordinátákban kifejezve egy <em>lineáris kifejezés</em>, azaz <span class="arithmatex">\(u\)</span> és <span class="arithmatex">\(v\)</span> elsőfokú hatványokként szerepelnek. Tehát azt a megfeleltetést keressük, ami az <span class="arithmatex">\((u,v)\)</span> textúra térbeli koordinátákat megfelelteti a modell térbeli <span class="arithmatex">\((x,y,z)\)</span> koordinátáknak, és a kapcsolatuk lineáris, azaz:</p>
+<div class="arithmatex">\[
+U(x,y) = A_u \cdot x + B_u \cdot y + C_u
+\]</div>
+<p>Mivel a háromszögünknek három csúcsa van, ezért három darab ilyen egyenletünk van:</p>
+<div class="arithmatex">\[
+\begin{align*}
+U_1 &amp;= A_u \cdot x_1 + B_u \cdot y_1 + C_u \\
+U_2 &amp;= A_u \cdot x_2 + B_u \cdot y_2 + C_u \\
+U_3 &amp;= A_u \cdot x_3 + B_u \cdot y_3 + C_u
+\end{align*}
+\]</div>
+<p>Ezekből <span class="arithmatex">\(A_u\)</span> kifejezhető, az alábbi alakban:</p>
+<div class="arithmatex">\[
+\begin{equation}
+A_u = \frac{(U_3 - U_1) \cdot (y_2 - y_1) - (y_3 - y_1) \cdot (U_2 - U_1)}{(X_3 - X_1) \cdot (y_2 - y_1) - (y_3 - y_1) \cdot (X_2 - X_1)}
+\end{equation}
+\]</div>
+<h3 id="geometriai-megkozelites">Geometriai megközelítés</h3>
+<p>Annak, hogy <span class="arithmatex">\(U\)</span> az <span class="arithmatex">\((x,y)\)</span> koordináták lineáris függvénye más következményei is vannak. Ha felveszünk egy olyan háromdimenziós koordináta-rendszert, ahol a tengelyek rendre <span class="arithmatex">\(x,y,U\)</span>, akkor ebben a koordináta-rendszerben azok az <span class="arithmatex">\((x, y, U)\)</span> számhármasok, amik a háromszögeink adatait tartalmazzák, egy síkra kerülnek. Ez látható a sík képletéből is:</p>
+<div class="arithmatex">\[
+\begin{alignat*}{2}
+\text{Sík egyenlete:} &amp; \quad n_x \cdot x + n_y \cdot y + n_u \cdot U + d = 0 \\
+\text{Interpolációs feltétel:} &amp; \quad U(x,y) = A_u \cdot x + B_u \cdot y + C_u \\[1.5ex]
+\text{Átrendezett sík egyenlet:} &amp; \quad U = -\frac{n_x}{n_u} \cdot x - \frac{n_y}{n_u} \cdot y - \frac{d}{n_u}
+\end{alignat*}
+\]</div>
+<p>Tehát nekünk <span class="arithmatex">\(\displaystyle -\frac{n_x}{n_u}\)</span> alakban kell az eredmény, mert az az <span class="arithmatex">\(A_u\)</span> megfelelője az interpolációs feltételben. A sík normálvektorát megkaphatjuk úgy, hogy a síkban két nem párhuzamos vektornak vesszük a keresztszorzatát. Mivel a háromszögünk ebben a síkban van, ezért már három pontot ismerünk a síkból. Ebből a három pontból könnyen tudunk két alkalmas vektort képezni, és ezek keresztszorzata pontosan megegyezik a fenti <span class="arithmatex">\((1)\)</span> képlettel.</p>
+<h2 id="textura-szures">Textúra szűrés</h2>
+<p>Eljutottunk odáig, hogy minden egyes pixelt hatékonyan át tudunk transzformálni a textúra térbe. Viszont <a href="https://cdn.discordapp.com/emojis/1384476146636161065.webp?size=240">nem triviális</a>, hogy ez alapjan a transzformalt pont alapjan melyik texelt valasztjuk ki. Ez a kivalasztasi folyamat a <em>textura szures</em>. Ennek soran a pixelek kozeppontjait transzformaljuk a textura terbe, es megnezzuk, hogy melyik texel kozeppontjahoz vannak a legkozelebb. Ez a <code>GL_NEAREST</code> (nearest neighbor), más néven <em>matematikai mintavételezés</em>. Ez alapesetben jól működik, viszont két olyan eset is felmerülhet, amikor nekünk ez nem megfelelő:</p>
+<p><strong>1. Magnification</strong></p>
+<p><img src="../img/chapter_6/6_magnification.png" alt="magnification" width="130" style="float: right; margin-left: 20px;"/></p>
+<p>Ha olyan a leképzésünk, hogy sok pixel ugyan ahhoz a texelhez van a legközelebb, akkor a végső képen élesen láthatóak lesznek a pixelek határai. Az sok egymáshoz közeli, de egy texelre eső pixelek azt a hatást fogják kelteni, mintha kevesebb, de nagyobb pixeleink lennének.</p>
+<p><strong>2. Minification</strong></p>
+<p><img src="../img/chapter_6/6_minification.png" alt="minification" width="130" style="float: right; margin-left: 20px;"/></p>
+<p>A magnification fordítottja bizonyos értelemben: két egymás melletti pixel képe a textúra térben nagyon távol van egymástól, és nagyon sok texel kimarad közöttük. Az elveszett texelek miatt a végső kép zajos lesz, két egymás melletti pixel gyakran erősen eltér (ún. Moiré minta).</p>
+<p>OpenGL-ben az alábbi módon lehet beállítani, hogy milyen textúra szűrési eljárást szeretnénk használni:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// A paraméterek értelmezése a következő:</span>
+<span class="c1">//     GL_TEXTURE_2D: Kétdimenziós textúrákkal dolgozunk</span>
+<span class="c1">//     GL_NEAREST: Ezt a szűrési eljárást szeretnénk használni</span>
+<span class="c1">//     GL_TEXTURE_MAG_FILTER: A megadott szűrési eljárást magnification esetén használja</span>
+<span class="c1">//     GL_TEXTURE_MIN_FILTER: A megadott szűrési eljárást minification esetén használja</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_MAG_FILTER</span><span class="p">,</span><span class="w"> </span><span class="n">GL_NEAREST</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span><span class="w"> </span><span class="n">GL_NEAREST</span><span class="p">);</span>
+</code></pre></div>
+<p>Látható, hogy külön meg lehet adni egy eljárást a magnificationre, és a minificationre.</p>
+<p>Akkor járunk sikerrel a textúrázás során, ha mindkét fenti esetet megpróbáljuk elkerülni. Ehhez használhatunk szofisztikáltabb textúra szűrési eljárásokat. Pixelenként fixen egyszer tudunk texeleket választani (mintavételezési frekvencia), és a pixelek száma is adott. Viszont a texelek felett több befolyásunk van: ha olyan virtuális texelekkel dolgoznánk, ahol körülbelül egy pixelnek egy texel felelne meg, akkor minden rendben lenne. Nézzük pár ilyen eljárást.</p>
+<h3 id="mip-map-minification-ellen">Mip-map (minification ellen)</h3>
+<p>Ahelyett, hogy csak a pixelünk középpontját képeznénk le, sokkal pontosabb lenne, ha a pixel összes pontját leképeznénk a textúra térbe. Ha ezt tennénk, akkor sokkal pontosabban látnánk, hogy az a pixel a textúra térben pontosan hány texelt ölelne át, ahonnan már már egyszerű lenne a dolgunk. Állítsunk elő az eredeti textúrából egy új változatot. Az eredeti textúra bal felső négy texelét átlagolva kapjuk meg az új textúra bal felső texelét. Ezt az átlagolást a textúra összes texel-négyesére elvégezve kaphatjuk meg az új textúrát. Az eljárás végén egy olyan textúrát kapunk, aminek a felbontása fele az eredeti képnek (ezt úgy is lehet értelmezni, hogy az eredeti textúra térben minden négy texelt lecserélünk egy "nagyobb" texelre). Ha ezt a folyamatot megismételjük az új textúránkon is, akkor elő tudunk állítani több ilyen, mindig feleződő felbontású textúrát (ahol mindegyikben egyre "nagyobbak" a texelek).</p>
+<p>Ezen textúrák összesége a mip-map, az adott "szinthez" (azaz hányszor feleztük meg) tartozó textúrák neve pedig <em>LOD</em> (level of detail), és általában számozva vannak (tehát az eredeti képünk a LOD0, az első iteráció utáni a LOD1 stb.). Ezek után elég lenne megkeresni azt a LOD-ot, ahol a leképzett pixelünk mérete körülbelül megfelel egy texelnek, és visszaadni a LOD megfelelő texelét. Így lényegében az összes olyan texel hozzájárul a pixel színéhez, ami alapból ki lett volna hagyva.</p>
+<p>Az egyetlen probléma, hogy minden pixel minden egyes pontját leképezni a textúra térbe egy költséges művelet lenne. Ehelyett előre definiált négyszögeket használunk, ezek pedig éppen a LODok texeleinek méretével egyeznek meg: a négyszög méretéből ki tudjuk következtetni, hogy melyik LOD szintet kell használni (azt, ahol nagyjából akkora egy texel, mint az adott négyszög).</p>
+<p>Ehhez külön hardware támogatás van, OpenGL-ben az alábbi módon lehet beállítani: </p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Mip-mapping</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span><span class="w"> </span><span class="n">GL_LINEAR_MIPMAP_NEAREST</span><span class="p">);</span>
+<span class="c1">// Tri-linear filtering</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span><span class="w"> </span><span class="n">GL_LINEAR_MIPMAP_LINEAR</span><span class="p">);</span>
+</code></pre></div>
+<p><img src="../img/chapter_6/6_mipmap_result.png" alt="mipmap" width="150" style="float: right; margin-left: 20px;"/></p>
+<p>Két fajtája is van. A <code>GL_LINEAR_MIPMAP_NEAREST</code> a fent ismertetett módon működik, a <code>GL_LINEAR_MIPMAP_LINEAR</code> pedig egy picit tovább megy: általában a pixel képének mérete a textúra térben nem egyezik meg pontosan egyik LOD texel méretével sem, hanem két LOD közé esik. A <code>GL_LINEAR_MIPMAP_LINEAR</code> mindkét ilyen LOD-ből kiolvassa a texelt, és ezek súlyozott átlagát veszi.</p>
+<h3 id="bi-linear-magnification-ellen">Bi-linear (magnification ellen)</h3>
+<p><img src="../img/chapter_6/6_bilinear_result.png" alt="bilinear" width="150" style="float: right; margin-left: 20px;"/></p>
+<p>Figyeljük meg, hogy amikor transzformáljuk a pixelünk középpontját a textúra térbe, akkor az nagy eséllyel valahova a texelek középpontjai közé fog esni. A matematikai szűrés során a transzformált ponthoz legközelebbi texelközéppont alapján választunk texelt. Ennél egy pontosabb eredményt kapunk, ha a transzformált ponthoz négy legközelebbi texelközéppontot használjuk fel: képezzük a négy texel súlyozott átlagát, ahol a súlyok az egyes középpontoktól vett távolságok. A név onnan ered, hogy két lineáris interpolációt hajtunk végre: először a 2x2-es texel rácsnál vízszintesen interpoláljuk a texeleket, utána pedig a keletkező két texelt függőlegesen is interpoláljuk.</p>
+<p><img alt="bilinear" src="../img/chapter_6/6_bilinear_i.png" /></p>
+<p>Az alábbi módon kapcsolható be:</p>
+<div class="highlight"><pre><span></span><code><span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_MAG_FILTER</span><span class="p">,</span><span class="w"> </span><span class="n">GL_LINEAR</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="texturazas-a-gpu-n">Textúrázás a GPU-n</h2>
+<p>Az elméleti részével készen vagyunk a textúrázásnak, nézzük meg, hogy hogyan tudjuk kódban megvalósítani az itt tárgyaltakat! Az alábbi képen látható a textúrázási csővezeték:</p>
+<p><img alt="pipeline" src="../img/chapter_6/6_beware_of_the_pipeline.png" width="100%" /></p>
+<p>Először átfogóan tárgyaljuk az egész folyamatot, utána az egyes lépéseket részletesebben, kódrészletekkel együtt vizsgáljuk.</p>
+<h3 id="madartavlatbol">Madártávlatból</h3>
+<p>Mindenekelőtt a GPU textúra memóriájába kell helyeznünk azt a képet, amely a textúra alapját fogja képezni. Ezt CPU oldalról tesszük meg, a <code>glTexImage2D</code> függvénnyel. Szintén CPU oldalról kell a csúcsainkat ellátni a megfelelő textúrakoordináttákkal is, hogy amikor a vertex shaderben definiáljuk a geometriát, akkor az egyes csúcspontokról tudjuk, hogy a textúra térben hova képződnek le (azaz milyen <span class="arithmatex">\((U,V,W)\)</span> textúrakoordinátákkal rendelkeznek). A megjelenítési pipeline az általunk definiált VAO-k és VBO-k tartalmát először a vertex shaderen tolja át. A vertex shadernek a textúrakoordinátákat tovább kell adnia a vágás, viewport transzformáció, raszterizálós egység felé. Ha új pontok keletkeznek ezen műveletek során (pl. raszterizáció) akkor a csúcsponttulajdonságokat (így a textúrakoordinátákat is) interpolálni fogják. A fragment shader már ezeket az interpolált értékeket kapja meg. A textúra kiolvasása egy textúra <em>mintavételező egységen</em> (sampler unit) keresztül történik, ez felel például a mip-map vagy a bi-lineáris interpolációkért. Ezt a mintavételező egységet is a CPU-ról állítjuk be a <code>glTexParameter</code> függvénnyel.</p>
+<p>Vizsgáljuk picit részletesebben a fent említett egyes lépéseket.</p>
+<h3 id="1-textura-gpu-ra-toltese">1. Textúra GPU-ra töltése</h3>
+<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">textureId</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">UploadTexture</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec4</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">image</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// Generálunk a textúrához egy azonosítót, amit</span>
+<span class="c1">// a `textureId` változóban kapunk vissza.</span>
+<span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">textureId</span><span class="p">);</span>
+
+<span class="c1">// Bindoljuk is rögtön ezt a textúrát, mert ezzel dolgozunk.</span>
+<span class="c1">// Lehetnének egy- vagy háromdimenziós textúráink is.</span>
+<span class="c1">// (mindegyikből egyszerre csak egy lehet aktív)</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">textureId</span><span class="p">);</span>
+
+<span class="c1">// Az utoljára bindolt textúrába átmásoljuk a képünket.</span>
+<span class="c1">// A függvény paramétereinek magyarázatát a kódrészlet alatt találhatod.</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">GL_RGBA</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="n">GL_RGBA</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"> </span><span class="c1">//Texture -&gt; GPU</span>
+
+<span class="c1">// Az alábbi két parancs a bindolt textúra mintavételezését állítja be.</span>
+<span class="c1">// Kicsinyítés esetén GL_NEAREST szűrővel dolgozzon, nagyítás esetén pedig</span>
+<span class="c1">// GL_LINEAR szűrővel.</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span><span class="w"> </span><span class="n">GL_NEAREST</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_MAG_FILTER</span><span class="p">,</span><span class="w"> </span><span class="n">GL_LINEAR</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Nehéz átlátni a kódot?</p>
+<p>Az előző évek videóiban általában sorrol sorra végigmegy a kódon, és elmondja, hogy melyik sor pontosan mit csinál, szóval ha az itteni magyarázatok után esetleg még lennének kérdéses részek, akkor <a href="https://youtu.be/-LiEv6EnBLI&amp;t=1499">itt</a> meg tudod nézni az ehhez a témához kapcsolódó videót.</p>
+</div>
+<p>A <code>glTexImage2D</code> függvény (nem hivatalos, de a céljainkra megfelelő) paraméterlistája a következő:</p>
+<div class="highlight"><pre><span></span><code><span class="n">glTexImage2D</span><span class="p">(</span><span class="n">texture_dim</span><span class="p">,</span><span class="w"> </span><span class="n">mip</span><span class="o">-</span><span class="n">map_level</span><span class="p">,</span><span class="w"> </span><span class="n">texel_format</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">,</span>
+<span class="n">border_size</span><span class="p">,</span><span class="w"> </span><span class="n">source_pixel_format</span><span class="p">,</span><span class="w"> </span><span class="n">source_type</span><span class="p">,</span><span class="w"> </span><span class="n">source_data</span><span class="p">);</span>
+</code></pre></div>
+<p>ahol:</p>
+<ul>
+<li><code>texture_dim</code>: A textúra dimenzióját adjuk meg, legtöbbször kétdimenziós a textúránk.</li>
+<li><code>mip-map_level</code>: Mip-map-elés esetén az eredeti képen kívül annak a fele akkora, negyed akkora stb. felbontású változatai is szükségesek, és a teljes hierarchiát fel kell tölteni. Ez a paraméter azt adja meg, hogy éppen melyik szinten járunk a feltöltésben. A hierarchia teteje 0.</li>
+<li><code>texel_format</code>: A texelek formátumát adja meg. Általában RGB formátumúak, és átlátszóságot is támogathatnak.</li>
+<li><code>width, height</code>: A feltöltendő kép szélessége és magassága.</li>
+<li><code>border_size</code>: Ez a border méretét adja meg. A borderrel extra texeleket lehet rendelni a kép határához. Ehhez akkor lehet szükség, ha például a bilineáris szűrés esetén a bal felső texelt találjuk el, hiszen ekkor lehet, hogy a "kép fölötti texel" közelebb lenne a pontunkhoz, mint az egy sorral lejjebbi texelek.</li>
+<li><code>source_pixel_format, source_type, source_data</code>: A maradék három paraméter a forráskép formátumáról rendelkezik, rendre azon pixeleinek formátuma (RGBA), az értékek típusa (pl. float), és a kép kezdőcímének értéke.</li>
+</ul>
+<p>Megemlítendő, hogy itt még nincsen beállítva a konkrét Sampler, szóval amikor a <code>glTexParameteri</code> függvényeket hívtuk, akkor az azokban megadott információt egyelőre maga a textúra tárolja el magáról, és amikor összeköttetésbe kerül a Samplerrel, akkor fogja ezeket a paramétereket delegálni a Sampler felé.</p>
+<h3 id="2-a-virtualis-vilag-objektumainak-felszerelese-textura-koordinatakkal">2. A virtuális világ objektumainak felszerelése textúra koordinátákkal</h3>
+<p>Több módon is eljárhatunk, például <code>stride</code>-ot alkalmazva (ugyan abban a VBO-ban van a Descartes és textúra koordináta, egymás után felváltva) vagy egy VAO-n belül két külön VBO-ban tároljuk az adatainkat: az egyikben a pontok Descartes koordinátái vannak, a másikban pedig az azokhoz tartozó textúrakoordináták. Az alábbi kódrészlet az utóbbit mutatja be:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">vao</span><span class="p">,</span><span class="w"> </span><span class="n">vbo</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="n">glGenVertexArrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vao</span><span class="p">);</span>
+<span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">vao</span><span class="p">);</span>
+
+<span class="n">glGenBuffers</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">vbo</span><span class="p">);</span><span class="w"> </span><span class="c1">// Generate 2 vertex buffer objects</span>
+
+<span class="c1">// vertex coordinates: vbo[0] -&gt; Attrib Array 0 -&gt; vertices</span>
+<span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">vbo</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">vtxs</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="w"> </span><span class="cm">/*, x3, y3, ... */</span><span class="p">};</span>
+<span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">vtxs</span><span class="p">),</span><span class="n">vtxs</span><span class="p">,</span><span class="w"> </span><span class="n">GL_STATIC_DRAW</span><span class="p">);</span>
+<span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FALSE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="c1">// vertex coordinates: vbo[1] -&gt; Attrib Array 1 -&gt; uvs</span>
+<span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">vbo</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">uvs</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">u1</span><span class="p">,</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">u2</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="cm">/*, u3, v3, ... */</span><span class="p">};</span>
+<span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">uvs</span><span class="p">),</span><span class="w"> </span><span class="n">uvs</span><span class="p">,</span><span class="w"> </span><span class="n">GL_STATIC_DRAW</span><span class="p">);</span>
+<span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FALSE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="3-a-vertex-es-fragment-shaderek">3. A vertex és fragment shaderek</h3>
+<p>A megjelenítési csővezeték során a VBO-k tartalma először a vertex shaderen megy keresztül:</p>
+<div class="highlight"><pre><span></span><code><span class="k">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mo">0</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">vec2</span><span class="w"> </span><span class="n">vtxPos</span><span class="p">;</span>
+<span class="k">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">vec2</span><span class="w"> </span><span class="n">vtxUV</span><span class="p">;</span>
+
+<span class="k">out</span><span class="w"> </span><span class="kt">vec2</span><span class="w"> </span><span class="n">texcoord</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">vec4</span><span class="p">(</span><span class="n">vtxPos</span><span class="p">,</span><span class="w"> </span><span class="mo">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">MVP</span><span class="p">;</span>
+<span class="w">    </span><span class="n">texcoord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vtxUV</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ezután a raszterizáció és interpoláció után megérkezünk a fragment shaderhez (fontos, hogy ugyan olyan névvel kell hivatkozni a textúrakoordinátákra mint a vertex shaderben):</p>
+<div class="highlight"><pre><span></span><code><span class="k">uniform</span><span class="w"> </span><span class="kt">sampler2D</span><span class="w"> </span><span class="n">samplerUnit</span><span class="p">;</span>
+<span class="k">in</span><span class="w"> </span><span class="kt">vec2</span><span class="w"> </span><span class="n">texcoord</span><span class="p">;</span>
+<span class="k">out</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">fragmentColor</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">fragmentColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texture</span><span class="p">(</span><span class="n">samplerUnit</span><span class="p">,</span><span class="w"> </span><span class="n">texcoord</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Itt fontos megemlíteni a <code>samplerUnit</code> változót: a fragment shader nem egyenesen a képet látja, hanem a Sampleren keresztül kapja meg a pixelek színeit. A <code>texture</code> függvény elvégzi a szűrést a Sampler beállításai alapján, és a megadott textúrakoordinátát kiolvassa.</p>
+<h3 id="4-az-aktiv-textura-es-a-sampler">4. Az aktív textúra, és a Sampler</h3>
+<p>Még nem kapcsoltuk össze a Samplert az aktív textúránkkal, de ezt rögtön orvosoljuk:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">textureId</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">Draw</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">sampler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// which sampler unit should be used</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glGetUniformLocation</span><span class="p">(</span><span class="n">shaderProg</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;samplerUnit&quot;</span><span class="p">);</span>
+<span class="n">glUniform1i</span><span class="p">(</span><span class="n">location</span><span class="p">,</span><span class="w"> </span><span class="n">sampler</span><span class="p">);</span>
+
+<span class="n">glActiveTexture</span><span class="p">(</span><span class="n">GL_TEXTURE0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sampler</span><span class="p">);</span><span class="w"> </span><span class="c1">// = GL_TEXTURE0</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">textureId</span><span class="p">);</span>
+
+<span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">vao</span><span class="p">);</span>
+<span class="n">glDrawArrays</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">nVtx</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<details class="example">
+<summary>Kitekintés</summary>
+<p>A további elmélyüléshez ajánlani tudjuk <a href="https://www.youtube.com/watch?v=3mfvZ-mdtZQ">ezt</a> a shaderezésben, illetve textúrázásban segítő külsős videót.</p>
+</details>
+<h1 id="kviz">Kvíz</h1>
+<div class="admonition question">
+<p class="admonition-title">1. <code>glTexParameteri(GL_TEXTURE_2D, melyik, milyen)</code> OpenGL függvényre vonatkozóan válasszuk ki az alábbi állítások közül az igaz állításokat.</p>
+<ul>
+<li>A milyen=<code>GL_LINEAR</code> bi-lineáris interpolációt kapcsol be.</li>
+<li>A milyen=<code>GL_LINEAR</code> esetén a szín az <span class="arithmatex">\(u,v\)</span> textúrakoordináták lineáris függvénye, azaz <span class="arithmatex">\(au + bv + c\)</span> alakú.</li>
+<li>A milyen=<code>GL_NEAREST</code>-nél nagyításnál, és kicsinyítésnél is van jobb megoldás.</li>
+<li>A milyen=<code>GL_LINEAR</code> esetén a rajzolás négyszer lassabb, mint a milyen=<code>GL_NEAREST</code>-nél.</li>
+<li>A milyen=<code>GL_LINEAR_MIPMAP_NEAREST</code> mindig jó, ha a textúrát a egyetlen <code>glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_FLOAT, &amp;image[0]);</code> hívással töltöttük fel a textúrát.</li>
+<li>A milyen=<code>GL_LINEAR</code> esetén a textúrázandó képnek csak a 0-as szintjét kell feltölteni.</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A milyen=<code>GL_LINEAR</code> bi-lineáris interpolációt kapcsol be.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A milyen=<code>GL_LINEAR</code> esetén a szín az <span class="arithmatex">\(u,v\)</span> textúrakoordináták lineáris függvénye, azaz <span class="arithmatex">\(au + bv + c\)</span> alakú.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A milyen=<code>GL_NEAREST</code>-nél nagyításnál, és kicsinyítésnél is van jobb megoldás.<ul>
+<li>Magyarázat: Magnification esetén <code>GL_LINEAR</code>, minification esetén <code>GL_LINEAR_MIPMAP_NEAREST</code>.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A milyen=<code>GL_LINEAR</code> esetén a rajzolás négyszer lassabb, mint a milyen=<code>GL_NEAREST</code>-nél.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A milyen=<code>GL_LINEAR_MIPMAP_NEAREST</code> mindig jó, ha a textúrát a egyetlen <code>glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_FLOAT, &amp;image[0]);</code> hívással töltöttük fel a textúrát.<ul>
+<li>Magyarázat: Csak minification esetén jó.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A milyen=<code>GL_LINEAR</code> esetén a textúrázandó képnek csak a 0-as szintjét kell feltölteni.<ul>
+<li>Magyarázat: Feltételezem a mip-map szintre utal a kérdés, aminek csak <code>GL_LINEAR_MIPMAP_NEAREST</code> esetében van értelme.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">2. Jelöljük be az <code>glTexImage2D(target, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_FLOAT, address);</code> utasítással kapcsolatos igaz állításokat.</p>
+<ul>
+<li>A harmadik, <code>GL_RGBA</code> paraméter azt fejezi ki, hogy a feltöltendő tömbben egy texelt a három színcsatornán és átlátszósággal adunk meg.</li>
+<li>A <span class="arithmatex">\(w\)</span> és <span class="arithmatex">\(h\)</span> paraméterek csak <span class="arithmatex">\(2\)</span> hatványok lehetnek.</li>
+<li>A <code>glTexImage2D</code> függvénnyel kell feltölteni akkor is a textúrát, ha mip-map-elést szeretnénk, de többször kell meghívni ezt a függvényt.</li>
+<li>A <code>GL_FLOAT</code> utolsó előtti paraméter az írja elő, hogy a GPU memóriában a texelek lebegőpontos formátumban tárolódjanak.</li>
+<li>Az address azon CPU memóriaterület kezdőcíme, ahonnan a GPU-ra az adatokat átmásoljuk.</li>
+<li>Az OpenGL-nek nem lehet unsigned char textúrákat átadni. <em>(lehet csak elég retro lesz)</em></li>
+<li>A target lehet <code>GL_TEXTURE_2D</code>, ami azt jelenti, hogy az utoljára a <code>GL_TEXTURE_2D</code>-hez bindolt textúrát töltjük éppen fel.</li>
+<li>A második, <code>0</code> paraméter azt jelenti, hogy a texelek hézagmentesen vannak a textúrában.</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A harmadik, GL_RGBA paraméter azt fejezi ki, hogy a feltöltendő tömbben egy texelt a három színcsatornán és átlátszósággal adunk meg.<ul>
+<li>Magyarázat: Nem a feltöltendő tömbre vonatkozik, hanem a képre amit megadunk neki</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A <span class="arithmatex">\(w\)</span> és <span class="arithmatex">\(h\)</span> paraméterek csak <span class="arithmatex">\(2\)</span> hatványok lehetnek.<ul>
+<li>Magyarázat: Ezek a képünk méretei, amikre nincsen ilyen limitáció.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A <code>glTexImage2D</code> függvénnyel kell feltölteni akkor is a textúrát, ha mip-map-elést szeretnénk, de többször kell meghívni ezt a függvényt.<ul>
+<li>Magyarázat: Mivel a különböző LOD-kat nekünk kell feltölteni, ezért többször meg kell hívni.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A <code>GL_FLOAT</code> utolsó előtti paraméter az írja elő, hogy a GPU memóriában a texelek lebegőpontos formátumban tárolódjanak.<ul>
+<li>Magyarázat: Ez a paraméter a feltöltendő képre vonatkozik, nem a texelekre.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Az address azon CPU memóriaterület kezdőcíme, ahonnan a GPU-ra az adatokat átmásoljuk.<ul>
+<li>Magyarázat: Lásd <a href="#1-textura-gpu-ra-toltese">fentebb</a>.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Az OpenGL-nek nem lehet unsigned char textúrákat átadni.<ul>
+<li>Magyarázat: Egy <code>void *</code>-ot vár a <code>glTexImage2D</code> függvény, szóval bármit oda lehet neki adni.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A target lehet <code>GL_TEXTURE_2D</code>, ami azt jelenti, hogy az utoljára a <code>GL_TEXTURE_2D</code>-hez bindolt textúrát töltjük éppen fel.<ul>
+<li>Magyarázat: Lásd <a href="#1-textura-gpu-ra-toltese">fentebb</a>.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A második, <code>0</code> paraméter azt jelenti, hogy a texelek hézagmentesen vannak a textúrában.<ul>
+<li>Magyarázat: A textúra mip-map szintjét adja meg.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">3. Tekintsük az alábbi pixel shader programot:</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">uniform</span><span class="w"> </span><span class="kt">sampler2D</span><span class="w"> </span><span class="n">samplerUnit</span><span class="p">;</span>
+<span class="k">in</span><span class="w"> </span><span class="kt">vec2</span><span class="w"> </span><span class="n">texcoord</span><span class="p">;</span>
+<span class="k">out</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">fragmentColor</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">fragmentColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texture</span><span class="p">(</span><span class="n">samplerUnit</span><span class="p">,</span><span class="w"> </span><span class="n">texcoord</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+Jelöljük be az erre vonatkozó igaz állításokat!</p>
+<ul>
+<li>A <code>fragmentColor</code> változó <code>w</code> mezője automatikusan <code>1</code> értékű lesz.</li>
+<li>A <code>samplerUnit</code> változót értékét a <code>glGenTextures</code> függvénnyel kell létrehozni.</li>
+<li>A <code>texture(samplerUnit, texcoord)</code> azon texel színét adja vissza mindig, amelyhez a texcoord a legközelebb van.</li>
+<li>A program változatlanul használható <code>glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);</code> beállítás és <code>glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);</code> beállításnál is.</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A <code>fragmentColor</code> változó <code>w</code> mezője automatikusan <code>1</code> értékű lesz.<ul>
+<li>Magyarázat: Ez általában az alpha csatorna és külön értéke lehet.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A <code>samplerUnit</code> változót értékét a <code>glGenTextures</code> függvénnyel kell létrehozni.<ul>
+<li>Magyarázat: Lásd <a href="#4-az-aktiv-textura-es-a-sampler">fentebb</a>.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A <code>texture(samplerUnit, texcoord)</code> azon texel színét adja vissza mindig, amelyhez a texcoord a legközelebb van.<ul>
+<li>Magyarázat: Attól függ, hogy milyen paramétereket adtunk meg a Samplernek, lásd <a href="#1-textura-gpu-ra-toltese">fentebb</a></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A program változatlanul használható <code>glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);</code> beállítás és <code>glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);</code> beállításnál is.<ul>
+<li>Magyarázat: Ezeket a beállításokat a Sampler kezeli, nekünk nem kell a shaderben foglalkozni velük.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">4. Egy háromszög három csúcsa a modellezési koordináta-rendszerben, valamint a textúra térben:</p>
+<div class="arithmatex">\[
+\def\arraystretch{1.5}
+\begin{array}{|c|c|c|}
+\hline
+\text{Modell koordináták} &amp; \text{Textúra koordináták} \\ \hline
+(0,0,  -1) &amp; (0,0) \\ \hline
+(0,1,-0.5) &amp; (0,1) \\ \hline
+(1,0,-0.5) &amp; (1,0) \\ \hline
+\end{array}
+\]</div>
+<hr />
+<p>Az MVP transzformációs mátrix:</p>
+<div class="arithmatex">\[
+T =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 0
+\end{bmatrix}
+\]</div>
+<hr />
+<p>Hogyan függ az <span class="arithmatex">\(x_{\text{pix}}\)</span>, <span class="arithmatex">\(y_{\text{pix}}\)</span> a textúrakoordinátától, ha <code>glViewport(0, 0, 1000, 1000)</code>-t hívtunk?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Idézzük fel, hogy</p>
+<div class="arithmatex">\[
+\begin{align*}
+x_{\text{modell}} &amp;= a_x \cdot u + b_x \cdot v + c_x \\
+y_{\text{modell}} &amp;= a_y \cdot u + b_y \cdot v + c_y \\
+z_{\text{modell}} &amp;= a_z \cdot u + b_z \cdot v + c_z
+\end{align*}
+\]</div>
+<p>A feladatunk az együtthatók meghatározása. A megadott koordinátákat behelyettesítve:</p>
+<ol>
+<li><span class="arithmatex">\((0,0,-1) \rightarrow (0,0)\)</span></li>
+</ol>
+<div class="arithmatex">\[
+\begin{alignat*}{2}
+0 &amp;= a_x \cdot 0 + b_x \cdot 0 + c_x &amp;&amp;\implies c_x = 0 \\ 
+0 &amp;= a_y \cdot 0 + b_y \cdot 0 + c_y &amp;&amp;\implies c_y = 0 \\
+-1 &amp;= a_z \cdot 0 + b_z \cdot 0 + c_z &amp;&amp;\implies c_z = -1
+\end{alignat*}
+\]</div>
+<ol>
+<li><span class="arithmatex">\((0,1,-0.5) \rightarrow (0,1)\)</span></li>
+</ol>
+<div class="arithmatex">\[
+\begin{alignat*}{2}
+0 &amp;= a_x \cdot 0 + b_x \cdot 1 + c_x &amp;&amp;\implies b_x = 0 \\ 
+1 &amp;= a_y \cdot 0 + b_y \cdot 1 + c_y &amp;&amp;\implies b_y = 1 \\
+-0.5 &amp;= a_z \cdot 0 + b_z \cdot 1 + c_z &amp;&amp;\implies b_z = 0.5
+\end{alignat*}
+\]</div>
+<ol>
+<li><span class="arithmatex">\((1,0,-0.5) \rightarrow (1,0)\)</span></li>
+</ol>
+<div class="arithmatex">\[
+\begin{alignat*}{2}
+1 &amp;= a_x \cdot 1 + b_x \cdot 0 + c_x &amp;&amp;\implies a_x = 1 \\ 
+0 &amp;= a_y \cdot 1 + b_y \cdot 0 + c_y &amp;&amp;\implies a_y = 0 \\
+-0.5 &amp;= a_z \cdot 1 + b_z \cdot 0 + c_z &amp;&amp;\implies a_z = 0.5
+\end{alignat*}
+\]</div>
+<p>Összegezve:</p>
+<div class="arithmatex">\[
+\begin{align*}
+x_{\text{modell}} &amp;= u \\
+y_{\text{modell}} &amp;= v \\
+z_{\text{modell}} &amp;= 0.5 \cdot (u + v) - 1
+\end{align*}
+\]</div>
+<p>Tudjuk, hogy</p>
+<div class="arithmatex">\[
+[X, Y, Z, w] = [x_{\text{modell}}, y_{\text{modell}}, z_{\text{modell}}, 1] \cdot T
+\]</div>
+<p>illetve </p>
+<div class="arithmatex">\[
+\begin{align*}
+x_{\text{NDC}} &amp;= X/w \\
+y_{\text{NDC}} &amp;= Y/w \\
+\end{align*}
+\]</div>
+<p>Elvégezve a mátrix szorzást és a homogén osztást, azt kapjuk, hogy</p>
+<div class="arithmatex">\[
+\begin{align*}
+x_{\text{NDC}} &amp;= \frac{u}{-0.5 \cdot (u + v) + 1} \\[1.5ex]
+y_{\text{NDC}} &amp;= \frac{v}{-0.5 \cdot (u + v) + 1}
+\end{align*}
+\]</div>
+<p>A legutolsó lépés a viewport transzformáció:</p>
+<div class="arithmatex">\[
+\begin{align*}
+x_{\text{pixel}} &amp;= v_w \cdot (x_{\text{NDC}} + 1)/2 + v_x \\
+y_{\text{pixel}} &amp;= v_h \cdot (y_{\text{NDC}} + 1)/2 + v_y
+\end{align*}
+\]</div>
+<p>Mivel <code>glViewport(0, 0, 1000, 1000)</code>-t hívtunk, ezért <span class="arithmatex">\(v_x = v_y = 0\)</span> és <span class="arithmatex">\(v_w = v_h = 1000\)</span>.</p>
+<p>Behelyettesítve, és a kvíz által kért alakra hozva:</p>
+<div class="arithmatex">\[
+\begin{align*}
+x_{\text{pixel}} &amp;= \left( \frac{0.5 \cdot u - 0.5 \cdot v + 1}{-0.5 \cdot u -0.5 \cdot v + 1} \right) \cdot 500 \\
+y_{\text{pixel}} &amp;= \left( \frac{-0.5 \cdot u + 0.5 \cdot v + 1}{-0.5 \cdot u -0.5 \cdot v + 1} \right) \cdot 500
+\end{align*}
+\]</div>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. május 29. 22:17:12 CEST"><span class="timeago" datetime="2026-05-29T22:17:12+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. május 29. 22:17:12 CEST">2026-05-29</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="5.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. 2D képszintézis">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5. 2D képszintézis
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="7.html" class="md-footer__link md-footer__link--next" aria-label="Next: 7. 3D képszintézis">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                7. 3D képszintézis
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../../js/timeago.min.js"></script>
+      
+        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

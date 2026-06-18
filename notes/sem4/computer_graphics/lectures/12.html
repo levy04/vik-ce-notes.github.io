@@ -1,0 +1,2451 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://levyry.github.io/grafika_biblia/notes/sem4/computer_graphics/lectures/12.html">
+      
+      
+        <link rel="prev" href="11.html">
+      
+      
+        <link rel="next" href="../appendix/math_appendix.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>12. Fraktálok és káosz - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fraktalok-es-kaosz" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. Fraktálok és káosz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../for_contributors/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="12.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_14" id="__nav_4_1_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Függelékek
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_14">
+            <span class="md-nav__icon md-icon"></span>
+            Függelékek
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix/math_appendix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A. Matematikai kifejezések
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="fraktalok-es-kaosz">Fraktálok és káosz</h1>
+<p>Idáig mindig azzal a feltételezéssel éltünk, hogy a virtuális világunk definiálható metrikus geometriával (tipikusan Euklideszivel), másrészt pedig hogy szimulálható. Nézzük meg, hogy pontosan mit is jelentenek ezek a feltételezések.</p>
+<h2 id="szimulalhato">Szimulálható</h2>
+<p>A virtuális világunk objektumainak állapota és viselkedése van. A viselkedés azt jelenti, hogy a saját és a többi objektum állapota alapján a saját állapotát meg tudja változtatni. Az objektumok állapotának összessége a <em>rendszer állapota</em>. Ekkor a rendszer szimulálását elképzelhetjük úgy, mint egy olyan <span class="arithmatex">\(F\)</span> függvény, ami a rendszer jelenlegi állapotához hozzárendeli a rendszer következő állapotát.</p>
+<p>Számítástechnikában <em>diszkrét időszimulációt</em> alkalmazunk, ami azt jelenti, hogy nem folytonosan, hanem <span class="arithmatex">\(\Delta t\)</span> időlépésenként frissítjük a virtuális világ állapotát. Reményeink szerint ennek ellenére a valósághoz hasonlóan fog működni a rendszerünk.</p>
+<p>Az <span class="arithmatex">\(F\)</span> függvényt és a kezdeti állapotot teljes pontossággal nem ismerjük, viszont abban reménykedünk, hogy a szimulált és valóságos világok állapotai közötti hiba nullához tart. Sajnos nem ez a helyzet. Vannak olyan rendszerek, ahol megpróbálhatjuk bármennyire is pontosítani az <span class="arithmatex">\(F\)</span> függvényt, bármennyire is pontosabb kezdeti állapotot megadni, ennek ellenére a hiba nem tart nullához. Az ilyen rendszereket nevezzük <strong>kaotikus dinamikus rendszereknek</strong>.</p>
+<details class="example">
+<summary>Példák egyszerű kaotikus rendszerekre</summary>
+<p>Nem kell nagyon absztrakt dolgokra gondolni ahhoz, hogy kaotikus rendszereket kapjunk. Nézzünk meg (röviden) két kaotikus rendszert, melyeket még egy <s>Corvinusos</s> óvodás is meg tudna érteni.</p>
+<h2 id="haromtest-problema">Háromtest-probléma</h2>
+<p>Vegyünk egy sík terepet, melyen elhelyezünk három golyót. A golyóknak van tömegük, és a gravitáció törvényei is jelen vannak a rendszerünkben. Hogyan fog egymásra hatni a három golyó?</p>
+<p>Ez a rendszer kaotikus, hiszen még a mai napig sincs általános megoldása. Más szóval ha adok neked egy kezdeti állapotot, és megkérdezem tőled, hogy "Ezer időegység múlva milyen állapotban lesz a rendszer?" akkor ahhoz, hogy megválaszold muszáj lesz numerikus becslésekkel leszimulálnod a rendszert (és még ekkor is lenne hiba benne, ha a valóságban is leszimulálnánk).</p>
+<p>Az emberiség történelme során egyik legtöbbet kutatott háromtest-probléma a Nap, Föld és Hold mozgása.</p>
+<h2 id="kettos-inga">Kettős inga</h2>
+<p>Talán az egyik leghíresebb kaotikus rendszer a kettős inga. Képzeljük el két, egymáshoz csatolt ingát, az alábbi konfigurációban:</p>
+<p><img alt="double_pendulum" src="../img/chapter_12/12_double_pendulum.png" width="100%" /></p>
+<p>Fogjuk meg az alsó (vagy felső) golyót, és vigyük el valamilyen tetszőleges kezdeti állapotba, utána pedig engedjük el. A gravitáció hatására a két golyó elkezdenek mozogni, és gyorsan egymás mozgására is hatással lesznek.</p>
+<p>Ez a rendszer szintén kaotikus, lehetetlen teljesen pontosan megmondani, hogy egy kezdeti állapotból később milyen állapotok lesznek. Más szóval, ha egy későbbi állapotot látunk, a kaotikus rendszerek kezdeti feltételekre való extrém érzékenysége miatt gyakorlatilag lehetetlen belőle pontosan visszakövetkeztetni az eredeti kezdeti állapotra.</p>
+<p>Ebben a rendszerben megfigyelhető a butterfly effect, azaz a kezdeti állapot <em>erős hatást gyakorol</em> a rendszerre. Ez azt jelenti, hogy ha fogunk két kezdeti állapotot, amikben csak egy nagyon pici eltérés van (például az egyikben <span class="arithmatex">\(\theta_2 =19.125\degree\)</span>, a másikban pedig <span class="arithmatex">\(\theta_2 =19.126\degree\)</span>), akkor bizonyos idő elteltével már <a href="https://www.youtube.com/watch?v=d0Z8wLLPNE0">teljesen más állapotban lesz a két rendszer</a>.</p>
+<p>Fontos kiemelni, hogy ez nem azt jelenti, hogy a kaotikus rendszerek véletlenszerűek lennének. Teljesen determinisztikusak, egyik lépésben sem kell valamilyen random eseményhez nyúlni, mint például radioaktív bomlás. Ennek ellenére a gyakorlatban nem lehet megjósolni tetszőleges rendszerek jövőbeli állapotát.</p>
+<p>A fejezet későbbi felében mélyebben tárgyaljuk a káoszelméletet.</p>
+</details>
+<h2 id="metrikusan-definialhato">Metrikusan definiálható</h2>
+<h3 id="virtualis-vilag">Virtuális világ</h3>
+<p>Eddig feltettük, hogy a világot le lehet írni Euklideszi geometriával. Az Euklideszi geometria az axiómáiból épül fel, melyek pontokra, egyenesekre és egyenesekra vonatkoznak, viszont a valóságban ilyenek nincsenek, tehát nem magától értetődő, hogy tényleg alkalmazhatjuk-e a való világra.</p>
+<p>Ha ember alkotta objektumokat nézünk, akkor míg távolról lehet, hogy valamilyen komplex alakjuk van, ha elég közel megyünk, akkor közelítőleg csak síkokból, és egyenesekből állnak. Ezt <em>skálafüggőségnek</em> nevezzük, ami tehát az a gondolat, hogy "kicsiben mindenki lineáris".</p>
+<p>Mivel az Euklideszi geometria metrikus, itt van értelme a méret fogalmának: 1D-ben a hossz, 2D-ben a felület, 3D-ben a térfogat. Kapcsolatot láthatunk egy alakzat metrikája és a dimenziója között: úgy kell "megmérni" egy objektumot, ahogy azt a dimenziója megszabja (egy kockának nincsen "hossza", hanem az oldalának van).</p>
+<h3 id="termeszet">Természet</h3>
+<p>A természet viszont skálafüggetlen, bármennyire is közelíthetünk, akkor is ugyan olyan lesz közelről, mint messziről. Ez azt is jelenti, hogy nem differenciálható, hiszen ez a skálafüggőségből adódik.</p>
+<p>Ennek egy másik következménye az, hogy a valóságban egy egység szakasszal, egység négyzettel vagy egység kockával nem tudunk rendesen hosszat, felületet vagy térfogatot mérni. Viszont intuitívan érezzük, hogy hát a természetbeli objektumoknak kell lenni hosszának, felületének és térfogatának, hiszen ha kimegyek az erdőbe, és fogok egy levelet, annak simán megmérhetem a hosszát, vagy egy kavics térfogatát.</p>
+<p>Nézzünk egy példát egy természetben előforduló folyamatra, hogy megértsük, mégis mi zajlik itt.</p>
+<h2 id="koch-gorbe">Koch görbe</h2>
+<p>Próbáljunk meg hókristályok kialakulását szimulálni. Vizsgáljuk csak az egyik oldalát először a hópihének, a többi szimmetrikusan ugyan úgy fog fejlődni.</p>
+<p><img alt="koch" src="../img/chapter_12/12_koch_g.png" width="100%" /></p>
+<p>A kezdeti állapotban van egy szakaszunk. Ezután ennek a középső harmada kicserélődik egy egyenlő oldalú háromszög másik két oldalára. Eleinte harmadoltuk a szakaszunkat, és az egyik harmad helyére bejött két ugyan olyan hosszú szakasz, tehát <span class="arithmatex">\(3\)</span> egységnyi szakaszból lett <span class="arithmatex">\(4\)</span>. Ez azt jelenti, hogy a szakaszunk hossza is <span class="arithmatex">\(4/3\)</span>-addal nőtt.</p>
+<p>Ha tovább ismételjük ezt a folyamatot az újonnan kapott <span class="arithmatex">\(4\)</span> kicsi szakaszra, akkor tovább tudjuk növelni a szakaszaink számát. Ha a végtelenségig ismételnénk a lépéseket, akkor kapnánk meg a <em>Koch görbét</em>. Ez tényleg hasonlít egy hópihére, és mivel tudjuk pontosan, hogy hogyan konstruáltuk, vizsgáljuk meg pár tulajdonságát, mint például, hogy hány dimenziós ez az alakzat?</p>
+<h3 id="tulajdonsagok">Tulajdonságok</h3>
+<p>Mivel minden lépésben <span class="arithmatex">\(4/3\)</span>-addal növeltük a görbe hosszát, és végtelen lépésünk van, ezért a görbe hosszát az alábbi határérték adja meg:</p>
+<div class="arithmatex">\[
+\lim_{n \to \infty} l_0 \left( \frac{4}{3} \right)^{n}
+\]</div>
+<p>ahol <span class="arithmatex">\(l_0\)</span> a kezdeti szakasz hossza. Ez a határérték <a href="https://cdn.discordapp.com/emojis/1394642603701571605.webp?size=240">divergens</a>, szóval az alakzatunknak a dimenziója biztos, hogy nagyobb mint <span class="arithmatex">\(1\)</span>, hiszen "végtelen hossza" van.</p>
+<p>Ugyanakkor a görbénk végig egyenesekből áll, szóval a területének nullának kell hogy legyen, tehát nem lehet kétdimenziós. Ez azt jelenti, hogy a Koch görbe dimenziójának valahol <span class="arithmatex">\(0\)</span> és <span class="arithmatex">\(1\)</span> között kell lennie.</p>
+<p>Bár az alakzatunk folytonos (a konstrukcióból adódóan), de sehol sem differenciálható, hiszen "tüskés". Ez abból látszik, hogy bár egy szakasz a belső pontjaiban differenciálható, a két végpontjában nem. A konstrukciónk pedig olyan, hogyan a szakaszok hossza a nullába tart, azaz a határértékben sehol sem lesz differenciálható.</p>
+<p>A rendszer <em>önhasonló</em>, azaz ha vesszük egy bizonyos részhalmazát, az teljesen egyenértékű az eredeti rendszerrel (olyasmi mint egy rekurzív alakzat).</p>
+<h2 id="hausdorff-dimenzio-onhasonlo-objektumokra">Hausdorff dimenzió önhasonló objektumokra</h2>
+<p>Nézzük meg, hogyan tudjuk általánosítani a dimenzió fogalmát, hogy a Koch görbének is tudjunk dimenziót adni.</p>
+<p>Vegyünk egy kiindulási alakzatot. Kicsinyítsük <span class="arithmatex">\(r\)</span>-szeresére, így a mérete <span class="arithmatex">\(1/r\)</span>-szeres lesz. Ezután fedjük le az eredeti tartományt ezzel a kicsinyített alakzattal, jelölje az ehhez szükséges kicsi alakzatok számát <span class="arithmatex">\(N\)</span>. Ha ezt végtelenszer megismételjük, akkor kapunk egy alakzatot, melynek a <span class="arithmatex">\(D\)</span> dimenziója:</p>
+<div class="arithmatex">\[
+D = \frac{\log{N}}{\log(1/r)}
+\]</div>
+<p>Ez abból következik, hogy:</p>
+<div class="arithmatex">\[
+N = 1/r^D
+\]</div>
+<p>Így például a fenti Koch görbe esetén mivel <span class="arithmatex">\(1/3\)</span> méretűre kicsinyítettük a kiindulási szakaszt, és <span class="arithmatex">\(4\)</span>-szer fedtük le vele a tartományt, ezért <span class="arithmatex">\(r = 1/3\)</span>, <span class="arithmatex">\(N = 4\)</span>, így <span class="arithmatex">\(D = \frac{\log 4}{\log 3} \approx 1.26\)</span>.</p>
+<!-- NOTE: valaki hozzá értő jó lenne ha ezt kifejtené, bár nem hinném h valaha előjönne -levy04 -->
+
+<details class="example">
+<summary>Nem önhasonló objektumok</summary>
+<h2 id="nem-onhasonlo-objektumok-vonalzo-dimenzio">Nem önhasonló objektumok: vonalzó dimenzió</h2>
+<!-- avagy a szirmay shadow realm -->
+<p>Önhasonló objektumokra:</p>
+<p><img alt="self" src="../img/chapter_12/12_self_contained_universe.png" width="100%" /></p>
+<div class="arithmatex">\[
+D =  \frac{\log(\text{Hossz}(l))}{\log(l)} + 1
+\]</div>
+<p>Tippre <span class="arithmatex">\(l\)</span> a vonalzó egység hossza, <span class="arithmatex">\(\text{Hossz}(l)\)</span> a teljes hossz azaz <span class="arithmatex">\(l \cdot db\)</span>.</p>
+<p>Alkalmazása: természetes objektumok elkülönítése és kategorizálása.</p>
+<p><img alt="coast" src="../img/chapter_12/12_blooyhell.png" width="100%" /></p>
+</details>
+<h2 id="lindenmayer-rendszerek">Lindenmayer rendszerek</h2>
+<p>A Koch görbe mintájára sok más hasonló alakzatot tudunk kreálni. A Koch görbe a Lindenmayer rendszerekbe tartozik, nézzük, hogy ezek hogyan épülnek fel.</p>
+<p>A Lindenmayer rendszerekben úgy adjuk meg az alakzatunkat, lényegében megadjuk azt, hogy egy egyenes szakasszal mit csinál (gondoljunk vissza a Koch görbe első lépésére). Ezt úgy adjuk meg, hogy elképzelünk egy teknőst (<a href="https://en.wikipedia.org/wiki/Turtle_graphics">igen, kötelezően teknőst</a>) a szakasz egyik végpontjában. Ez a teknős csak két dolgot tud csinálni: előre menni, és tetszőleges szöggel forogni (<a href="https://hu.wikipedia.org/wiki/Comenius_Logo">Comlogo</a> programozok elonyben). Ezeknek a műveleteknek az egymás után végrehajtásával nagyon sok önhasonló objektum leírható, vegyük példának a már ismert Koch görbét.</p>
+<h3 id="koch-gorbe_1">Koch görbe <img alt="🐢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f422.svg" title=":turtle:" /></h3>
+<p>Először nézzük meg a hozzárendelést, azaz az utasítások sorozatát, amit a teknősünk végre fog hajtani:</p>
+<div class="arithmatex">\[
+\text{F} \mapsto \text{F} + 60 \text{F} - 120 \text{F} + 60 \text{F}
+\]</div>
+<p>Ez azt jelenti, hogy egy előremenetelt (<span class="arithmatex">\(\text{F}\)</span>) helyettesíts azzal, hogy:</p>
+<ul>
+<li><span class="arithmatex">\(\text{F}\)</span>: előre mész (természetesen kisebb egységet)</li>
+<li><span class="arithmatex">\(+ 60\)</span>: elfordulsz hatvan fokkal balra</li>
+<li><span class="arithmatex">\(\text{F}\)</span> előre mész</li>
+<li><span class="arithmatex">\(- 120\)</span>: elfordulsz százhúsz fokot jobbra</li>
+<li><span class="arithmatex">\(\text{F}\)</span>: előre mész</li>
+<li><span class="arithmatex">\(+ 60\)</span>: elfordulsz hatvan fokot balra</li>
+<li><span class="arithmatex">\(\text{F}\)</span>: előre mész</li>
+</ul>
+<p>Ha összevetjük a fenti ábra első két ábrájával, akkor látjuk, hogy ez pont azt az alakzatot írja le, amit úgy kapunk, ha az egyenes középső harmadát kicseréljük egy egyenlő oldalú háromszög két másik oldalára.</p>
+<details class="example">
+<summary>További példák</summary>
+<p>A diasoron további példákat lehet találni:</p>
+<p><img alt="comlogo" src="../img/chapter_12/12_comlogo.png" /></p>
+</details>
+<p>A Lindenmayer rendszerek egy magyar biológusról lettek elnevezve, hiszen arra használta őket, hogy különböző növények növekedését leírja. A módszer tényleg alkalmaz növényszerű önhasonló alakzatok leírására:</p>
+<p><img alt="grass" src="../img/chapter_12/12_lindenmayer_flora.png" width="100%" /></p>
+<details class="example">
+<summary>Zajos rendszerek</summary>
+<h2 id="fraktalis-zaj">Fraktális zaj</h2>
+<p><img alt="noise" src="../img/chapter_12/12_fractal_noise.png" /></p>
+<ul>
+<li>perturbációk generálása véletlenszerűen</li>
+<li>ezek szórását a finomabb szintek felé csökkentsük</li>
+<li>gyorsan csökken akkor sima görbe</li>
+<li>lassan csökken akkor rücskösebb görbe</li>
+</ul>
+<h2 id="perlin-zaj">Perlin zaj</h2>
+<p>Felhők, hegyek, minecraft világ generálásához.</p>
+<p><img alt="perlin" src="../img/chapter_12/12_perlin_noise.png" /></p>
+<ul>
+<li>több skálán állítjuk elő a jelet</li>
+<li>egyre kisebb szinteken egyre kisebb értékkészletből, de egyre több mintapontot generálunk</li>
+<li>
+<p>ezeket összeadva kapunk egy zajos tartományt</p>
+</li>
+<li>
+<p>ÉK gyorsan csökken akkor sima</p>
+</li>
+<li>ÉK lassan csökken akkor rücskös</li>
+</ul>
+</details>
+<h2 id="kaoszelmelet">Káoszelmélet</h2>
+<p>A kaotikus viselkedés tipikusan fraktálokat generál, tehát érdemes megvizsgálnunk a káosz fogalmát a fraktálok megértése érdekében.</p>
+<h3 id="nyulak-szigete">Nyulak szigete</h3>
+<p>Kezdjük a káoszelmélet egyik eredetproblémájával. Biológusok egy szigeten figyelték a nyúl populáció változását. Azt vették észre, hogy látszólag semmilyen rendszert nem követ, ezért felkértek egy matematikust, hogy alkosson meg egy rendszert, amiben már követhetőbb, hogy mi történik.</p>
+<p>Vegyünk fel egy koordináta-rendszert, ahol az <span class="arithmatex">\(x\)</span> tengely a jelenlegi évi nyulak számát (<span class="arithmatex">\(x_n\)</span>) jelöli, az <span class="arithmatex">\(y\)</span> tengely pedig a következő évit (<span class="arithmatex">\(x_{n+1}\)</span>). Ha kevés nyúl van a szigeten, akkor ha az összes szaporodik is, olyan nagyon nagy ugrást nem várhatunk a következő évben, tehát:</p>
+<ul>
+<li>kevés nyúl <span class="arithmatex">\(\mapsto\)</span> picivel több nyúl</li>
+</ul>
+<p>Ez a növekedés eleinte lineáris, viszont elérkezik egy pont, amikor elkezd csökkenni. Hiszen a szigetnek véges erőforrásai vannak, nem tud végtelen sok nyulat eltartani, tehát ha már nagyon sok nyúl van, akkor kevés fog tudni szaporodni, és a következő évben megint kevés nyúl lesz:</p>
+<ul>
+<li>sok nyúl <span class="arithmatex">\(\mapsto\)</span> kevés nyúl</li>
+</ul>
+<p>Ezt a viselkedést, hogy eleinte közel lineárisan növünk, utána pedig egy inflexiós pontot meghaladva közel lineárisan csökkenünk egy parabolával jól lehet jellemezni. A matematikus által megalkotott egyenlet a következő:</p>
+<div class="arithmatex">\[
+x_{n+1​}=C \cdot x_n​ \cdot (x_{\text{max}} - ​x_n​)
+\]</div>
+<p>ahol <span class="arithmatex">\(C \in \R\)</span> és <span class="arithmatex">\(x_{\text{max}}\)</span> a maximális populáció száma. Ha pontosan ennyi nyúl lenne a szigeten, akkor a nyulak kihalnának.</p>
+<p>Vizsgáljuk meg a különböző lehetőségeket <span class="arithmatex">\(C\)</span> értékére.</p>
+<h4 id="kicsi-erositesi-tenyezo">Kicsi erősítési tényező</h4>
+<p>Ha <span class="arithmatex">\(C\)</span> kicsi, akkor a parabolánk az <span class="arithmatex">\(y = x\)</span> egyenes alatt fut:</p>
+<p><img alt="smol" src="../img/chapter_12/12_c_smol.png" width="100%" /></p>
+<p>Válasszunk egy populációt az <span class="arithmatex">\(x\)</span> tengelyen (jelölje ezt a sárga pont) és kövessük végig, hogy mi történik.</p>
+<p>Először is behelyettesítjük a pontunkat a parabolikus függvényünkbe, amit úgy is szemléltethetünk, hogy a sárga ponttól függőlegesen felfele megyünk, ameddig el nem metsszük a parabolát. Ezután a parabola jelenlegi értéke a következő évi nyúl populáció, azaz <span class="arithmatex">\(x_{n+1}\)</span>. Mi kíváncsiak vagyunk viszont <span class="arithmatex">\(x_{n+2}\)</span>-re is, tehát ezt az értéket újra be kell helyettesíteni a parabolikus függvényünkbe. Ezt a behelyettesítést grafikusan úgy is szemléltethetjük, hogy elmetsszük vízszintesen az <span class="arithmatex">\(y = x\)</span> egyenest a parabolánk pontjából, utána pedig újra függőlegesen mozgunk ameddig nem metsszük el újra a parabolát.</p>
+<p>Ezt a folyamatot ismételve azt látjuk, hogy "konvergálunk" az origó felé, azaz a populáció évről évre csökken, végül pedig kihal.</p>
+<p>Észrevehetjük, hogy az origóban ez a folyamat ugyan azt a pontot eredményezi, mint amiből kiindultunk (azaz az origóhoz az origót rendeli). Az olyan pontokat, melyekre</p>
+<div class="arithmatex">\[
+x^{\ast} = F(x^{\ast})
+\]</div>
+<p>teljesül egy függvény <em>fixpontjának</em> nevezzük. Ha <span class="arithmatex">\(C\)</span> kicsi, akkor csak az origó a fixpont.</p>
+<h4 id="kozepes-erositesi-tenyezo">Közepes erősítési tényező</h4>
+<p>Ha <span class="arithmatex">\(C\)</span> közepes, akkor a parabolánk egy része az <span class="arithmatex">\(y = x\)</span> egyenes fölött fog futni. Ez azt is jelenti, hogy a parabola és az egyenes már két pontban fogják metszeni egymást:</p>
+<p><img alt="mid" src="../img/chapter_12/12_c_mid.png" width="100%" /></p>
+<p>Abból a szempontból lesz "közepes" a <span class="arithmatex">\(C\)</span> erősítési tényező, hogy a második metszéspontban a parabola meredeksége abszolút értékben kisebb, mint egy. Ez azt jelenti, hogy bár csökken a parabola, de még "nem nagyon", éppen hogy csak picit negatív a meredeksége.</p>
+<p>Ha megint eljátsszuk a grafikus iterációt mint az előző esetben, akkor azt vesszük észre, hogy bárhonnan is indítjuk el a szimulációt, mindig ugyan abba a pontba jutunk: a második metszéspontba. Ez a metszéspont is egy fixpont, tehát logikus, hogy ide konvergálunk.</p>
+<h4 id="nagy-erositesi-tenyezo">Nagy erősítési tényező</h4>
+<p>Ha a második metszéspontban a meredekség már abszolút értékben nagyobb mint egy, az azt jelenti, hogy a parabolánk szinte mindenhol nagyon meredek. Az iterációt ismét eljátszva, és követve <span class="arithmatex">\(x_n\)</span> értékét ezt kapjuk:</p>
+<p><img alt="beeg" src="../img/chapter_12/12_c_beeg.png" width="100%" /></p>
+<p>Ekkor azt tapasztaljuk, hogy a nyulak száma évről évre látszólag teljesen véletlenszerűen ugrál, pont úgy, mint ahogy a biológusok ezt tapasztalták. Itt a legtöbb pont nem konvergál egy konkrét értékhez, hanem össze vissza változik.</p>
+<p>Fontos, hogy itt a véletlenszerűség tényleg csak látszólagos, hiszen a nyulak számát abszolút pontosan meghatározza a képletünk, melyet bevezettünk.</p>
+<p>Ez is egy kaotikus rendszer, hiszen nagyon érzékeny a kezdeti feltételekre: ha csak egy pár nyúl egyeddel is megváltozik a kezdeti <span class="arithmatex">\(x_0\)</span> feltételünk, amiből kiindulunk, akkor az <span class="arithmatex">\(n\)</span>-edik lépésben megfelelően nagy <span class="arithmatex">\(n\)</span>-re már teljesen más <span class="arithmatex">\((x_1)_n\)</span> és <span class="arithmatex">\((x_2)_n\)</span> értékeket kapunk.</p>
+<h3 id="formalis-vizsgalat">Formális vizsgálat</h3>
+<p>Vizsgáljuk meg a káosz jelenségét kicsit formálisabban, eltekintve a nyulak szigetétől. Azt láttuk, a következő állapot a jelenleginek valamilyen függvénye:</p>
+<div class="arithmatex">\[
+x_{n+1} = F(x_n)
+\]</div>
+<p>és ennek a függvénynek a többszörös alkalmazásával későbbi állapotokat is megkaphatunk:</p>
+<div class="arithmatex">\[
+\begin{align*}
+x_1 &amp;= F(x_0) \\
+x_2 &amp;= F(x_1) = F(F(x_0)) \\
+x_3 &amp;= F(x_2) = F(F(F(x_0))) \\
+&amp;\vdots
+\end{align*}
+\]</div>
+<p>Az a kérdés, hogy ez az állapotsorozat, vagy trajektória hogyan viselkedik hosszútávon. Konvergál-e valamilyen <span class="arithmatex">\(x^{\ast}\)</span> állapotba, vagy a végtelenségig oszcillál látszólag random állapotok között?</p>
+<p>A kérdés megválaszolásához a rendszer fixpontjait kell vizsgálnunk. Ha a trajektóriánk konvergens, akkor muszáj, hogy létezzen egy <span class="arithmatex">\(x^{\ast}\)</span> fixpont, melyre:</p>
+<div class="arithmatex">\[
+x^{\ast} = F(x^{\ast})
+\]</div>
+<p>viszont ez önmagában nem elég, hiszen láttuk a nyúlsziget esetén is, hogy nagy <span class="arithmatex">\(C\)</span> esetén nem konvergált a sorozat sehova, de mégis volt két fixpontunk. Vezessünk be egy új fogalmat, mely le tudja írni egy <span class="arithmatex">\(x^{\ast}\)</span> fixpontról, hogy képes-e oda konvergálni a sorozat.</p>
+<h3 id="fixpontok-stabilitasa">Fixpontok stabilitása</h3>
+<p>Képzeljünk el egy golyót egy dombon, illetve egy völgyben:</p>
+<p><img alt="ball" src="../img/chapter_12/12_my_mental_state.png" width="100%" /></p>
+<p>Ekkor a domb tetején, és a völgy alján lévő golyó is "stabil", azaz ha nem éri erőhatás, akkor nem fog elmozdulni. Mégis érezzük a különbséget: ha a domb tetején lévő golyót meglökjük, akkor az egyre csak távolodni fog a rendszer fixpontjától, míg a völgy alján lévő golyót ha meglökjük akkor egy idő után visszatér az eredeti helyzetébe.</p>
+<p>A fixpontjainkat is hasonlóan osztályozhatjuk. A stabil fixpontok azok olyan fixpontok, melyeket több kezdőállapotból is el lehet érni, a rendszer oda konvergál. A labilis fixpontok azok olyan fixpontok, melyeket csak egy darab kezdőállapotból lehet elérni, magából a labilis pontból, és a legkisebb zavar esetén is már nem konvergens a rendszer.</p>
+<p>Osztályozzuk gyakorlás képpen a nyúlszigetes példánk fixpontjait:</p>
+<ul>
+<li>kicsi <span class="arithmatex">\(C\)</span> esetén csak egy fixpont volt, az origó, és minden ide konvergált, tehát ez egy stabil fixpont</li>
+<li>közepes <span class="arithmatex">\(C\)</span> esetén már két fixpontunk volt: az origó, amitől minden távolodott (labilis), és a másik metszéspont, amibe minden konvergált (stabil)</li>
+<li>nagy <span class="arithmatex">\(C\)</span> esetén két metszéspontunk volt, de az egész rendszer oszcillált, tehát mindkét fixpont labilis volt</li>
+</ul>
+<p>Hogyan tudjuk általánosságban (parabola felrajzolása nélkül) eldönteni egy fixpontról, hogy stabil, vagy labilis-e? Ugyan úgy, mint ahogy a mechanikai példánkban eldöntenénk: lökjük meg picit a labdát, és nézzük meg, hogy merre gurul. Mi is ezt tesszük: egy pici <span class="arithmatex">\(\Delta x_n\)</span> zavarást adunk hozzá a fixponthoz és nézzük meg, hogy idővel ez a zavarás nullához tart-e, vagy sem:</p>
+<div class="arithmatex">\[
+x^{\ast} + \Delta x_{n+1} = F(x^{\ast} + \Delta x_n)
+\]</div>
+<p>Ha a <span class="arithmatex">\(\Delta x_{n+1}\)</span> sorozat a nullához tart, akkor előbb utóbb vissza érünk az <span class="arithmatex">\(x^{\ast}\)</span> fixpontba, tehát <span class="arithmatex">\(x^{\ast}\)</span> stabil, ellenkező esetben pedig labilis.</p>
+<p>A fenti egyenletet közelítve, és átalakítva azt kapjuk, hogy a stabilitás feltétele:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{Stabil: } &amp;|F'(x^{\ast})| \lt 1 \\
+\text{Labilis: } &amp;|F'(x^{\ast})| \gt 1
+\end{align*}
+\]</div>
+<p>A levezetésben feltettük, hogy <span class="arithmatex">\(F\)</span> egy egyszerű egyváltozós függvény, <span class="arithmatex">\(x\)</span> pedig egy skalár, ami bár a nyulak szigetén igaz volt, általánosságban nem feltétlenül, hiszen ha például <span class="arithmatex">\(x\)</span> egy virtuális világ állapota, akkor nagy eséllyel valamilyen vektor.</p>
+<h2 id="szimulalhato_1">Szimulálható...?</h2>
+<p>Térjünk vissza a téma eleji kérdéshez: szimulálható-e a természet egy virtuális világban? Tételezzük fel, hogy a valódi <span class="arithmatex">\(\tilde{x}_0\)</span> állapotot csak valamilyen közelítéssel ismerjük, azaz van valamilyen <span class="arithmatex">\(\Delta x_0\)</span> hibatényező (pl. mérési hiba). Ugyanez feltehető az <span class="arithmatex">\(F\)</span> függvényről, azaz:</p>
+<div class="arithmatex">\[
+x_0 = \tilde{x}_0 + \Delta x_0 \\
+F(x) = \tilde{F}(x) + \Delta F(x)
+\]</div>
+<p>Ekkor a korábbi képletünket alkalmazva azt kapjuk, hogy:</p>
+<div class="arithmatex">\[
+\overbrace{F(x)}^{\ast_0} \approx \underbrace{\tilde{F}(\tilde{x})}_{\ast_1} + \overbrace{\tilde{F}'(\tilde{x}) \Delta x}^{\ast_2} + \underbrace{\Delta F(\tilde{x})}_{\ast_3}
+\]</div>
+<p>ahol:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\ast_0 \colon&amp; \text{általunk számított állapot} \\
+\ast_1 \colon&amp; \text{valóságos állapot} \\
+\ast_2 \colon&amp; \text{tökéletlen bemeneti állapot miatti hiba} \\
+\ast_3 \colon&amp; \text{jelenlegi számítás hibája}
+\end{align*}
+\]</div>
+<p>Nézzük meg, hogyan viselkedik az állapotsorozatunk:</p>
+<!-- God hath mercy upon thee -levy04 -->
+
+<div class="arithmatex">\[
+\begin{align*}
+x_1 &amp;= F(x_0) = \tilde{F}(\tilde{x}_0) + \tilde{F}'(\tilde{x}_0)\Delta x_0 + \Delta F(\tilde{x}_0) \\
+x_2 &amp;= F(x_1) = \tilde{F}(\tilde{x}_0) + \tilde{F}'(\tilde{x}_1)\tilde{F}'(\tilde{x}_0)\Delta x_0 + \tilde{F}'(\tilde{x}_1)\Delta F(\tilde{x}_0) + \Delta F(\tilde{x}_1) \\
+&amp;\vdots \\
+x_n &amp;= F(x_{n-1}) = \tilde{F}(\tilde{F}(\ldots)) \\[-2.9em]
+    &amp; \hspace{10.65em} + \overbrace{\tilde{F}'(\tilde{x}_{n-1}) \dots \tilde{F}'(\tilde{x}_1)\tilde{F}'(\tilde{x}_0)\Delta x_0}^{\text{akkumulált hiba}} \\
+    &amp; \hspace{10.65em} + \tilde{F}'(\tilde{x}_{n-1}) \dots \tilde{F}'(\tilde{x}_0)\Delta F(\tilde{x}_0) \\
+    &amp; \hspace{10.65em} + \tilde{F}'(\tilde{x}_{n-1}) \dots \Delta F(\tilde{x}_1) \\
+    &amp; \hspace{10.65em} + \dots \\
+    &amp; \hspace{10.65em} + \Delta F(\tilde{x}_{n-1})
+\end{align*}
+\]</div>
+<p>Ha <span class="arithmatex">\(|F'| \gt 1\)</span>, akkor az összes hibatag exponenciálisan nő, tehát még akkor is, ha <span class="arithmatex">\(\Delta x_0\)</span> és <span class="arithmatex">\(\Delta F\)</span> tart a nullához, a hiba végtelenbe divergál. Ekkor már a rendszer állapotát sokkal inkább az akkumulált hiba tag határozza meg, mint a valódi állapot: ezt nevezzük káosznak.</p>
+<p>Ezáltal kaotikus rendszereket nem tudunk pontosan szimulálni, hiszen ha csak egy pár ezred milliméter mérési hibát is összeszedünk, akkor a szimulációnk teljesen más lesz, mint a valóság.</p>
+<h2 id="pszeudo-veletlenszam-generator">Pszeudó véletlenszám generátor</h2>
+<p>A kaotikus rendszerek bár determinisztikusak, mégis véletlenszerűnek tűnnek. Ha belegondolunk, ugyan így működnek a kódunkban a pszeudó véletlenszám generátorok: adunk egy kezdeti feltételt (<code>seed</code>), és a rendszer (látszólag) véletlenszerű értékeket vesz fel, de ha valaki ismeri a kezdeti feltételünket, akkor le tudja szimulálni a rendszer működését, és abban az esetben már egyáltalán nem tűnik véletlenszerűnek.</p>
+<p>Nézzünk egy egyszerűsített példát a C véletlenszám generátor implementációjára:</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="n">uint</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">seed</span><span class="p">(</span><span class="n">uint</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="n">uint</span><span class="w"> </span><span class="nf">rand</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>lényegében ez is egy kaotikus rendszer, csak megfelelő <span class="arithmatex">\(F\)</span> függvényt kell választani. Azt szeretnénk, hogy egyenletes legyen, és hogy <span class="arithmatex">\(|F'(x)| &gt; 1\)</span> nagy és állandó legyen.</p>
+<p>Egy lehetséges <span class="arithmatex">\(F\)</span> függvény az alábbi (ún. <em>kongruenciagenerátor</em>):</p>
+<div class="arithmatex">\[
+F(x) = \{g \cdot x + c\}
+\]</div>
+<p>Ahol <span class="arithmatex">\(\{\}\)</span> a törtrész függvényt jelenti. Ekkor <span class="arithmatex">\(F\)</span> grafikonja az alábbi:</p>
+<p><img alt="grafikon" src="../img/chapter_12/12_pseudorandom.png" width="100%" /></p>
+<p>Ez sajnos viszonylag determinisztikus, ezért biztonsági okokból nem használható.</p>
+<h2 id="kaotikus-rendszerek-a-sikon">Kaotikus rendszerek a síkon</h2>
+<p>Próbáljunk meg a nyulak szigetéhez hasonlóan más kaotikus rendszereket létrehozni, melyeket síkon lehet ábrázolni. Ismét lesz egy <span class="arithmatex">\(F\)</span> iterált függvényünk, amely által alkotott pontsorozatot ha a síkon ábrázoljuk, akkor valamilyen érdekes alakzatra számítunk. Most a komplex sík egyik pontját, azaz egy <span class="arithmatex">\(z = x + \bm{i} y\)</span> komplex számot fogunk megadni <span class="arithmatex">\(F\)</span>-nek. Ennek az az előnye, hogy <span class="arithmatex">\(F\)</span> továbbra is egy egyváltozós függvény, viszont az az egy változó a komplex síkon egy pontnak felel meg.</p>
+<p>Nézzünk egy példát arra, hogy mi lehet <span class="arithmatex">\(F\)</span>. Tekintsük a</p>
+<div class="arithmatex">\[
+F \colon z \mapsto z^2
+\]</div>
+<p>függvényt. Ez minden komplex számot négyzetre emel, és így alkot egy pontsorozatot a komplex síkon.</p>
+<p>Érdemes polárkoordinátákban is kifejezni <span class="arithmatex">\(z\)</span>-t, hiszen az geometriai jelentést is hordoz magával.</p>
+<div class="arithmatex">\[
+z = r e^{\bm{i}\theta}
+\]</div>
+<p>Ezt behelyettesítve <span class="arithmatex">\(F\)</span>-be:</p>
+<div class="arithmatex">\[
+F\colon r e^{\bm{i}\theta} \mapsto r^2 e^{2\bm{i}\theta}
+\]</div>
+<p>azaz észrevehetjük, hogy ha alkalmazzuk <span class="arithmatex">\(F\)</span>-et <span class="arithmatex">\(z\)</span>-re, akkor az <span class="arithmatex">\(r\)</span> abszolútérték a négyzetére, a <span class="arithmatex">\(\theta\)</span> szög pedig a kétszeresére változik:</p>
+<div class="arithmatex">\[
+\begin{align*}
+r \mapsto r^2 \\
+\theta \mapsto 2\theta
+\end{align*}
+\]</div>
+<p>A szög kétszereződése most annyira nem érdekes, hiszen az <span class="arithmatex">\(f \colon x \mapsto 2x\)</span> egy lineáris függvény, viszont az abszolútérték változását egy négyzetes függvény írja le, amelyből már származik pár érdekes tulajdonság. Vizsgáljuk meg, hogy <span class="arithmatex">\(F\)</span> különböző bemenetek esetén milyen pontsorozatokat alkot! Három esetet különítünk el:</p>
+<h3 id="elso-eset-r-lt-1">Első eset: <span class="arithmatex">\(r \lt 1\)</span></h3>
+<p>Ekkor <span class="arithmatex">\(r\)</span>, azaz <span class="arithmatex">\(|z|\)</span> kisebb mint <span class="arithmatex">\(1\)</span>. Mivel az <span class="arithmatex">\(f \colon x \mapsto x^2\)</span> függvényre ezen a tartományon igaz az, hogy <span class="arithmatex">\(f(x) \lt x\)</span>, ezért <span class="arithmatex">\(f\)</span> ismételt alkalmazásával <span class="arithmatex">\(r\)</span> értéke egyre csak csökkenni fog, amit geometriailag úgy lehet értelmezni, hogy ha a kezdőpontunk az egységkörön belül van, akkor a pontsorozat az origóba "esik", oda konvergál. A szög duplázódása miatt egy spirális pályát ír le a pontsorozat ahogy az origóba tart.</p>
+<p>Mivel az origó az <span class="arithmatex">\(F\)</span>-nek egy stabil fixpontja, ezért logikus, hogy oda konvergál a pontok egy része, viszont nézzük meg a többi esetet.</p>
+<h3 id="masodik-eset-r-gt-1">Második eset: <span class="arithmatex">\(r \gt 1\)</span></h3>
+<p>Hasonlóan érvelve beláthatjuk, hogy mivel az <span class="arithmatex">\(]1, \infty[\)</span> tartományon <span class="arithmatex">\(f(x) &gt; x\)</span>, ezért a pontjaink sehova sem fognak konvergálni, egyre csak távolabb kerülünk az origótól. Ez a pálya is spirális, de divergens.</p>
+<h3 id="harmadik-eset-r-1">Harmadik eset: <span class="arithmatex">\(r = 1\)</span></h3>
+<p>Vizsgáljuk meg a konvergens és divergens tartományok határát. Ha az egységkörön választunk egy pontot, akkor mivel <span class="arithmatex">\(1 = 1^2\)</span>, ezért a pontok sosem hagyják el az egységkört. A három eset egy ábrán (az első eset kék, a második zöld, a harmadik piros):</p>
+<p><img alt="chaos_example_1" src="../img/chapter_12/12_chaos_example_1.png" width="100%" /></p>
+<p>A szög változása miatt egyre nagyobb ugrásokban "keringünk" az origó körül, de se nem közelítjük, se nem távolodunk tőle. Ez azt jelenti, hogy <span class="arithmatex">\(f\)</span> a kör pontjait állítja elő.</p>
+<p>Találkoztunk már hasonlóval. Idézzük fel, hogy egy <span class="arithmatex">\(x\)</span> fixpont esetén <span class="arithmatex">\(x = F(x)\)</span>. Itt is valami hasonló történik, csak most nem egy fixpontunk van, hanem egy "fixkörünk", hiszen ha a körön választunk egy pontot, az sosem hagyja el a kört, szóval pongyolán megfogalmazva olyan, mintha <span class="arithmatex">\(\text{kör} = F(\text{kör})\)</span>. Vezessünk be erre egy fogalmat!</p>
+<h3 id="attraktorok">Attraktorok</h3>
+<div class="admonition info">
+<p class="admonition-title">12.1. Definíció (Attraktor)</p>
+<p>A <span class="arithmatex">\(H\)</span> halmazt az <span class="arithmatex">\(F\)</span> függvény <em>attraktorának</em> nevezzük, ha:</p>
+<div class="arithmatex">\[
+H = F(H)
+\]</div>
+<p>azaz <span class="arithmatex">\(H\)</span> pontjaink képe összességében éppen a <span class="arithmatex">\(H\)</span> halmazt adja.</p>
+<details class="example">
+<summary>Precízebb definíció</summary>
+<p>Mit is értünk pontosan a <span class="arithmatex">\(H = F(H)\)</span> jelölés alatt? Elsőre úgy tűnhet, hogy azt, hogy <span class="arithmatex">\(H\)</span> bármely <span class="arithmatex">\(x\)</span> elemére igaz, hogy ha alkalmazzuk rajta az <span class="arithmatex">\(F\)</span> függvényt, akkor <span class="arithmatex">\(F(x)\)</span> is <span class="arithmatex">\(H\)</span> beli lesz:</p>
+<div class="arithmatex">\[
+\forall x \in H \colon F(x) \in H
+\]</div>
+<p>azaz</p>
+<div class="arithmatex">\[
+F(H) \sube H
+\]</div>
+<p>és ez igaz is, viszont csak az egyik irányba! Ha <span class="arithmatex">\(H\)</span> attraktora <span class="arithmatex">\(F\)</span>-nek, akkor a fenti állítás tényleg igaz, viszont a fenti állításból nem következik, hogy <span class="arithmatex">\(H\)</span> attraktora <span class="arithmatex">\(F\)</span>-nek. </p>
+<p>Hogy lássuk, hogy miért, tegyük fel, hogy <span class="arithmatex">\(F\)</span> egy olyan függvény, hogy <span class="arithmatex">\(H\)</span>-nak mindig ugyan abba a pontjába viszi az értékeket, tehát minden <span class="arithmatex">\(x\)</span>-re <span class="arithmatex">\(F(x)\)</span> ugyan az az érték. Ekkor <span class="arithmatex">\(H\)</span>-nak nem áll elő az összes pontja, tehát nem lehet <span class="arithmatex">\(F\)</span> attraktora, viszont a fenti állítás mégis igaz rá.</p>
+<p>A korábbi példánkban ez olyan lenne, mintha a <span class="arithmatex">\(\theta\)</span> szöget egy konstans függvény írta volna le, mondjuk <span class="arithmatex">\(\theta = \pi\)</span>. Ekkor a kör bármely pontjára <span class="arithmatex">\(F\)</span>-et alkalmazva a <span class="arithmatex">\(z_{0} = e^{\bm{i}\pi}\)</span> pontot kaptuk volna. Viszont nem ezt tapasztaltuk, hanem <span class="arithmatex">\(F\)</span> ismételt alkalmazásával előbb utóbb megkaptuk a kör összes pontját, azaz minden <span class="arithmatex">\(x\)</span> ponthoz létezett egy olyan <span class="arithmatex">\(y\)</span> pont, hogy <span class="arithmatex">\(y\)</span>-ból megkaptuk <span class="arithmatex">\(x\)</span>-et:</p>
+<div class="arithmatex">\[
+\forall x \in H \thickspace \exists y \in H \colon x = F(y)
+\]</div>
+<p>azaz</p>
+<div class="arithmatex">\[
+H \sube F(H)
+\]</div>
+<p>Az első állítással párosítva ez a két állítás ekvivalens azzal, hogy <span class="arithmatex">\(H\)</span> attraktora <span class="arithmatex">\(F\)</span>-nek, és pontosan ezt is értjük a <span class="arithmatex">\(H = F(H)\)</span> jelölés alatt: <span class="arithmatex">\(F\)</span> csakis kizárólag <span class="arithmatex">\(H\)</span> pontjait állítja elő (<span class="arithmatex">\(F(H) \sube H\)</span>), viszont az <em>összes</em> pontot <span class="arithmatex">\(H\)</span>-ban előállítja (<span class="arithmatex">\(H \sube F(H)\)</span>). Se többet, se kevesebbet.</p>
+<p>Tehát akkor összegezve:</p>
+<div class="arithmatex">\[
+H \text{ attraktora } F \text{-nek} \iff H \sube F(H) \land F(H) \sube H
+\]</div>
+<p>azaz kifejtve:</p>
+<div class="arithmatex">\[
+H \text{ attraktora } F \text{-nek} \iff \forall x \in H : \Big[(F(x) \in H) \land (\exists y \in H \colon x = F(y))\Big]
+\]</div>
+</details>
+</div>
+<p>Így már precízen meg tudjuk fogalmazni azt, hogy mit értünk az alatt, hogy <span class="arithmatex">\(\text{kör} = F(\text{kör})\)</span>. Ha a példánkban <span class="arithmatex">\(H\)</span>-nak az egységkört választjuk, akkor pontosan azt kapjuk, amit az intuíciónk sugallt. Bizonyos értelemben kiterjesztettük a fixpontok fogalmát halmazokra.</p>
+<p>Ahogy a fixpontok esetében is voltak stabil és labilis pontok, így az attraktorok közül is lesznek stabilak és labilisak. A példánkbeli attraktor labilis, hiszen ha egy picit elmozdulunk az egységkörről, akkor vagy az origóba konvergálunk, vagy a végtelenbe divergálunk, de vissza az attraktorra semelyik esetbe se kerülünk.</p>
+<h3 id="inverz-iteracios-modszer">Inverz iterációs módszer</h3>
+<p>A labilis attraktorokból hogyan tudnánk stabilakat csinálni? Erre a feladatra ad megoldást az inverz iterációs módszer. Az az ötlet, hogy <em>ha <span class="arithmatex">\(H\)</span> halmaz <span class="arithmatex">\(F\)</span>-nek egy labilis attraktora, akkor <span class="arithmatex">\(F^{-1}\)</span>-nek stabil attraktora</em>, és fordítva. Később belátjuk, hogy miért, de először nézzünk egy példát.</p>
+<p>Legyen <span class="arithmatex">\(F\colon x \mapsto x^2\)</span>, <span class="arithmatex">\(H\)</span> pedig az egységkör. Ekkor fennáll a <span class="arithmatex">\(H = F(H)\)</span> egyenlet. Alkalmazzuk <span class="arithmatex">\(F^{-1}\)</span>-et mindkét oldalra:</p>
+<div class="arithmatex">\[
+H = F(H) \rightarrow F^{-1}(H) = H
+\]</div>
+<p>tehát azt kaptuk, hogy ha <span class="arithmatex">\(H\)</span> attraktora <span class="arithmatex">\(F\)</span>-nek, akkor <span class="arithmatex">\(F^{-1}\)</span>-nek is. Tudjuk, hogy <span class="arithmatex">\(F\)</span> esetén <span class="arithmatex">\(z_{n+1} = z_{n}^2\)</span>, de mi a helyzet <span class="arithmatex">\(F^{-1}\)</span>-el? Ekkor</p>
+<div class="arithmatex">\[
+z_{n+1} = \pm \sqrt{z_n}
+\]</div>
+<p>Ez persze nem egy függvény, hanem egy kétértékű leképezés, de mivel teljesül rá az, hogy <span class="arithmatex">\(F^{-1}(H) = H\)</span>, ezért ez nem fog zavarni minket. A fenti egyenletből <span class="arithmatex">\(r\)</span>-t és <span class="arithmatex">\(\theta\)</span>-t kifejezve:</p>
+<div class="arithmatex">\[
+\begin{align*}
+r_{n+1} &amp;= \sqrt{n} \\
+\theta_{n+1} &amp;= \frac{\theta}{2} + \pi \cdot \{0|1\}
+\end{align*}
+\]</div>
+<p>ahol a <span class="arithmatex">\(\{0|1\}\)</span> jelölés azt jelenti, hogy <span class="arithmatex">\(z_{n+1} = + \sqrt{z_n}\)</span> esetben <span class="arithmatex">\(0\)</span>-val, <span class="arithmatex">\(z_{n+1} = - \sqrt{z_n}\)</span> esetben pedig <span class="arithmatex">\(1\)</span>-el szorozzuk meg <span class="arithmatex">\(\pi\)</span>-t.</p>
+<p>Próbáljuk meg egy pontra alkalmazni ezeket a kifejezéseket! Ennek az eredménye az alábbi képen látható.</p>
+<p><img alt="example2" src="../img/chapter_12/12_chaos_example_2.png" width="100%" /></p>
+<p>Mivel nem egy függvényünk van, hanem egy kétértékű kifejezésünk, ezért egy pontból kettő lesz, melyek egymás tükörképei az origóra nézve. Az előző példában láttuk, hogy az <span class="arithmatex">\(f'\colon x \mapsto x^2\)</span> függvény a <span class="arithmatex">\(]-1, 1[\)</span> tartományon a nullához konvergál, a <span class="arithmatex">\(]-\infty, -1[ \; \cup \; ]1, \infty[\)</span> tartományon pedig a végtelebe divergál, és ez volt az oka annak, hogy az attraktorunk labilis volt: mindkét esetben csak távolodtunk az <span class="arithmatex">\(1\)</span>-től.</p>
+<p>Most viszont az <span class="arithmatex">\(f\colon x \mapsto \sqrt{x}\)</span> függvényünkre már más lesz igaz. A <span class="arithmatex">\(]0, 1[\)</span> és az <span class="arithmatex">\(]1, \infty[\)</span> tartományon is az <span class="arithmatex">\(1\)</span>-hez konvergál! A kifejezésünkben lényegében kétszer van ez az <span class="arithmatex">\(f\)</span> függvény, csak egyszer <span class="arithmatex">\(+\)</span>, máskor meg <span class="arithmatex">\(-\)</span> előjellel, így lefedik a teljes <span class="arithmatex">\(]-\infty, \infty[\)</span> intervallumot, ahol végig az egységkörhöz konvergálnak! Így beláthatjuk, hogy az attraktorunk <em>stabil</em>.</p>
+<p>Ezt precízebben megfogalmazva - megfelelően nagy <span class="arithmatex">\(n\)</span> esetén</p>
+<div class="arithmatex">\[
+r_n = \sqrt[2^n]{r_0} \approx 1
+\]</div>
+<p>Ez megfelel annak az állításnak, hogy <span class="arithmatex">\(F^{-1}\)</span> csak az attraktor pontjait állítja elő. Már csak azt kell belátnunk, hogy az attraktor <em>összes</em> pontját előállítja, melyhez a fázisszöget kell majd vizsgálnunk:</p>
+<div class="arithmatex">\[
+\begin{alignat*}{2}
+\theta_n &amp;= \frac{\theta_0}{2^n} &amp;&amp;+ \pi \cdot \{0|1\} . \{0|1\} \{0|1\} \ldots \\
+&amp;\approx \underbrace{\cancel{\frac{\theta_0}{2^n}}}_{n \to \infty} &amp;&amp;+ \pi \cdot \{0|1\} . \{n-1 \text{ számjegyű bináris szám}\}
+\end{alignat*}
+\]</div>
+<p>mivel a fázisszög mindig feleződik, ezért a kezdeti <span class="arithmatex">\(\theta_0\)</span> szögnek a <span class="arithmatex">\(2^n\)</span>-enede jelenik meg. Minden egyes lépésben vagy <span class="arithmatex">\(0 \cdot \pi\)</span>-t vagy <span class="arithmatex">\(1 \cdot \pi\)</span>-t adtunk hozzá, ami után megint osztottunk kettővel, és ismét hozzáadtunk. Értelmezhetjük ezeket az összeadásokat és kettővel való osztásokat is mint egy darab bináris számmal való szorzás. Nézzünk egy példát:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\theta_1 &amp;= \frac{\theta_0}{2} + \pi \cdot 1 \\
+\theta_2 &amp;= \frac{\theta_1}{2} + \pi \cdot 0 = \frac{\frac{\theta_0}{2} + \pi \cdot 1}{2} + \pi \cdot 0 = \frac{\theta_0}{2^2} + \pi \cdot 0 + \frac{\pi \cdot 1}{2^1} \\
+\theta_3 &amp;= \frac{\theta_2}{2} + \pi \cdot 1 = \ldots = \frac{\theta_0}{2^3} + \pi \cdot 1 + \frac{\pi \cdot 0}{2^1} + \frac{\pi \cdot 1}{2^2} \\
+&amp;\ldots
+\end{align*}
+\]</div>
+<p>Emeljünk ki <span class="arithmatex">\(\pi\)</span>-t:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\theta_3 &amp;= \frac{\theta_0}{2^3} + \pi \cdot 1 + \frac{\pi \cdot 0}{2^1} + \frac{\pi \cdot 1}{2^2} \\
+\theta_3 &amp;= \frac{\theta_0}{2^3} + \pi \cdot (1 + 0 \cdot 2^{-1} + 1 \cdot 2^{-2}) \\
+&amp;\ldots \\
+\theta_n &amp;= \frac{\theta_0}{2^n} + \pi \cdot (1 + 0 \cdot 2^{-1} + 1 \cdot 2^{-2} + \ldots + 1 \cdot 2^{-(n-1)})
+\end{align*}
+\]</div>
+<p>A zárójelben pont egy bináris számot kapunk, ahol a kettedes pont előtt egy, utána pedig <span class="arithmatex">\(n-1\)</span> számjegy áll.</p>
+<details class="example">
+<summary>Számrendszerek segítség</summary>
+<p>Emlékezzünk vissza, hogy például tízes számrendszerben egy számot szintén hasonló alakra lehet hozni:</p>
+<div class="arithmatex">\[
+74.513_{10} = 7 \cdot 10^{1} + 4 \cdot 10^{0} + 5 \cdot 10^{-1} + 1 \cdot 10^{-2} + 3 \cdot 10^{-3}
+\]</div>
+<p>Hasonlóan működik ez kettes számrendszerben is:</p>
+<div class="arithmatex">\[
+101.11_2 = 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 + 1 \cdot 2^{-1} + 1 \cdot 2^{-2}
+\]</div>
+<p>A fenti esetben is ugyan ez történik.</p>
+</details>
+<p>Mivel minden lépésben a <span class="arithmatex">\(+\)</span>-os és a <span class="arithmatex">\(-\)</span>-os ágat is végrehajtjuk, ezért az <span class="arithmatex">\(n.\)</span> lépésben az <span class="arithmatex">\(n\)</span> bites számunk összes kombinációja meg fog jelenni, tehát a <span class="arithmatex">\([0, 2\pi[\)</span> tartományban egyenletesen minden pontot lefedünk. Ezzel beláttuk azt is, hogy a kör összes pontja előáll (legalábbis az <span class="arithmatex">\(n \to \infty\)</span> esetben, a gyakorlatban meg csak közelítőleg).</p>
+<p>Fontos még kiemelni, hogy a káosz egyik tulajdonságát nagyon jól szemlélteti ez a példa, mégpedig a kezdőfeltételek információjának eltűnését. Hiszen nagy <span class="arithmatex">\(n\)</span> esetén bármely <span class="arithmatex">\(r_0\)</span>-ra <span class="arithmatex">\(\sqrt[2^n]{r_0} \approx 1\)</span> és bármely <span class="arithmatex">\(\theta_0\)</span>-ra <span class="arithmatex">\(\theta_0/2^n \approx 0\)</span>, tehát ha mondjuk <span class="arithmatex">\(n = 10^{100}\)</span>, akkor <span class="arithmatex">\(r_n\)</span>-ből és <span class="arithmatex">\(\theta_n\)</span>-ből lehetetlen kitalálni, hogy mi volt <span class="arithmatex">\(r_0\)</span> és <span class="arithmatex">\(\theta_0\)</span>.</p>
+<p>Ezt a folyamatot algoritmikus szemptonból is megközelíthetjük. A <span class="arithmatex">\(z_0\)</span> kezdeti pontra ha alkalmazzuk a kétértékű leképezésünk, akkor két pontot kapunk, a <span class="arithmatex">\(+\sqrt{}\)</span> és a <span class="arithmatex">\(-\sqrt{}\)</span> irányba egyet-egyet. Ezekre ismételten a leképezésünket alkalmazva további pontokat kapunk, egy bináris fa struktúrában.</p>
+<p>Az exponenciális növekedés miatt ha ezt meg akarnánk programozni, akkor nagyon hamar elfogyna a gépünk memóriája, tehát felmerülhet a kérdés, hogy ahelyett, hogy szélességi bejárást folytatunk, és a teljes fát ábrázolni akarjuk, nem tudjuk valahogy ezt lecserélni valamilyen mélységi bejárásra?</p>
+<p>Ez annak felelne meg, mintha a bináris fa tetejéről kiindulva mindig csak az egyik élen mennénk le, azaz mindig vagy <span class="arithmatex">\(+\sqrt{}\)</span> vagy <span class="arithmatex">\(-\sqrt{}\)</span>-el képeznénk új pontokat. Ezt a választást úgy kéne meghoznunk, hogy a mélységi bejárás által meglátogatott pontok is elég sűrűn lefedjék az attraktort, ami közel sem triviális. Ha mindig csak <span class="arithmatex">\(+\sqrt{}\)</span> vagy <span class="arithmatex">\(-\sqrt{}\)</span> irányba megyünk, akkor a <span class="arithmatex">\(\theta_n\)</span> fázisszög <span class="arithmatex">\(0\)</span> és <span class="arithmatex">\(2\pi \equiv 0\)</span> marad végig, tehát nem fedjük le az attraktort.</p>
+<p>Próbáljunk meg mondjuk felváltva választani, ekkor:</p>
+<div class="arithmatex">\[
+\begin{align}
+\theta_{2n} \approx 1.010 \ldots \cdot \pi = \frac{4 \pi}{3} \\
+\theta_{2n + 1} \approx 0.101 \ldots \cdot \pi = \frac{2 \pi}{3}
+\end{align}
+\]</div>
+<p>Sajnos láthatjuk, hogy még így is csak két különböző pontot sikerült elérnünk, és ez általánosítható: ha egy <span class="arithmatex">\(n\)</span> hosszú periódussal haladunk, akkor <span class="arithmatex">\(n\)</span> darab pontot fogunk lefedni csak. Ez azt jelenti, hogy semmilyen periodikus sorozattal nem tudjuk elérni, hogy lefedjük a teljes attraktort.</p>
+<p>A megoldást azt fogja jelenteni, hogy <em>véletlenszerűen</em> választunk a leképzés két eredménye közül. Ekkor pozitív valószínűsége van bármely pontnak arra, hogy kiválassza az algoritmusunk. Ezzel tehát megoldottuk a kezdeti problémánkat: nem kell szélességi bejárást csinálni, ami az összes erőforrásunkat megenné, hanem szimplán minden leképezés után csak az egyik ággal dolgozunk tovább, amit véletlenszerűen döntünk el.</p>
+<h3 id="attraktorok-felrajzolasa">Attraktorok felrajzolása</h3>
+<p>Mielőtt elkezdünk programokat írni, ki kell találnunk, hogy egyáltalán hogyan tudjuk vizualizálni az attraktorainkat. Az egyik megközelítés az lehet, hogy felismerjük, hogy az attraktor az divergens és konvergens régiókat választ el egymástól. Ha az összes konvergens pontot feketére színezzük, és a divergenseket fehéren hagyjuk, akkor a keletkező fekete alakzatoknak a határavonalai lesznek a függvény attraktorai.</p>
+<p>Hogyan tudjuk eldönteni, hogy egy pont divergens-e vagy sem? Tudjuk, hogy például <span class="arithmatex">\(F \colon z \mapsto z^2\)</span> esetében</p>
+<div class="arithmatex">\[
+z_{n+1}=z_{n}^2
+\]</div>
+<p>tehát, ha</p>
+<div class="arithmatex">\[
+\lim_{n \to \infty} z_n \lt \infty
+\]</div>
+<p>akkor nem divergens. Persze amikor programozunk, akkor közelítenünk kell, általában jó nagy <span class="arithmatex">\(n\)</span>-ig elmegyünk, és megnézzük, hogy meghalad-e egy bizonyos távolságot a <span class="arithmatex">\(|z_n|\)</span>.</p>
+<details class="example">
+<summary>Fekete-fehér az unalmas</summary>
+<p>Későbbi diákon, illetve az interneten is sok helyen színekkel ábrázolják a Julia halmazokat.</p>
+<p>Ne jöjjünk zavarba, az alap logika ugyan az, annyi változtatást tehetünk, hogy a divergáló pontoknál megnézzük a küszöböt elérve, hogy milyen távol kerültek az origótól. A "leggyorsabban" divergáló ponthoz ha hozzárendelünk egy sötétkéket, a "leglassabban" konvergálóhoz pedig egy pirosat, és közöttük pedig lineárisan interpolálunk, akkor máris megkaphattuk azokat a szép színes Julia halmazokat amik fel-fel bukkannak az interneten.</p>
+</details>
+<h3 id="julia-halmaz">Julia halmaz</h3>
+<p>Így, hogy minden eszközünk meg van rá, próbáljunk meg felrajzolni pár attraktort! Ahogy korábban is láttuk, az <span class="arithmatex">\(F \colon z \mapsto z^2\)</span> függvény attraktora az egységkör. Lássuk tehát!</p>
+<p><img alt="very_simple_julia" src="../img/chapter_12/12_julia_very_simple.png" width="100%" /></p>
+<p>Hát... ennél azért könnyebb algoritmusaink is vannak körök felrajzolására...</p>
+<p>Próbáljunk kicsit módosítani <span class="arithmatex">\(F\)</span>-en, hogy érdekesebb alakzatokat kapjunk. Nézzük például az</p>
+<div class="arithmatex">\[
+F': z \mapsto z^2 + c
+\]</div>
+<p>függvényt, ahol <span class="arithmatex">\(c \in \cnums\)</span>. Ekkor ha variáljuk <span class="arithmatex">\(c\)</span> értékét, rettenetesen sok érdekes attraktort kapunk:</p>
+<p><img alt="julia halmaz" src="../img/chapter_12/12_julia.png" width="100%" /></p>
+<p>Az <span class="arithmatex">\(F'\)</span> összes attraktorának halmazát <em>Julia halmaznak</em> nevezik (ejtsd: [zsúlia]).</p>
+<h4 id="implementacio">Implementáció</h4>
+<p>Nézzük meg a kitöltött Julia halmaz implementációját. Pszeudokód szinten relatívan egyszerű: a kamerának kiválasztjuk egy pixelét (pontosabban egy olyan tartományt a virtuális világban ami egy pixelnek felel meg), és megnézzük, hogy az a pont divergál-e vagy sem. Ehhez választunk egy jó nagy küszöböt, és alkalmazzuk rá az <span class="arithmatex">\(F'\)</span> függvényt. A konvergenciájától függően vagy feketére vagy fehérre színezzük, és megyünk tovább (ehhez a megközelítéshez kódot az előadásdiákon találtok).</p>
+<p>Érezhető viszont, hogy ez picit lassú. Nagyon sok időt töltünk el olyan pontokkal is, amik már pár iteráció után divergálnak, és ha nagyon hatékonyak akarunk lenni, akkor a divergens pontokkal még csak foglalkoznunk se kéne. Másrészt pedig pixelvezérelt, ami a modern, nagy felbontású képernyők esetében nem hatékony.</p>
+<p>Próbáljuk meg implementálni a fentebbi véletlenszerűségre alapuló algoritmust. Csak az attraktor pontjait (a konvergens pontok nélkül) előállíthatjuk az inverz iteráció módszerével is. Ez egy "gyökvezérelt" megközelítés, és sokkal hatékonyabb lesz. Az alapjait már fentebb tárgyaltuk: az attraktor egy pontjából elindítjuk az iterációt és minden lépésben alkalmazzuk <span class="arithmatex">\(F^{-1}\)</span>-et a pontunkra, és véletlenszerűen választunk a <span class="arithmatex">\(\pm\)</span> előjelek között. Ezt elég nagy küszöbig ismételve, ha az összes pontot amit bejártunk kiszínezünk feketére, akkor megkapjuk az attraktort.</p>
+<p>Stabil attraktorok esetén könnyű meghatározni az attraktor egy pontját (elindítunk egy sorozatot az attraktor közeléből, és ami után elértük, azokat a pontokat amikkel csak megközelítettük eldobjuk), viszont labilis attraktorok esetén muszáj az attraktor egy pontját, azaz <span class="arithmatex">\(F\)</span> vagy <span class="arithmatex">\(F^{-1}\)</span> egy fixpontját kiválasztanunk.</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DEPTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">generate_attractor</span><span class="p">(</span><span class="n">Complex</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// z = z^2 + c másodfokú egyenlet valamelyik gyöke</span>
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_starting_value</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DEPTH</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">VisibleInWindow</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pixel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WindowViewport</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+<span class="w">            </span><span class="n">image</span><span class="p">[</span><span class="n">pixel</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">black</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// z = sqrt(z - c)</span>
+<span class="w">        </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F_inverse</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// randomly choose pos or neg root</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">get_random_number</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">z</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Részletesebb magyarázathoz ajánlom az <a href="https://youtu.be/4-5_UzT6SFQ&amp;t=2317">előadásvideó ezen részét</a>.</p>
+<h2 id="mandelbrot-halmaz">Mandelbrot halmaz</h2>
+<p>Mandelbrot arra volt kíváncsi, hogy miért van az, hogy a Julia halmazok néhány <span class="arithmatex">\(c\)</span>-re összefüggőek, bizonyos esetekben viszont meg különálló ponthalmazok. Definiált egy halmazt, ami azon <span class="arithmatex">\(c\)</span> komplex számokból áll, amelyekre az ahhoz tartozó Julia halmaz összefüggő.</p>
+<p>Ha a Mandelbrot halmazt ábrázoljuk a síkon, akkor több dolgot is tapasztalhatunk:</p>
+<ul>
+<li>az alakzat fraktális, tehát bármennyire is ráközelítünk nem egyszerűsödik le, végtelenségig új alakzatok és komplexitások tűnnek fel.</li>
+<li>nem önhasonló, tehát a végtelen komplexitás soha sem ismétlődik</li>
+</ul>
+<p>Ha egy pontra "végtelenségig" rá tudnánk közelíteni, akkor a közvetlen környezetében a hozzá tartozó Julia halmaz jelenne meg. A Mandelbrot halmazt az emberiség által ismert legbonyolultabb geometriai alakzatnak tartják.</p>
+<div class="admonition example">
+<p class="admonition-title">Érdekességek</p>
+<p>Egy videó, ami ugyan kicsit szájbarágósan, de élvezhetően elmagyarázza a komplex számokat és a Mandelbrot halmazt: <a href="https://youtu.be/MwjsO6aniig?t=71">The Mandelbrot Set (VSauce)</a></p>
+<p>Isten létezésének bizonyítása a Mandelbrot halmazzal (ennek még kevesebb köze van az anyaghoz): <a href="https://www.youtube.com/watch?v=z0hxb5UVaNE">Proving God exists using Math</a></p>
+<p>A 3D változata "Mandelbulb" néven ismert.</p>
+</div>
+<p>Hogyan tudnánk mégis ábrázolni? Hát ha pusztán a definícióból indulunk ki, akkor elég nehezen. Szerencsére vannak egyszerűbb módszerek.</p>
+<h3 id="julia-halmazok-osszefuggosege">Julia halmazok összefüggősége</h3>
+<p>Vizsgáljuk meg az iteráció során létrejövő alakzatokat topológiailag. Az "összefüggő" Julia halmazokat azért neveztük annak, mert egy "körvonal" szerű alakzatra hasonlított: ha elindulunk az egyik pontból, és végigmegyünk az alakzaton, akkor visszajutunk az eredeti pontunkba úgy, hogy az alakzat minden pontját meglátogattuk. A nem összefüggő esetben ilyen határgörbe nincs. Nézzük meg, hogy ez milyen implikációkkal bír.</p>
+<h4 id="kulso-hatar-becslese">Külső határ becslése</h4>
+<p>Ahogy végrehajtjuk az iterációs folyamatot, próbáljuk meg megbecsülni az egyes lépésekben a külső határt, minél pontosabban! Emlékezzünk vissza, hogy ha <span class="arithmatex">\(F(z) = z^2 + c\)</span>, akkor <span class="arithmatex">\(F^{-1} = \pm \sqrt{z - c}\)</span>. <span class="arithmatex">\(F^{-1}\)</span> attraktora már stabil, tehát tudunk vele dolgozni.</p>
+<p>A kezdeti becslésünk legyen egy jó nagy <span class="arithmatex">\(H_0\)</span> kör, ami az egész Julia halmazt körülveszi. Ez még igen pontatlan, de minden egyes lépésben majd finomítunk rajta. Itt most <span class="arithmatex">\(F^{-1}\)</span>-et nem csak egy pontra, hanem a <span class="arithmatex">\(H_0\)</span> körlemez összes pontjára fogjuk alkalmazni. Ennek során két esetet különíthetünk el:</p>
+<ul>
+<li>azok a pontok, amik már eleve rajta voltak az attraktoron nem kerülnek le róla, hiszen tudjuk, hogy <span class="arithmatex">\(F(H) = H\)</span>,</li>
+<li>azok a pontok, amik nem voltak rajta az attraktoron valamennyivel közelebb kerülnek hozzá, bizonyos részük esetleg rá is érkezik az attraktorra.</li>
+</ul>
+<p>Ezek alapján láthatjuk, hogy az attraktoron nem lévő pontok száma csökkent, és egy pontosabb becslést kaptunk, nevezzük <span class="arithmatex">\(H_1\)</span>-nek. Ekkor <span class="arithmatex">\(H_1\)</span> ugyan úgy tartalmazza a teljes attraktort mint <span class="arithmatex">\(H_0\)</span>, viszont kevesebb olyan pontot tartalmaz, ami nincs az attraktoron. Ezt természetesen tovább ismételhetjük, és azt kapjuk, hogy</p>
+<div class="arithmatex">\[
+\begin{align*}
+H_1 =&amp; \; F(H_0) \\
+H_2 =&amp; \; F(H_1) \\
+H_3 =&amp; \; F(H_2) \\
+&amp;\vdots
+\end{align*}
+\]</div>
+<p>Mivel <span class="arithmatex">\(H_0\)</span> egy körlemez volt, ezért a határvonala egy kör. Az a kérdés, hogy ahogy iteráljuk a körvonalat, akkor lesz-e egy olyan pont, ahol ez a kör szétesik és különálló pontok összességévé válik?</p>
+<h4 id="hatar-osszefuggosege">Határ összefüggősége</h4>
+<p>Ennek eldöntéséhez a kör határára kell végrehajtani <span class="arithmatex">\(F^{-1}\)</span>-et. Mivel a komplex számokon végzett műveleteknek geometriai jelentősége is van, ezért próbáljuk meg grafikusan vizsgálni, hogy mi történik az egyes pontokkal. Tudjuk, hogy</p>
+<div class="arithmatex">\[
+H_{n+1} = \pm \sqrt{H_n - c}
+\]</div>
+<p>ahol <span class="arithmatex">\(c \in \cnums\)</span>, egy konstans az adott Julia halmaz tekintetében.</p>
+<p>Vizsgáljuk azt az esetet először, amikor <span class="arithmatex">\(c\)</span> a <span class="arithmatex">\(H_n\)</span> körszerű alakzaton belül van. A <span class="arithmatex">\(H_n - c\)</span> egy eltolás, aminek során a <span class="arithmatex">\(c\)</span> pontunk az origóba kerül, és a teljes <span class="arithmatex">\(H_n\)</span> alakzat is ennek megfelelően eltolódik. Ezután a négyzetgyökvonás jön, amihez emlékezzünk vissza, hogy egy tetszőleges <span class="arithmatex">\(c_0\)</span> komplex számra</p>
+<div class="arithmatex">\[
+c_0 = r \cdot e^{\bm{i} \theta} \\[1em]
+\text{akkor} \\[1em]
+\sqrt{c_0} = \sqrt{r \cdot e^{\bm{i} \theta}} = \sqrt{r} \cdot e^{\bm{i} \theta/2}
+\]</div>
+<p>azaz <span class="arithmatex">\(c_0\)</span> abszolút értékének (origótól való távolságának) a négyzetgyökét vesszük, a fázisszögének pedig a felét. Ez egy ilyesmi alakzatot eredményez (itt a körvonal összes pontjának vettük a négyzetgyökét)</p>
+<p><img alt="összefüggőség sqrt" src="../img/chapter_12/12_sqrt_plus.png" width="100%" /></p>
+<p>Látjuk, hogy mivel a <span class="arithmatex">\(\theta\)</span> fázisszög feleződött, ezért a teljes körből csak egy félkör lett. Ez persze csak a <span class="arithmatex">\(+\sqrt{}\)</span> ág, de a <span class="arithmatex">\(-\sqrt{}\)</span> komponenst megkaphatjuk úgy, ha szimplán tükrözzük a <span class="arithmatex">\(+\sqrt{}\)</span> alakzatunkat az origóra. Mivel két félkörszerű alakzatot csatlakoztattunk össze az origónál, ezért egy összefüggő alakzatot kaptunk, tehát ebben az esetben <span class="arithmatex">\(H_{n+1}\)</span> is összefüggő.</p>
+<p>Tekintsük meg azt az esetet, amikor <span class="arithmatex">\(c\)</span> nincs a <span class="arithmatex">\(H_n\)</span> alakzaton belül. Ekkor ha eltoljuk <span class="arithmatex">\(H_n\)</span>-t úgy, hogy a <span class="arithmatex">\(c\)</span> pont az origón legyen, akkor az origót nem fogja tartalmazni az eltolt <span class="arithmatex">\(H_n\)</span>. Ez azért fontos, mivel ha ismét vesszük a négyzetgyökét <span class="arithmatex">\(H_n\)</span>-nek, akkor most nem egy félkörszerű alakzatot kapunk, hanem egy körszerű, önálló alakzatot, amit ha tükrözünk az origóra, akkor egy másik, teljesen különálló alakzatot kapunk</p>
+<p><img alt="összefüggőség sqrt2" src="../img/chapter_12/12_sqrt_outside.png" width="100%" /></p>
+<p>Tehát megkaptuk a válaszunkat a kérdésünkre: egy Julia halmaz akkor összefüggő ha a hozzátartozó <span class="arithmatex">\(c \in \cnums\)</span> az attraktor által körbevett stabil tartományon belül esik, vagy magának az attraktornak a része.</p>
+<h3 id="felrajzolas">Felrajzolás</h3>
+<p>Így már egy teljesebb definíciót tudunk adni a Mandelbrot halmazra:</p>
+<div class="admonition info">
+<p class="admonition-title">12.2. Definíció (Mandelbrot halmaz)</p>
+<p>Azon <span class="arithmatex">\(c\)</span> komplex számok halmaza, amelyekre:</p>
+<ul>
+<li>A <span class="arithmatex">\(z \mapsto z^2 + c\)</span> Julia halmaza összefüggő.</li>
+<li>A <span class="arithmatex">\(c\)</span> a Julia halmaz attraktorában, vagy konvergens tartományában van.</li>
+<li>A <span class="arithmatex">\(z_{n+1} = z_n^2 + c\)</span> iteráció a <span class="arithmatex">\(c\)</span>-ből indítva nem divergens.</li>
+</ul>
+</div>
+<p>Így már sokkal könnyebb felrajzolni grafikusan a Mandelbrot halmazt.</p>
+<details class="example" open="open">
+<summary>Déjà vu</summary>
+<p>Ez a vizsgálat nagyon hasonló az eredeti Julia halmaz kiszámításánál alkalmazott iterációhoz, a különbség lényegében az, hogy amikor a Julia halmazt rajzoltuk föl, akkor ez a <span class="arithmatex">\(c\)</span> komplex szám a halmazunk összes pontjára ugyan olyan értékű volt és azt vizsgáltuk, hogy ha a komplex számból indulunk el, akkor a folyamat divergens-e vagy sem; most pedig ez a <span class="arithmatex">\(c\)</span> komplex szám nem konstans, hanem az iteráció kezdeti pontjának megfelelő.</p>
+</details>
+<p>A fent említett hasonlóság miatt a Mandelbrot halmazt kirajzoló kód eléggé hasonlít a Julia halmazt kirajzolóhoz:</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DEPTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">Mandelbrot</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">Y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Ymax</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">Y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Xmax</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">X</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Lekérjük az aktuális pixelt</span>
+<span class="w">            </span><span class="n">Complex</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ViewportWindow</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Complex</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// vagy z = 0, a kettő ekvivalens</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DEPTH</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">            </span><span class="n">image</span><span class="p">[</span><span class="n">Y</span><span class="p">][</span><span class="n">X</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">black</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A fenti kód részletesebb magyarázatát, illetve a hozzá tartozó GPU implementációt az erről szóló <a href="https://youtu.be/4-5_UzT6SFQ&amp;t=3150">Grafika videóban</a> találod.</p>
+<hr />
+<h1 id="kviz">Kvíz</h1>
+<div class="admonition quote">
+<p>A 2024/2025/II félévben nem voltak ebben a témában kvízek.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">1. Jelölje ki azon komplex számokat, amelyeket a Mandelbrot halmaz tartalmaz.</p>
+<ul>
+<li><span class="arithmatex">\(-1+i\)</span></li>
+<li><span class="arithmatex">\(-1\)</span></li>
+<li><span class="arithmatex">\(1\)</span></li>
+<li><span class="arithmatex">\(0\)</span></li>
+<li><span class="arithmatex">\(i\)</span></li>
+<li><span class="arithmatex">\(-i\)</span></li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>"Azon <span class="arithmatex">\(c\)</span> komplex számok, amelyekre a <span class="arithmatex">\(z \to z^2 + c\)</span> Julia halmaza összefüggő." azaz ahol <span class="arithmatex">\(z \to z^2 + c\)</span> nem divergál.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> -1+i<ul>
+<li>Magyarázat:</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align*}
+z_1 &amp;= -1+i \\
+z_2 &amp;= 1 -2i +i^2 + (-1+i) = -1-i \\
+z_3 &amp;= 1 +2i +i^2 + (-1+i) = -1+3i \\
+&amp;\vdots \implies \text{Divergens}
+\end{align*}
+\]</div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> -1<ul>
+<li>Magyarázat:</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align*}
+z_1 &amp;= -1 \\
+z_2 &amp;= 1 - 1 = 0 \\
+z_3 &amp;= 0 - 1 = -1 \\
+&amp;\vdots \implies \text{Oszcillál}
+\end{align*}
+\]</div>
+<p>a többi példa gyakorlásnak:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 1</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 0</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> i</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> -i</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">2. Az <span class="arithmatex">\(F(z)=e^z + c\)</span> függvényt iteráljuk, ahol a kezdeti állapot <span class="arithmatex">\(z_0=\frac{\ln(2)}{2} + {i}\frac{\pi}{4}\)</span> és <span class="arithmatex">\(c=-1-i\)</span>. Mennyi az első iteráció után az állapot valós része?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<div class="arithmatex">\[
+\begin{align*}
+z_1 &amp;= e^{\frac{\ln(2)}{2}} \cdot e^{i\frac{\pi}{4}} -1 -i \\
+&amp;= \sqrt2 (\cos(\frac \pi 4​)+ i \sin(\frac \pi 4​)) -1 -i \\
+&amp;= \sqrt2 \cdot \frac{\sqrt 2}2 (1+ i) -1 -i = 0
+\end{align*}
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">3. Mekkora a Hausdorff dimenziója az alábbi L-rendszer által definiált alakzatnak:</p>
+<p>F <span class="arithmatex">\(\to\)</span> FFFFFFFFF</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Elképzeljük magunk előtt a teknőcöt, csak egyenesen megyünk, az eredmény egy <span class="arithmatex">\(9\)</span> részből álló egyenes szakasz.
+Tehát ha nem ugrik be egyből, hogy ez <span class="arithmatex">\(1\)</span> dimenziós, akkor itt van levezetve:</p>
+<div class="arithmatex">\[
+D = \frac{\log{N}}{\log(1/r)} = \frac{\log 9}{\log{\frac 1 {1/9}}} = 1
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">4. Mekkora a Hausdorff dimenziója az alábbi L-rendszer által definiált alakzatnak:</p>
+<p>F <span class="arithmatex">\(\to\)</span> -90F+90F+90FF-90F-90FF+90F+90F</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Érdemes lerajzolni, szép négyszögjelféleség.
+A szakaszok hossza az egész kiterjedésnek <span class="arithmatex">\(1/3\)</span>-a, és <span class="arithmatex">\(9\)</span> szakaszunk (ahogy <span class="arithmatex">\(9\)</span> F betű is) van.</p>
+<div class="arithmatex">\[
+D = \frac{\log{N}}{\log(1/r)} = \frac{\log 9}{\log 3} = 2
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">5. Nagy Britannia partvidékének hosszát megmérve <span class="arithmatex">\(256\)</span> km-es vonalzóval, a hossz <span class="arithmatex">\(2048\)</span> km-re adódott. Amikor megismételtük a mérést <span class="arithmatex">\(128\)</span> km-es vonalzóval, akkor eredményül <span class="arithmatex">\(2560\)</span> km-t kaptunk. Mekkora a partvidék vonalzó dimenziója?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<div class="arithmatex">\[
+r = \frac{128}{256}
+\]</div>
+<div class="arithmatex">\[
+N = \frac{20}{8}
+\]</div>
+<p>Tehát:</p>
+<div class="arithmatex">\[
+D = \frac{\log{N}}{\log(1/r)} = 1.32
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">6. Tekintsük az alábbi iterált függvényt: <span class="arithmatex">\(F(x)=2x(1-x)\)</span>. Mekkora a függvény legnagyobb fixpontjának az értéke?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Az <span class="arithmatex">\(x = 2x(1-x)\)</span> helyen.</p>
+<div class="arithmatex">\[
+\begin{align*}
+x &amp;= 2x - 2x^2 \\
+0 &amp;= 2x^2 - x \\
+x_1 &amp;= 0 \\
+x_2 &amp;= \frac 1 2 \\
+\end{align*}
+\]</div>
+<p>Tehát a válasz <span class="arithmatex">\(0.5\)</span></p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">7. Tekintsük az alábbi iterált függvényt: $ F(x)=Cx(1-x)$. Legalább mekkorának kell lennie a <span class="arithmatex">\(C\)</span> faktornak, hogy az iteráció ne legyen konvergens?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>A stabil pontok:</p>
+<div class="arithmatex">\[
+\begin{align*}
+x &amp;= Cx(1-x) \\
+x_1 &amp;= 0 \\
+x_2 &amp;= \frac{C-1}{C}
+\end{align*}
+\]</div>
+<p>Az <span class="arithmatex">\(x_0\)</span> pont akkor stabil, ha <span class="arithmatex">\(|F'(x_0)| &lt; 1\)</span>, tehát:</p>
+<div class="arithmatex">\[
+\begin{align*}
+F'(x) &amp;= C(1-2x) \\
+F'(x_1) &amp;= C
+\end{align*}
+\]</div>
+<p>tehát <span class="arithmatex">\(|C| &lt; 1\)</span> és</p>
+<div class="arithmatex">\[
+\begin{align*}
+F'(x) &amp;= C(1-2x) \\
+F'(x_2) &amp;= -C + 2
+\end{align*}
+\]</div>
+<p><span class="arithmatex">\(|-C+2| &lt; 1\)</span> azaz <span class="arithmatex">\(1 &lt; C &lt; 3\)</span> vagyis a válasz <span class="arithmatex">\(3\)</span></p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">8. Adja meg az alábbi Sierpinski szőnyeg Hausdorff dimenzióját:</p>
+<p><img alt="sierpinksi_triangle" src="../img/chapter_12/12_sierpinksi.png" /></p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<div class="arithmatex">\[
+r = \frac{1}{3}
+\]</div>
+<div class="arithmatex">\[
+N=8
+\]</div>
+<p>Tehát:</p>
+<div class="arithmatex">\[
+D = \frac{\log 8}{\log 3} = 1.9
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">9. Mekkora a Hausdoff dimenziója az alábbi alakzatnak (két értékes jegyre):</p>
+<p><img alt="hausdorff_triagnel" src="../img/chapter_12/12_hausdorff_tri.png" /></p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<div class="arithmatex">\[
+r = \frac{1}{2}
+\]</div>
+<div class="arithmatex">\[
+N=3
+\]</div>
+<p>Tehát:</p>
+<div class="arithmatex">\[
+D = \frac{\log 3}{\log 2} = 1.58
+\]</div>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. május 29. 22:17:12 CEST"><span class="timeago" datetime="2026-05-29T22:17:12+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. május 29. 22:17:12 CEST">2026-05-29</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="11.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 11. Vektorháború">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                11. Vektorháború
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../appendix/math_appendix.html" class="md-footer__link md-footer__link--next" aria-label="Next: A. Matematikai kifejezések">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                A. Matematikai kifejezések
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../../js/timeago.min.js"></script>
+      
+        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

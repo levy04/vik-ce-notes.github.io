@@ -1,0 +1,1908 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://levyry.github.io/grafika_biblia/notes/sem4/computer_graphics/appendix/math_appendix.html">
+      
+      
+        <link rel="prev" href="../lectures/12.html">
+      
+      
+        <link rel="next" href="../../../spec/game_theory/exam_notes.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>A. Matematikai kifejezések - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#matematikai-kifejezesek" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A. Matematikai kifejezések
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../for_contributors/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_14" id="__nav_4_1_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Függelékek
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1_14">
+            <span class="md-nav__icon md-icon"></span>
+            Függelékek
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="math_appendix.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    A. Matematikai kifejezések
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="matematikai-kifejezesek">Matematikai kifejezések</h1>
+<p>A jegyzetben sok matematikai kifejezéssel találkozhatunk, melyeknek egy részét a tárgy már feltételezi, hogy mindenki ismer. Ebben a függelékben megpróbáljuk definiálni a legtöbb ilyen kifejezést, illetve egy példát adni rájuk.</p>
+<h2 id="muveleti-tulajdonsagok">Műveleti tulajdonságok</h2>
+<h3 id="asszociativitas">Asszociativitás</h3>
+<div class="admonition info">
+<p class="admonition-title">Definíció</p>
+<p>Egy (kétváltozós) műveletre (legyen most <span class="arithmatex">\(\ast\)</span>) akkor mondjuk, hogy asszociatív, ha "nem számít az elvégzésének sorrendje", azaz szabadon zárójelezhető:</p>
+<div class="arithmatex">\[
+(u * v) * w = u * (v * w) = u * v * w
+\]</div>
+</div>
+<p>Ha egy művelet <em>nem</em> asszociatív, akkor az azt jelenti, hogy <span class="arithmatex">\((u * v) * w \neq u * (v * w)\)</span>. Egy példa egy nem asszociatív műveletre az osztás:</p>
+<div class="arithmatex">\[
+\frac{1}{6} = \frac{\frac{1}{2}}{3} = \underbrace{(1/2)/3 \neq 1/(2/3)}_{
+    \footnotesize (u * v) * w \neq u * (v * w)
+} = \frac{1}{\frac{2}{3}} = \frac{3}{2}
+\]</div>
+<h3 id="kommutativitas">Kommutativitás</h3>
+<div class="admonition info">
+<p class="admonition-title">Definíció</p>
+<p>Egy (kétváltozós) műveletre (legyen most <span class="arithmatex">\(\ast\)</span>) akkor mondjuk, hogy kommutatív, ha "nem számít az operandusok sorrendje", azaz:</p>
+<div class="arithmatex">\[
+u * v = v * u
+\]</div>
+</div>
+<p>Ha egy művelet <em>nem</em> kommutatív (antikommutatív), akkor az azt jelenti, hogy <span class="arithmatex">\(u * v \neq v * u\)</span>. Egy példa egy nem kommutatív műveletre a kivonás:</p>
+<div class="arithmatex">\[
+-1 = \underbrace{1 - 2 \neq 2 - 1}_{
+    \footnotesize u * v \neq v * u
+} = 1
+\]</div>
+<h3 id="disztributivitas">Disztributivitás</h3>
+<p>Ez a fogalom már egy picit összetettebb, hiszen itt már két különböző műveletünk is van.</p>
+<div class="admonition info">
+<p class="admonition-title">Definíció</p>
+<p>Két (kétváltozós) művelet (legyen most <span class="arithmatex">\(+\)</span> és <span class="arithmatex">\(\ast\)</span>) esetén akkor mondjuk, hogy a <span class="arithmatex">\(\ast\)</span> művelet disztributív a <span class="arithmatex">\(+\)</span> műveletre nézve, ha "felbonthatjuk a zárójelet", azaz:</p>
+<div class="arithmatex">\[
+c * (a + b) = (c * a) + (c * b)
+\]</div>
+</div>
+<p>Fontos, hogy az, hogy "az <span class="arithmatex">\(\ast\)</span> művelet disztributív a <span class="arithmatex">\(+\)</span> műveletre nézve" nem jelenti azt, hogy "az <span class="arithmatex">\(+\)</span> művelet disztributív az <span class="arithmatex">\(\ast\)</span> műveletre nézve". Ezt könnyen láthatjuk, hogy az összeadás és szorzás műveleteit nézzük:</p>
+<div class="arithmatex">\[
+25 = 5 * 5 = \underbrace{5 * (2 + 3) = (5 * 2) + (5 * 3)}_{c * (a + b) = (c * a) + (c * b)} = 10 + 15 = 25
+\]</div>
+<p>a fenti azt demonstrálja, hogy az <span class="arithmatex">\(\ast\)</span> művelet disztributív a <span class="arithmatex">\(+\)</span> műveletre nézve, viszont ha megcserélnénk a műveleteket:</p>
+<div class="arithmatex">\[
+11 = 5 + 6 = \underbrace{5 + (2 * 3) \neq (5 + 2) * (5 + 3)}_{c + (a * b) \neq (c + a) * (c + b)} = 7 * 8 = 56
+\]</div>
+<h3 id="skalazhatosag">Skálázhatóság</h3>
+<p>Elsősorban vektorok esetén beszélünk róla a tárgy keretein belül.</p>
+<div class="admonition info">
+<p class="admonition-title">Definíció</p>
+<p>Egy műveletre (legyen most <span class="arithmatex">\(\ast\)</span>) akkor mondjuk, hogy skálázható, ha <span class="arithmatex">\(a, b \in \R^n\)</span> és <span class="arithmatex">\(s \in \R\)</span> esetén:</p>
+<div class="arithmatex">\[
+sa \ast b = s(a \ast b)
+\]</div>
+<p>tehát a skálázást "kiemelhetjük", és elvégezhetjük az <span class="arithmatex">\(\ast\)</span> művelet eredményére is.</p>
+</div>
+<p>Egy példa erre a jegyzetben is említett skaláris szorzás.</p>
+<h2 id="kombinatorika">Kombinatorika</h2>
+<h3 id="binomialis-tetel">Binomiális tétel</h3>
+<div class="admonition info">
+<p class="admonition-title">Tétel</p>
+<p>Két, <span class="arithmatex">\(a, b \in \R\)</span> és <span class="arithmatex">\(n \in \N\)</span> esetén:</p>
+<div class="arithmatex">\[
+(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} \cdot a^{n-k} \cdot b^{k}
+\]</div>
+<p>ahol a <span class="arithmatex">\(\binom{n}{k}\)</span> binomiális együtthatót a következő képpen számoljuk:</p>
+<div class="arithmatex">\[
+\binom{n}{k} = \frac{n^k}{k! (n-k)!}
+\]</div>
+<p>ahol <span class="arithmatex">\(n!\)</span> az <span class="arithmatex">\(n\)</span> szám faktoriálisát jelenti.</p>
+</div>
+<p>Tehát például <span class="arithmatex">\(n=2\)</span>-re:</p>
+<div class="arithmatex">\[
+(x + y)(x + y) = x^2 + 2xy + y^2
+\]</div>
+<p>a binomiális tételt felhasználva is eljuthatunk ide:</p>
+<div class="arithmatex">\[
+\begin{align*}
+(x + y)^2 &amp;= \sum_{k=0}^{2} \binom{2}{k} \cdot x^{2 - k} \cdot y^{k} \\
+&amp;= \binom{2}{0} \cdot x^{2} \cdot y^{0} + \binom{2}{1} \cdot x^{1} \cdot y^{1} + \binom{2}{2} \cdot x^{0} \cdot y^{2} \\
+&amp;= x^2 + 2xy + y^2
+\end{align*}
+\]</div>
+<h2 id="fuggvenytulajdonsagok">Függvénytulajdonságok</h2>
+<h3 id="folytonossag">Folytonosság</h3>
+<div class="admonition info">
+<p class="admonition-title">Definíció (egyszerűsített)</p>
+<p>Az <span class="arithmatex">\(f\)</span> függvény folytonos az <span class="arithmatex">\(a\)</span> pontban, ha</p>
+<div class="arithmatex">\[
+\forall \varepsilon \in \R^{+} \; \exists \delta \in \R^{+} \; \forall x \in \text{Dom}(f) : \big( |x - a| &lt; \delta \implies |f(x) - f(a)| &lt; \varepsilon \big)
+\]</div>
+<p>Az <span class="arithmatex">\(f\)</span> függvény <em>folytonos</em>, ha az értelmezési tartományának összes pontjában folytonos.</p>
+</div>
+<p>Ezek az <span class="arithmatex">\((\varepsilon, \delta)\)</span> definíciók picit ijesztőek tudnak lenni elsőre. Ajánlom a <a href="https://youtu.be/kfF40MiS7zA?si=F_0bEfRMgJRAuLby&amp;t=293">3Blue1Brown</a> videót, ahol végig megy egy ilyen definíció értelmezésén.</p>
+<p>A jegyzetben találkozhatunk <span class="arithmatex">\(C^1\)</span> és <span class="arithmatex">\(C^2\)</span> folytonossággal. Azokat az <span class="arithmatex">\(f\)</span> függvényeket, amelyek a fenti definíciónak eleget tesznek <span class="arithmatex">\(C^0\)</span> folytonosnak nevezzük. Egy függvényt <span class="arithmatex">\(C^n\)</span> folytonosnak nevezünk, ha az <span class="arithmatex">\(n\)</span>. deriváltja is folytonos, azaz <span class="arithmatex">\(f^{(n)}\)</span> folytonos.</p>
+<p>Például vegyük az <span class="arithmatex">\(f: x \mapsto x^2 + 2\)</span> függvényt. <a href="https://cdn.discordapp.com/emojis/1394642603701571605.webp?size=240">Belátható</a>, hogy <span class="arithmatex">\(C^0\)</span> folytonos. Nézzük a deriváltjait:</p>
+<div class="arithmatex">\[
+\begin{align*}
+f'(x) &amp;= 2x \\
+f''(x) &amp;= 2 \\
+f'''(x) &amp;= 0 \\
+&amp;\vdots
+\end{align*}
+\]</div>
+<p>láthatjuk, hogy itt <span class="arithmatex">\(f\)</span> összes deriváltja továbbra is folytonos, hogy tehát <span class="arithmatex">\(f\)</span>-re igaz az, hogy <span class="arithmatex">\(C^1\)</span> vagy éppen <span class="arithmatex">\(C^2\)</span> folytonos.</p>
+<p>Nézhetünk egy ellenpéldát is. Legyen <span class="arithmatex">\(g(x) = \begin{cases} x^2 &amp;\text{ha } x \gt 0 \\ 0 &amp;\text{ha } x \le 0 \end{cases}\)</span>. Ez persze <span class="arithmatex">\(C^0\)</span> folytonos, de ha kétszer deriváljuk, akkor azt kapjuk, hogy:</p>
+<div class="arithmatex">\[
+g''(x) = \begin{cases} 2 &amp;\text{ha } x \gt 0 \\ 0 &amp;\text{ha } x \le 0 \end{cases}
+\]</div>
+<p>ami már nem egy folytonos függvény, tehát <span class="arithmatex">\(g\)</span> nem <span class="arithmatex">\(C^2\)</span> folytonos.</p>
+<h2 id="absztrakt-algebra">Absztrakt algebra</h2>
+<h3 id="gyuruk-testek-csoportok-stb">Gyűrűk, testek, csoportok, stb...</h3>
+<p>(Az alábbi egy egyszerűsítés, akit mélyebben érdekel a téma annak ajánlok pár félévet az <a href="https://ttk.elte.hu/content/matematika-bsc.t.7680">ELTE Matematika BSc. képzésén</a>)</p>
+<p>Az absztrakt algebrában elkezdünk elmozdulni a hétköznapi, megszokott rendszerekben való számolásoktól, és inkább magukkal a <em>rendszerekkel</em> akarunk foglalkozni. Sok ezer évig számos dolgot magától értetődőnek vettek a matematikusok. Ha megkérdeznéd Euklidészt, vagy akár Newtont, akkor nekik valószínűleg gőzük sem lenne ahhoz, hogy mi az a "kommutativitás". Persze tudják, hogy <span class="arithmatex">\(2 + 1 = 1 + 2\)</span>, és hogy <span class="arithmatex">\(2 - 1 \neq 1 - 2\)</span>, hiszen ez "egyértelmű", de ha megkérdeznéd, hogy miért van ez így, akkor ők is csak megvonnák a vállukat.</p>
+<p>A huszadik század eleje felé a matematikusokat elkezdte érdekelni, hogy "oké, de most komolyan, miért tudom megcserélni a tényezőkeg az összeadásnál, de a kivonásnál nem?", és még fontosabban "mi lenne, ha mégis meg tudnám?". Nagyon sok áttörés született ebben a korban, az absztrakt algebrán kívül a <a href="https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory">halmazelmélet</a> pontos definíciója, a <a href="https://en.wikipedia.org/wiki/Mathematical_logic">matematikai logika</a>, <a href="https://hu.wikipedia.org/wiki/Topol%C3%B3gia">topológia</a>, azon belül is a <a href="https://hu.wikipedia.org/wiki/M%C3%A9rt%C3%A9k_(matematika)">mértékelmélet</a>, mind ekkor jöttek létre.</p>
+<p>Nézzünk egy példát a gyűrű fogalmára:</p>
+<div class="admonition example">
+<p class="admonition-title">Gyűrű</p>
+<p>Az egész számok <span class="arithmatex">\(\Z\)</span> halmaza az összeadás (<span class="arithmatex">\(+\)</span>) és szorzás (<span class="arithmatex">\(\ast\)</span>) műveletekkel egy gyűrűt alkot.</p>
+</div>
+<p>Igen, tényleg csak ennyi! Ha fogod az egész számok halmazát, és az általános iskolában tanult összeadás és szorzás műveleteket értelmezed rajta, az egy gyűrű! Nézzük meg pontosabban is:</p>
+<div class="admonition info">
+<p class="admonition-title">Definíció</p>
+<p>Egy <span class="arithmatex">\(R\)</span> halmazt, két bináris művelettel (<span class="arithmatex">\(+\)</span>, <span class="arithmatex">\(\ast\)</span>) felszerelve egy <em>gyűrűnek</em> nevezünk, ha betartja a <em>gyűrű axiómákat:</em></p>
+<ol>
+<li><span class="arithmatex">\(R\)</span> az <span class="arithmatex">\(+\)</span> művelettel együtt egy <em>Ábel-csoportot</em> alkot, ami azt jelenti, hogy:<ul>
+<li>Az <span class="arithmatex">\(+\)</span> asszociatív <span class="arithmatex">\(R\)</span>-ben.</li>
+<li>Az <span class="arithmatex">\(+\)</span> kommutatív <span class="arithmatex">\(R\)</span>-ben.</li>
+<li>Létezik olyan <span class="arithmatex">\(0 \in R\)</span>, hogy <span class="arithmatex">\(a + 0 = a\)</span> minden <span class="arithmatex">\(a \in R\)</span>. (additív identitás)</li>
+<li>Minden <span class="arithmatex">\(a \in R\)</span>-re létezik egy <span class="arithmatex">\(-a \in R\)</span>, melyekre igaz, hogy <span class="arithmatex">\(a + (-a) = 0\)</span>. (additív inverz)</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(R\)</span> a <span class="arithmatex">\(\ast\)</span> művelettel együtt egy <em><a href="math_appendix.html#monoid">Monoid</a></em>, ami azt jelenti, hogy:<ul>
+<li>A <span class="arithmatex">\(\ast\)</span> művelet asszociatív <span class="arithmatex">\(R\)</span>-ben.</li>
+<li>Létezik olyan <span class="arithmatex">\(1 \in R\)</span>, hogy <span class="arithmatex">\(1 \ast a = a \ast 1 = a\)</span> minden <span class="arithmatex">\(a \in R\)</span>. (multiplikatív identitás)</li>
+</ul>
+</li>
+<li>A <span class="arithmatex">\(\ast\)</span> művelet disztributív a <span class="arithmatex">\(+\)</span> műveletre nézve.</li>
+</ol>
+</div>
+<p>Ezeknek a nagy részére az lehet a reakciónk, hogy "hát persze, ez nem triviális?", és igazunk is lenne, hiszen több ezer évbe telt, mire a matematikusoknak eszébe jutott, hogy ezeket meg kéne fogalmazni, és össze kéne szedni egy listába.</p>
+<p>Léteznek további kibővítések is, például a <em>kommutatív gyűrű</em> egy olyan gyűrű, ahol a <span class="arithmatex">\(\ast\)</span> művelet is kommutatív. A fent említett egész számok halmaza is egy kommutatív gyűrűt alkot.</p>
+<p>A jegyzetben amikor gyűrűkről van szó, akkor általában arra gondol a Mester, hogy a "megszokott" műveleti tulajdonságokról beszélünk, amiket éppen most soroltunk fel pontosan (tehát az összeadás, szorzás úgy működik, ahogy "számítunk rá").</p>
+<p>A test (angolul <em>field</em>) fogalma is nagyon hasonló mint a gyűrűnek, csak még több "triviális" tulajdonságot köt meg. Vegyük észre például, hogy a fenti gyűrű definíciónkkal nem tudnánk a racionális számok halmazát definiálni. Nem köti meg, hogy kell léteznie multiplikatív inverzeknek, tehát nem tudnánk például definiálni az <span class="arithmatex">\(1/2\)</span>-edet. A testek pont ezért lényegében egy olyan gyűrűk, ahol a <span class="arithmatex">\(0\)</span>-tól különböző elemeknek van multiplikatív inverze. Precízebben a <em>test axiómák</em> határozzák meg, hogy mi egy test, melyeket itt nem sorolnék fel, de online <a href="https://en.wikipedia.org/wiki/Field_(mathematics)#Classic_definition">sok helyen elérhetőek</a>.</p>
+<h3 id="monoid">Monoid</h3>
+<p>Ez a kifejezés bár nem szerepel a jegyzetben, de nagyon sok relevanciája van az informatika világában is, szóval röviden megemlítem.</p>
+<p>A <a href="math_appendix.html#gyuruk-testek-csoportok-stb">gyűrű axiómáknál</a> már meg volt említve a Monoid:</p>
+<div class="admonition info">
+<p class="admonition-title">Definíció</p>
+<p>Egy <span class="arithmatex">\(S\)</span> halmaz egy <span class="arithmatex">\(\ast\)</span> bináris operátorral együtt egy <em>Monoidot</em> alkot, ha az alábbi két axiómának eleget tesznek:</p>
+<ol>
+<li>A <span class="arithmatex">\(\ast\)</span> művelet asszociatív <span class="arithmatex">\(S\)</span>-ben.</li>
+<li>Létezik olyan <span class="arithmatex">\(e \in S\)</span>, melyre <span class="arithmatex">\(a \ast s = s \ast a = a\)</span> igaz minden <span class="arithmatex">\(a\)</span>-ra <span class="arithmatex">\(S\)</span>-ből.</li>
+</ol>
+</div>
+<p>Első ránézésre semmi köze sincs a programozáshoz, viszont a <em>funkcionális programozás</em> világában egy eléggé fontos fogalom. Vegyük példának a "lista" fogalmát (láncolt lista). Ez vajon egy monoid? Legyen <span class="arithmatex">\(L\)</span> az összes lista halmaza. Ekkor például <code>[1,2,3]</code> <span class="arithmatex">\(\in L\)</span>, vagy <code>["Almafa", "karika"]</code> <span class="arithmatex">\(\in L\)</span>. Tudnánk találni egy olyan bináris műveletet, amellyel együtt <span class="arithmatex">\(L\)</span> teljesíti a monoid axiómákat?</p>
+<p>Ennek a műveletnek asszociatívnak kell lennie, és két listából egy listát kell csinálnia. Mi lenne, ha az lenne a műveletünk, hogy két listát egymás után fűzünk. Jelölje ezt a műveletet <code>++</code>. Ekkor teljesül, hogy</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">])</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+<p>Eddig jók vagyunk! Létezik vajon identitás elemünk? Igen, az üres lista! Láthatjuk, hogy</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+<p>tehát a listák halmaza <span class="arithmatex">\(L\)</span> és a <code>++</code> művelet tényleg egy monoidot alkotnak.</p>
+<p>Ez nekünk miért hasznos? Nézzünk egy másik példát. Az egész számok és az <span class="arithmatex">\(+\)</span> is egy monoidot alkotnak. Ez nekünk azért jó, mert kihasználva a monoid axiómákat egy nagyobb számítást tetszőleges sok kisebb számításra bonthatunk, amelyek részeredményeit a végén összefűzhetjük. Például vegyük azt, hogy Java-ban van egy listányi számunk, és arra vagyunk kíváncsiak, hogy mennyi az összes szám összege:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// A listánk (halmazunk)</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Mennyi a `numbers` listában tárolt számok összege?</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ehhez természetesen használhatunk egy <code>for</code> ciklust:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ...</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+</code></pre></div>
+<p>Könnyen párhuzamosíthatóvá tehetjük ezt viszont ha kihasználjuk, hogy egy monoiddal van dolgunk. Egyszerre mindig csak két számot szeretnénk összeadni, tehát valami olyasmit szeretnénk, ami végigmegy a listánkon, és <em>akkumulálja</em> a részösszegeket, ahogy összeadogatjuk a szomszédos számokat. A monoid elvén alapuló <code>reduce</code> függvény pontosan ezt csinálja:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ...</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// Párhuzamos feldolgozás</span>
+<span class="c1">// A stream több részre oszlik, a részek külön-külön akkumulálódnak,</span>
+<span class="c1">// majd az eredmények összeadódnak.</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">().</span><span class="na">reduce</span><span class="p">(</span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">// additív identitás</span>
+<span class="w">    </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="c1">// bináris művelet: két elemet kombinál</span>
+<span class="w">    </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w">  </span><span class="c1">// összeadja a párhuzamosan számolt részösszegeket</span>
+<span class="p">);</span>
+
+<span class="c1">// ...</span>
+</code></pre></div>
+<p>Mivel az összeadás asszociatív, a program feldarabolhatja az összeadást. Például az <code>(1 + 2 + 3) + (4 + 5 + 6)</code> ugyanazt az eredményt adja, mint az <code>1 + (2 + 3) + 4 + (5 + 6)</code>. Így tehát akár több szálon is össze tudjuk adni a listának egy-egy részlistáját, amiket a végén szintén összeadunk. Ennél az elemi példánál persze a <code>for</code> ciklus is megfelelő, viszont bonyolultabb számítások esetén az, hogy lényegében "ingyen" kaptuk meg a párhuzamosságot az nagyon kényelmes.</p>
+<p>Ha elindulunk ezen az úton, akkor eljuthatunk a <em>monádok</em> fogalmáig, amiket már minden programozó használt életében és szerette őket, akkor is, ha pontosan nem is tudta, hogy azokat használta. Ha használtál már JavaScriptben <code>Promise</code>-t, vagy Kotlinban <code>?.</code> operátort, vagy ha <a href="https://en.wikipedia.org/wiki/Function_composition_(computer_science)#Composing_function_calls">hívtál már meg több függvényt egymás után</a>, akkor már használtál monádokat.</p>
+<p>Egyre több modern nyelvben van jelentős mennyiségű funkcionális elem (Rust, Kotlin, Swift) és régebbi nyelvek új verziói is sokat vettek át (Java, C++). Az alapképzésben sajnos alig jut idő a funkcionális programozásra. Ha mélyebben érdekel a téma, akkor ajánlom valamilyen funkcionális nyelv megtanulását (mint például a <a href="https://learnyouahaskell.github.io/introduction.html">Haskell</a>), illetve a <a href="https://portal.vik.bme.hu/kepzes/targyak/VISZAD01/">Deklaratív programozás</a> kötvál és a <a href="https://portal.vik.bme.hu/kepzes/targyak/VITMAV47">Funkcionális programozás C++-ban</a> szabvál elvégzését.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. május 29. 22:17:12 CEST"><span class="timeago" datetime="2026-05-29T22:17:12+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. május 29. 22:17:12 CEST">2026-05-29</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lectures/12.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 12. Fraktálok és káosz">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                12. Fraktálok és káosz
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../spec/game_theory/exam_notes.html" class="md-footer__link md-footer__link--next" aria-label="Next: Vizsgajegyzet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Vizsgajegyzet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../../js/timeago.min.js"></script>
+      
+        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2287 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://levyry.github.io/grafika_biblia/notes/sem4/computer_graphics/lectures/1.html">
+      
+      
+        <link rel="prev" href="../index.html">
+      
+      
+        <link rel="next" href="2.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>1. Geometriák és algebrák - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#geometriak-es-algebrak" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Geometriák és algebrák
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../for_contributors/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_14" id="__nav_4_1_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Függelékek
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_14">
+            <span class="md-nav__icon md-icon"></span>
+            Függelékek
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix/math_appendix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A. Matematikai kifejezések
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="geometriak-es-algebrak">Geometriák és algebrák</h1>
+<p>A geometriák különböző axiómákra épülnek. Az axiómákat eleinte <em>tapasztalatok</em> határozták meg, és ezek olyan állítások, amikben <em>vallásosan hiszünk</em>. Tételek kiindulási pontjaként szolgálnak, és általában az alapfogalmakat impliciten ezekkel definiáljuk. Például az Euklideszi síkgeometriában az egyik legfontosabb, hogy egy egyenesre egy külső pontból legfeljebb egy olyan egyenes húzható, ami nem metszi (ez a <a href="https://hu.wikipedia.org/wiki/P%C3%A1rhuzamoss%C3%A1gi_axi%C3%B3ma">párhuzamossági posztulátum</a>).</p>
+<details class="example">
+<summary>Bővebben Euklideszről...</summary>
+<p>Ha érdekel az Euklideszi síkgeometria, esetleg Euklidesz <a href="https://hu.wikipedia.org/wiki/Elemek">Elemek</a> c. könyve, akkor a jegyzet írói ajánlják a <a href="https://www.youtube.com/watch?v=M-MgQC6z3VU">What was Euclid really doing? (3Blue1Brown)</a> videót, melyben többek között szó esik a párhuzamossági posztulátumról és más geometriai rendszerekről is, melyek a tárgy tananyagát is képzik.</p>
+</details>
+<p>Mi most absztrakt geometriai fogalmakhoz, mint például <em>pont</em>, <em>egyenes</em>, vagy <em>X metszi Y-t</em> próbálunk számokat és függvényeket rendelni, hiszen ezekkel lehet programozni. Pontosabban bizonyos axiómák által alkotott <em>geometriához</em> próbálunk egy <em>algebrát</em> rendelni, amelyből már tudunk programokat írni. Viszont eközben sosem szabad a választott geometriánk axiómarendszerének ellentmondani.</p>
+<p>Az axiómáink megváltoztatása különböző eredményekhez vezethet, például ha olyan axiómarendszert alkotunk, ahol a háromszög belső szögeinek összege kevesebb mint <span class="arithmatex">\(180\degree\)</span>, akkor <em>hiperbolikus geometriát</em> kaptunk, mely egy gyakori model az asztrofizikában. Ha viszont több lenne, mint <span class="arithmatex">\(180\degree\)</span>, akkor <em>gömbi geometriát</em> kapnánk, mely a bolygónk modellezésében elengedhetetlen szerepet játszik.</p>
+<h2 id="ambiens-terek">Ambiens terek</h2>
+<p>A különböző geometriákat <em>ambiens térrel</em>, más szóval beágyazó térrel fogjuk ábrázolni.</p>
+<div class="admonition info">
+<p class="admonition-title">1.1. Definíció (Ambiens tér, <a href="https://en.wikipedia.org/wiki/Ambient_space_(mathematics)">ambient space</a>)</p>
+<p>Egy olyan tér, ami valamilyen objektumot (pl. sík, gömb) körbevesz.</p>
+</div>
+<p>Picit absztraktnak hangzik ez a fogalom, próbáljuk meg értelmezni. Az euklideszi síkgeometria esetében például ez azt jelenti, hogy a szokásos két dimenziós ábrázolás helyett egy három dimenziós teret kell elképzelnünk, amelyben felveszünk egy síkot. Ez a sík az eredeti síkgeometria, viszont mivel három dimenzióban vagyunk, ezért nem limitálódunk le csak két dimenzióra.</p>
+<p>Ezt a harmadik koordinátát például fel tudjuk használni arra, hogy elkülönítsük a pontokat és a vektorokat. Alapból (ránézésre) nem tudnánk megmondani a <span class="arithmatex">\((2, 3)\)</span> koordinátájú objektumról, hogy ez egy pontot ábrázol, vagy egy helyvektort, mely a <span class="arithmatex">\((2, 3)\)</span> pontba mutat. Viszont mondhatjuk azt, hogy legyen az összes pont <span class="arithmatex">\([x, y, 1]\)</span> alakú, és az összes vektor pedig <span class="arithmatex">\([x, y, 0]\)</span> alakú.</p>
+<p>Más geometriákat is beágyazhatunk ambiens terekbe, például ha nem a <span class="arithmatex">\((x, y, 1)\)</span> síkon választanánk pontokat, hanem azt mondanánk, hogy minden <span class="arithmatex">\((x, y, w)\)</span> pontnak az <span class="arithmatex">\(x^2 + y^2 + w^2 = 1\)</span> egyenletet kéne kielégítenie, akkor elliptikus geometriát ábrázolnánk, vagy a hiperbolikus geometria esetén a pontokat az <span class="arithmatex">\(x^2 + y^2 - w^2 = -1\)</span> egyenlet alapján választanánk. Az a fontos, hogy mindig ezeken az objektumokon (sík, félgömb, gömb, stb.) választunk pontokat.</p>
+<h2 id="metrika">Metrika</h2>
+<p>Korábban különböző metrikákkal (pl. hossz, szög) definiáltuk a különböző műveleteket (pl. skaláris szorzás). Most viszont fordítva fogjuk csinálni: tudjuk, hogy akarunk egy skaláris szorzás műveletet, ami rendelkezik a már megszokott tulajdonságaival (kommutatív, bilineáris).</p>
+<p>Nem a metrikáinkkal definiáljuk a műveletet, hanem a művelettel definiáljuk a metrikáinkat: egy vektor hosszát definiálhatjuk úgy, mint a saját magával vett skaláris szorzatának a négyzetgyöke. Ez az euklideszi geometriában pontosan megegyezik az általunk ismert hossz fogalmával, viszont így algebrailag is meg tudjuk fogalmazni, hogy mit értünk egy vektor "hosszán".</p>
+<h2 id="euklideszi-sikgeometria">Euklideszi síkgeometria</h2>
+<p>Két dimenzióról beszélünk (<span class="arithmatex">\(x\)</span>,<span class="arithmatex">\(y\)</span> koordinátákkal), amihez felveszünk egy harmadik tulajdonságot (<span class="arithmatex">\(w\)</span>-t).</p>
+<div class="admonition info">
+<p class="admonition-title">1.2. Definíció (skaláris szorzás)</p>
+<p>Vegyük az ambiens tér két elemét, legyenek ezek <span class="arithmatex">\(a_1\)</span> és <span class="arithmatex">\(a_2\)</span>. Ekkor ezek <em>skaláris szorzata</em> a következő:</p>
+<div class="arithmatex">\[
+a_1 \cdot a_2 = x_1 x_2 + y_1 y_2 + w_1 w_2
+\]</div>
+</div>
+<p>Ez a művelet kommutatív, disztributív (bilineáris) és skálázható, viszont <strong>nem</strong> asszociatív.</p>
+<details class="example">
+<summary>Azt hittem, hogy már letudtam az Anal-t...</summary>
+<p>Ha pár matekos kifejezés pontos definíciójára esetleg nem emlékeznél, nézz rá az <a href="../appendix/math_appendix.html"><span class="arithmatex">\(A.\)</span> függelékre</a>, ahol példákon keresztül is segítünk megérteni egyes fogalmakat. A fenti fogalmak definícióit <a href="../appendix/math_appendix.html#muveleti-tulajdonsagok">itt</a> találod.</p>
+</details>
+<p>Az ambiens terünk elemei a <em>pontok</em> és a <em>vektorok</em>. Az ambiens vektorokat képesnek kell lennünk összeadni és skálázni, ebből következik, hogy <span class="arithmatex">\(w=0\)</span> a vektoroknál és <span class="arithmatex">\(w=1\)</span> a pontoknál (egyéb <span class="arithmatex">\(w\)</span>-k se nem pontok, se nem vektorok). A pontok esetén <span class="arithmatex">\(w=1\)</span> azért áll fenn, hogy az eltolás lineáris leképezés maradjon. Továbbá így két pont különbsége pont egy vektor, hiszen a két <span class="arithmatex">\(w\)</span> tag különbsége <span class="arithmatex">\(0\)</span> lesz.</p>
+<h3 id="vektorok-tulajdonsagai">Vektorok tulajdonságai</h3>
+<ul>
+<li>Két pont különbsége egy vektor.</li>
+<li>Az ambiens térnek elemei: <span class="arithmatex">\(\underline{v} = [x,y,0]\)</span></li>
+<li>Hossza: <span class="arithmatex">\(|v| = \sqrt{v \cdot v}\)</span></li>
+<li>Merőlegesség: <span class="arithmatex">\(u \perp v\)</span> ha <span class="arithmatex">\(u \cdot v = 0\)</span></li>
+<li>Minden vektorra végtelen sok merőleges vektor létezik <span class="arithmatex">\(\lambda [y, -x, 0]\)</span> alakban.</li>
+<li>Párhuzamosság: <span class="arithmatex">\(u \parallel v\)</span> ha <span class="arithmatex">\(u = \lambda v\)</span></li>
+<li>Minden vektorra végtelen sok párhuzamos vektor létezik <span class="arithmatex">\(\lambda [x, y, 0]\)</span> alakban.</li>
+<li>Egységvektor: <span class="arithmatex">\(\displaystyle|v^0| = 1, v^0 \cdot v^0 = 1, v^0 = \frac{v}{|v|} = \frac{v}{\sqrt{v \cdot v}}\)</span> (normalizálás)</li>
+</ul>
+<h3 id="egyenes-egyenletei">Egyenes egyenletei</h3>
+<div class="admonition info">
+<p class="admonition-title">1.3. Definíció (Egyenes paraméteres egyenletei)</p>
+<p>Egy <span class="arithmatex">\(r\)</span> egyenes parametrikus egyenlete a következő:</p>
+<div class="arithmatex">\[
+r(t) = p + vt
+\]</div>
+<p>Koordináták használatával pedig:</p>
+<div class="arithmatex">\[
+[x(t),y(t),w(t)] = [p_x,p_y,1] + [v_x,v_y,0] \cdot t
+\]</div>
+<p>Végezetül két pont (<span class="arithmatex">\(p, q\)</span>) kombinációjaként:</p>
+<div class="arithmatex">\[
+[x(t),y(t),w(t)] = [p_x,p_y,1] \cdot (1 - t) + [q_x,q_y,1] \cdot t
+\]</div>
+</div>
+<details class="example" open="open">
+<summary>Fizikai értelmezés</summary>
+<p>Fizikai megközelítésből ez egy <em>állandó sebességű mozgásnak</em> felel meg, hiszen az első idő szerinti deriváltja a sebesség, a második pedig a gyorsulás:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\dot{r}(t) = v \\
+\ddot{r}(t) = 0
+\end{align*}
+\]</div>
+</details>
+<p>Azaz <span class="arithmatex">\(p\)</span> pontból <span class="arithmatex">\(t\)</span> ideje indultunk el <span class="arithmatex">\(v\)</span> vektorral. Ha végig gondoljuk ez valóban pontok gyűjteménye, hiszen <span class="arithmatex">\(w=1\)</span> végig. Fel lehet fogni továbbá az ambiens tér síkjának (melyet az origó, <span class="arithmatex">\(p\)</span> és <span class="arithmatex">\(q\)</span> pontok alkotnak) és a <span class="arithmatex">\(w=1\)</span> síknak a metszeteként.</p>
+<div class="admonition info">
+<p class="admonition-title">1.5. Definíció (Egyenes implicit egyenlete)</p>
+<p>Egy <span class="arithmatex">\(r\)</span> egyenes implicit egyenlete a következő:</p>
+<div class="arithmatex">\[
+n\cdot (r - p) = 0
+\]</div>
+</div>
+<p>Ahol <span class="arithmatex">\(r\)</span> egyenest határozzuk meg <span class="arithmatex">\(p\)</span> pontja és <span class="arithmatex">\(\underline{n}\)</span> normálvektora segítségével:</p>
+<div class="arithmatex">\[
+r(x,y) \Rightarrow [n_x, n_y, 0] \cdot [x - p_x, y - p_y, 0] = 0
+\]</div>
+<p>vagyis</p>
+<div class="arithmatex">\[
+\boxed{n_x x + n_y y + d = 0}
+\]</div>
+<p>ahol <span class="arithmatex">\(d = -n \cdot p\)</span>.</p>
+<p>Ha <span class="arithmatex">\(r\)</span> helyére behelyettesítünk, akkor könnyen eldönthetjük, hogy egy pont rajta van-e (egyébként pont ezért <em>implicit</em> egyenlet, mert az <span class="arithmatex">\(r\)</span> egyenest nem fejezzük ki expliciten).</p>
+<h2 id="euklideszi-tergeometria">Euklideszi térgeometria</h2>
+<p>A célunk az, hogy minden ugyan olyan legyen mint a síkgeometriánál, csak most már egyel magasabb dimenzióban: itt az ambiens tér négy dimenziós, az elemeit <span class="arithmatex">\([x, y, z, w]\)</span> alakban adjuk meg.</p>
+<p>A korábban megbeszélt műveletek nem változnak, az egyenes egyenletek továbbra is megmaradnak.</p>
+<h3 id="sik-egyenletei">Sík egyenletei</h3>
+<div class="admonition info">
+<p class="admonition-title">1.6. Definíció (Sík explicit egyenlete)</p>
+<p>Egy <span class="arithmatex">\(p\)</span> pontot tartalmazó, <span class="arithmatex">\(\underline{a}\)</span> és <span class="arithmatex">\(\underline{b}\)</span> nem párhuzamos vektorok (<span class="arithmatex">\(\underline{a} \not\perp \underline{b}\)</span>) által kifeszített sík explicit egyenlete a következő:</p>
+<div class="arithmatex">\[
+r(u,v) = p + au + bv
+\]</div>
+<p>ahol <span class="arithmatex">\(u,v\)</span> valós paraméterek.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">1.7. Definíció (Sík implicit egyenlete)</p>
+<p>Egy sík implicit egyenlete a következő:</p>
+<div class="arithmatex">\[
+n \cdot (r-p) = 0
+\]</div>
+</div>
+<p>Ahol <span class="arithmatex">\(\underline{n}\)</span> normálvektor merőleges <span class="arithmatex">\(\underline{a}, \underline{b}\)</span> vektorokra, vagyis: <span class="arithmatex">\(n_x x + n_y y + n_z z + d = 0\)</span></p>
+<p>Két <span class="arithmatex">\(N_1, N_2\)</span> sík akkor egyezik meg, ha <span class="arithmatex">\(N_1 = N_2 \lambda\)</span> valamilyen <span class="arithmatex">\(\lambda\)</span> skalárra.</p>
+<h2 id="gorbulet">Görbület</h2>
+<h3 id="gorbek-gorbulete">Görbék görbülete</h3>
+<p>Egy adott pontra az alábbi két definíció egyikét használhatjuk:</p>
+<div class="admonition info">
+<p class="admonition-title">1.8. Definíció (Adott pontbeli görbület)</p>
+<p>A <span class="arithmatex">\(\kappa\)</span> <em>görbület</em> az "egysebességű" centripetális gyorsulás:</p>
+<div class="arithmatex">\[
+a_{cp} = \frac{v^2}{R}
+\]</div>
+</div>
+<p>Ahol "egysebességű" alatt azt értjük, hogy a sebesség nagysága állandó.</p>
+<div class="admonition info">
+<p class="admonition-title">1.9. Definíció (Adott pontbeli görbület)</p>
+<p>A <span class="arithmatex">\(K\)</span> <em>görbület</em> a simuló kör sugarának reciproka:</p>
+<div class="arithmatex">\[
+K = \frac{1}{r} = \frac{v^2}{r}
+\]</div>
+</div>
+<p><img alt="A fenti két definíciót bemutató ábra." src="../img/chapter_1/1_gorbulet.png" width="100%" /></p>
+<h3 id="gauss-gorbulet">Gauss görbület</h3>
+<p>Egy felület (mondjuk henger) görbületét szeretnénk meghatározni egy adott pontban. Feltehető, hogy ebben a pontban a felületnek van egy normálvektora, ami merőleges a felület síkjára. Ekkor az alakzatot felvághatjuk olyan síkokkal, amik az adott pontot metszik és a normálvektorral párhuzamosak. Ezek a síkok bármerre állhatnak, és ahogy a felületet metszik, úgy egy görbét határoznak meg.</p>
+<p>Az így kapott görbék közül van kettő, ahol az egyiknél a görbület minimális, a másiknál maximális. Ezeket a <em>principális</em> vagy <em>főgörbületi</em> irányoknak nevezzük, és merőlegesek egymásra.</p>
+<p>Az itt található görbületek szorzata az úgynevezett <em>Gauss-görbület</em>.</p>
+<p><img alt="Gauss görbület" src="../img/chapter_1/1_gauss_gorbulet.png" width="100%" /></p>
+<details class="example">
+<summary>Részletek</summary>
+<p><a href="https://youtu.be/0ZV4TjgI424?t=621">Ezen</a> a linken elérhető a hivatalos grafika youtube videó ezzel kapcsolatban. A diasorokon voltak még további alakzatok, ezeken érdemes ezt végig gondolni. A legfontosabb, hogy a normállal mindig párhuzamosak ezek a metszések.</p>
+</details>
+<h2 id="gombi-geometria">Gömbi geometria</h2>
+<p>Itt a görbület állandóan pozitív, az egyenesek is görbék. További fontos változások:</p>
+<ul>
+<li>Két pont nem mindig határoz meg egyértelműen egy egyenest.</li>
+<li>Két egyenes mindig két pontban metszi egymást.</li>
+<li>Nincsenek olyan egyenesek, amik ne metszenék egymást (még a párhuzamosok is metszik egymást).</li>
+</ul>
+<p>Ezeket a változtatásokat az új axiómák eredményezték.</p>
+<h3 id="alap-definiciok">Alap definíciók</h3>
+<div class="admonition info">
+<p class="admonition-title">1.10. Definíció (A gömb egyenlete)</p>
+<p>Egy <span class="arithmatex">\(k\)</span> kör egyenlete a következő:</p>
+<div class="arithmatex">\[
+k\colon x^2 + y^2 + z^2 = R^2 = \frac{1}{K}
+\]</div>
+</div>
+<p>Itt a <span class="arithmatex">\(K\)</span> görbület mindig pozitív.</p>
+<div class="admonition info">
+<p class="admonition-title">1.11. Definíció (Főkör)</p>
+<p>Két pont és a gömb közepe meghatároz egy síkot. A kört, ami a sík és gömb metszésével jön létre <em>főkörnek</em> nevezzük.</p>
+</div>
+<p>A főkör az egyenes analógja, hiszen ez lesz a legrövidebb út két pont között.</p>
+<p>Fontos kiemelni, hogy a főkört nem mindig lehet egyértelműen meghatározni, pl. Északi sark, Déli sark, Origó pontokkal végtelen sok sík van.</p>
+<p>A távolság analógja az <em>ívhossz</em>: <span class="arithmatex">\(\displaystyle R \theta =  \frac{\theta}{\sqrt{K}}\)</span>.</p>
+<div class="admonition info">
+<p class="admonition-title">1.12. Definíció (Főkör egyenlete)</p>
+<p>A főkör egyenlete a következő:</p>
+<div class="arithmatex">\[
+r(t) = p \cos(t/R) + v^0 R \sin(t/R)
+\]</div>
+<p>ahol felhasználtuk, hogy egységsebességnél a távolság képlete <span class="arithmatex">\(R \theta = t\)</span>.</p>
+</div>
+<h3 id="elliptikus-geometria">Elliptikus geometria</h3>
+<p>Ez a geometria nagyrészt analóg a gömbi geometriával, viszont egy fontos változtatás, hogy <em>az átellenes pontok egynek számítanak</em>.</p>
+<h3 id="haromszogek-gombi-geometriaban">Háromszögek gömbi geometriában</h3>
+<p>Gömbi geometriában a háromszögek belső szögösszege nagyobb mint <span class="arithmatex">\(180˚\)</span>, a területük pedig:</p>
+<div class="arithmatex">\[
+T = (\alpha + \beta + \gamma - \pi)/K
+\]</div>
+<p>ahol <span class="arithmatex">\(\alpha, \beta, \gamma\)</span> a háromszög belső szögei radiánban. Derékszögű háromszögekre pedig az alábbi egyenlőtlenség teljesül:</p>
+<div class="arithmatex">\[
+a^2 + b^2 &gt; c^2
+\]</div>
+<p>ahol <span class="arithmatex">\(a,b,c\)</span> a háromszög oldalai.</p>
+<h3 id="az-ambiens-ter-elemei">Az ambiens tér elemei</h3>
+<p>Az ambiens tér elemei a pontok és a vektorok egy adott pontban, ahol a <span class="arithmatex">\(p\)</span> pontokra teljesül, hogy</p>
+<div class="arithmatex">\[
+\begin{align*}
+p \cdot p &amp;= 1 \\
+p_x^2 + p_y^2 + p_w^2 &amp;= 1
+\end{align*}
+\]</div>
+<p>ahol a skaláris szorzás definíciója változatlan az euklideszi síkgeometriához képest.</p>
+<p>A vektorokat csak adott <span class="arithmatex">\(p\)</span> pontokban definiáljuk; úgy, hogy egy <span class="arithmatex">\(v\)</span> vektorra teljesüljön, hogy</p>
+<div class="arithmatex">\[
+p \cdot v = 0
+\]</div>
+<p>Fontos kiemelni, hogy a vektorok mások a tér különböző pontjaiban, és egy vektor a hozzá tartozó pont tangens terének az eleme.</p>
+<h3 id="egyenesek">Egyenesek</h3>
+<p>Az egyenest továbbra is lehet egységsebességű mozgásként értelmezni, viszont itt már máshogy kell azt a mozgást leírni:</p>
+<div class="admonition info">
+<p class="admonition-title">1.13. Definíció (Az egyenes parametrikus egyenlete gömbi geometriában)</p>
+<p>Egy <span class="arithmatex">\(r\)</span> egyenes parametrikus egyenlete a következő:</p>
+<div class="arithmatex">\[
+r(t) = p \cos(t) + v^0 \sin(t)
+\]</div>
+</div>
+<p>Továbbá is értelmezhető úgy, mint az ambiens tér síkjának és a geometriának a metszete.</p>
+<div class="admonition info">
+<p class="admonition-title">1.14 Definíció (Gömbi kombináció, "slerp")</p>
+<div class="arithmatex">\[
+\\[2.75ex] % weird spacing required so its centered. probably because there is no text in the admonition
+r(td) = p \frac{\sin(1-t)d}{\sin(d)} + q \frac{\sin(td)}{\sin(d)}
+\]</div>
+</div>
+<p>Természetesen a pontok nem hagyják el a gömb felszínét, így <span class="arithmatex">\(r(t) \cdot r(t) = 1\)</span>, és mivel egységsebességű mozgás, ezért <span class="arithmatex">\(\dot{r}(t) \cdot \dot{r}(t) = 1\)</span>.</p>
+<p>A Gauss görbületet pedig a második idő szerinti deriváltból kaphatjuk meg:</p>
+<div class="arithmatex">\[
+\ddot{r}(t) = -(r)t \Rightarrow K = \ddot{r}_{min} \cdot \ddot{r}_{max} = 1
+\]</div>
+<h3 id="tavolsag">Távolság</h3>
+<!-- TODO: Több magyarázat -->
+<p>Két pont távolsága az egységsebességű, egyenesvonalú mozgás ideje:</p>
+<div class="arithmatex">\[
+d(p, q) = \arccos(q \cdot p)
+\]</div>
+<p>ebből meghatározható a kör implicit egyenlete:</p>
+<div class="admonition info">
+<p class="admonition-title">1.15. Definíció (A kör implicit egyenlete gömbi geometriában)</p>
+<div class="arithmatex">\[
+\\[2.75ex] % see comment at 1.14 definition
+r \cdot c = \cos(R)
+\]</div>
+</div>
+<p>ahol felhasználtuk, hogy <span class="arithmatex">\(R = d(r,c) = \arccos(r \cdot c)\)</span>.</p>
+<h3 id="terkepek">Térképek</h3>
+<p>Nézzünk egy valóvilág beli alkalmazást. A célunk az, hogy egy gömböt (például a Föld felszínét) levetítsünk egy síkra úgy, hogy minél jobban igazodjon a valós gömbhöz. Elvárjuk tőle, hogy euklideszi legyen, hogy könnyen ábrázolni tudjuk. Ezen felül két hasonlósági metrikáról beszélhetünk:</p>
+<h4 id="topologiai-hasonlosag">Topológiai hasonlóság</h4>
+<p>Ekkor egyértelmű folytonos leképezés van a valódi helyek és utak, illetve az ábrázolt helyek és utak között. Az orientáció is megmarad, azaz ami a térképen "balra van" az a való világban is "balra van".</p>
+<h4 id="geometriai-hasonlosag">Geometriai hasonlóság</h4>
+<p>Ami a való világban egy kör vagy egy egyenes, az a térképen is látszódjon annak. Szög-, távolság-, és területarány tartó; egyszóval a Gauss görbület egyezzen meg. Példa: Ha egy hajón utazunk, és el szeretnénk kanyarodni Afrika felé, és a (sík) térképen megmértük, hogy <span class="arithmatex">\(45\degree\)</span>-ot kell ehhez balra kanyarodni, akkor a valóságban (gömb felszínén) is pont <span class="arithmatex">\(45\degree\)</span>-ot kell forgatni a kormányon.</p>
+<p>Fontos, hogy távolságoknál és területeknél csak <em>arányokról</em> beszélünk.</p>
+<details class="question">
+<summary>De miért nem lehet olyan térkép, ami mindent megtart?</summary>
+<p>Ha meg akarnánk tartani mind a szögeket, a távolságarányokat, és a területarányokat, akkor az azt jelentené, hogy nem változtathatunk a Gauss görbület értékén, hiszen <span class="arithmatex">\(K\)</span> attól függ, hogy a felületen hogyan mérünk szöget és távolságot, és független a felület térbeli alakjától (<a href="https://hu.wikipedia.org/wiki/Theorema_egregium">Theorema Egregium</a>). Viszont a gömbi geometriában a görbület állandóan pozitív, azaz <span class="arithmatex">\(K \gt 0\)</span>, viszont a síkoknál <span class="arithmatex">\(K = 0\)</span>, szóval muszáj lesz változtatnunk <span class="arithmatex">\(K\)</span> értékén, azaz nem tudunk mindent megtartani.</p>
+</details>
+<h3 id="gombok-vetitese">Gömbök vetítése</h3>
+<p>Három különböző vetítési módot tárgyalunk:</p>
+<h4 id="kozeppontos-vetites">Középpontos vetítés</h4>
+<p>A vetítési középpontot összekötjük a gömb felületével, és megnézzük, hogy ez az egyenes hol metszi el a síkot amire vetítünk. Ez a metszéspont lesz a gömb felszínén lévő pontnak a vetített pontja. Ha ezt megcsináljuk a gömb minden pontjára, akkor levetítettük a gömböt a síkra. Viszont mivel a vetítési középpont és a gömb felszínének egy pontja által meghatározott egyenes két pontot metsz a gömb felszínén (ez egy átmérő lényegében, szóval két átellenes pontot határoz meg), ezért redundáns a vetítés, általában csak a <em>felső félgömböt</em> vetítjük. Továbbá ez a vetítés <em>egyenestartó</em> (a gömbi főkör pontjait vetítve egyenest kapunk a síkon), de <strong>nem</strong> kör-, szög- vagy távolságtartó.</p>
+<p><img alt="középpontos vetítés" src="../img/chapter_1/1_central_proj.png" width="100%" /></p>
+<h4 id="sztereografikus-vetites">Sztereografikus vetítés</h4>
+<p>Az elv teljesen analóg a középpontos vetítéssel, csak itt nem a gömb középpontja lesz a vetítési központ, hanem a gömb egy másik, tetszőleges pontja. Általában ez a gömb valamelyik pólusa szokott lenni, tipikusan a déli. Ekkor a <em>déli pólus kivételével mindent</em> vetítünk, továbbá ez a vetítés <em>kör-</em> és <em>szögtartó</em>, de <strong>nem</strong> egyenes- és távolságtartó. Bizonyos értelemben inverze a középpontos vetítésnek, hiszen a távolságon kívül éppen ellentétes dolgokat tartanak meg.</p>
+<p><img alt="sztereografikus vetítés" src="../img/chapter_1/1_stereo_proj.png" width="100%" /></p>
+<h4 id="mercator-terkep">Mercator térkép</h4>
+<p>Eddig a gömböket egyenesen síkokra vetítettünk, de most járjunk el másképp. Vegyük körbe a gömbünket egy hengerrel, és vetítsük a gömb felszínének a pontjait ennek a palástjára; ezt a palástot kitekerve ugyan úgy egy síkot kapunk. Az eljárás hasonló a középpontos vetítéshez, ugyan úgy a gömb középpontjából vetítünk pontokat, de mielőtt kitekerjük a henger palástját, meg kell nyújtanunk felfelé, hogy biztosítsuk a szögtartóságot. Ez az egyik legelterjedtebb térkép féle. Ez a vetítés <em>szögtartó</em>, de <strong>nem</strong> távolságtartó.</p>
+<p><img alt="mercator vetítés" src="../img/chapter_1/1_mercator_proj.png" width="100%" /></p>
+<details class="question" open="open">
+<summary>Miért kell megnyújtani a hengert?</summary>
+<p>A képzeletbeli hengerünk végtelen magas, és mi csak a palástjára vetítünk. Ennek az a következménye, hogy az északi és déli pólusoknak nem lesz vetített pontja a paláston, hiszen a pólusok és a középpont által meghatározott egyenes párhuzamos a palásttal, nem fogja sehol metszeni. Viszont ha egy nagyon picit elmozdulunk a pólusoktól, akkor már metszeni fogja, csak nagyon nagyon messze a középponttól. Ilyenkor nagyon pici szögváltoztatással is a gömb méretéhez relatívan óriási változások lesznek a vetített pontok helyzetében.</p>
+<p>Ezzel ellentétben ha az "egyenlítő" körüli pontokat vetítjük, itt kicsi változtatások a szögben nem eredményeznek olyan nagy változást a vetített pontok helyzetén. Így ahhoz, hogy szögtartó lehessen, muszáj lesz függőlegesen megnyújtani a hengert.</p>
+</details>
+<!-- NOTE: A 2024/2025/2 évi előadáson ez a témakör a félév végén lett leadva. Meghagytam itt, de nem tudtam semmivel sem kiegészíteni. -levy04 -->
+<h2 id="hiperbolikus-geometria">Hiperbolikus geometria</h2>
+<p>Itt a görbület állandóan negatív. További fontos változás, hogy egy egyenesre egy külső pontból több nem metsző egyenes húzható.</p>
+<div class="admonition info">
+<p class="admonition-title">1.16. Definíció (Hiperboloid egyenlete)</p>
+<p>A <span class="arithmatex">\(h\)</span> hiperboloid egyenlete a következő:</p>
+<div class="arithmatex">\[
+h\colon x^2 + y^2 - z^2 = -R^2 = \frac{1}{\kappa}
+\]</div>
+<p>Ez levezethető komplex számokkal is: <span class="arithmatex">\(h\colon (iR)^2 = -R^2\)</span></p>
+</div>
+<h3 id="171-hiperbolikus-terek-vetitese-egy-diszkre">1.7.1. Hiperbolikus terek vetítése egy diszkre</h3>
+<p><img alt="Hiperbolikus terek vetítése egy diszkre" src="../img/chapter_1/1_hiberbolikus.png" width="100%" /></p>
+<details class="info">
+<summary>Emlékeztető (3. háziból 2 kör merőleges)</summary>
+<p><img alt="házi help" src="../img/chapter_1/1_hazi_help.png" width="100%" /></p>
+</details>
+<h3 id="172-minkowski-ter">1.7.2. Minkowski tér</h3>
+<p>A háromdimenziós teret kiterjesztjük egy negyedik dimenzióval, ami az <em>idő</em>. Itt nem pontok, hanem <em>események</em> vannak jelen, hiszen ugyanaz a hely szerepelhet kétszer, de különböző időpontokban, más-más események közben.
+Ebben a rendszerben a távolságot úgy kell érteni, hogy az <span class="arithmatex">\(x_1\)</span> helyről <span class="arithmatex">\(t\)</span> idő alatt egy hatás elér-e egy <span class="arithmatex">\(x_2\)</span> helyre.</p>
+<h2 id="18-projektiv-geometria">1.8. Projektív geometria</h2>
+<p>Ez az egyik legfontosabb geometriai rendszer, amit tárgyalunk, mivel az emberi vizuális látás is így értelmezi a világot, tehát amikor grafikus programot csinálunk, akkor ehhez kell igazodni (a GPU mindegyik geometriát támogatja, de projektív geometriában gondolkodik). Az euklideszi geometria tapasztalati alapon készült, viszont a gyakorlatban tapasztaltakat nem írja le pontosan: ha sínekre állunk, akkor azt látjuk, hogy ezek a végtelenben "találkoznak", pedig párhuzamos egyenesek, szóval Euklidesz szerint nem lehet metszéspontjuk.</p>
+<p>Úgy fogjuk módosítani az euklideszi geometriát, hogy a gyakorlatban tapasztaltakat is pontosan le tudja írni. Mostantól bármilyen két egyenes - legyenek azok párhuzamosak vagy sem - pontosan egy pontban metszik egymást, így a "párhuzamos", mint fogalom értelmét veszti.</p>
+<p>Előnye ennek a geometriának, - azon felül, hogy pontosabban ábrázolja a valóságban tapasztaltakat - hogy lényegesen leegyszerüsíti a programozást: nem kell olyan szélsőséges eseteket vizsgálni ahol például két egyenes párhuzamos, hanem mindig létezik bármely két egyenes metszéspontja. Hátránya viszont az, hogy mivel most már két, euklideszi geometriában párhuzamos egyenes a "végtelenben" metszi egymást, így bekerül a "végtelen" is a geometriánkba, és így már nem lehet távolságot mérni. Nem lehet Descartes- vagy polárkoordinátákkal dolgozni, hiszen azok alkalmatlanok a "végtelen" távol lévő pont kezelésére.</p>
+<h3 id="181-ambiens-ter-elemei">1.8.1. Ambiens tér elemei</h3>
+<p>A sík, amit az ambiens tér körbe vesz, ugyan az mint az euklideszi geometriában, csak hozzáveszünk <em>ideális pontokat</em>. Ezek a pontok azok, ahol a párhuzamos egyenesek metszik egymást a "végtelenben". Végtelen sok ilyen pont van, minden irányhoz tartozik egy.</p>
+<p>A beágyazás maga is máshogy történik, mivel az ideális pontokat valahogy reprezentálnunk kell. Ezt úgy érjük el, hogy az euklideszi pontokat kibővítjük egyenesekké. Kiválasztunk a projektív síkon egy pontot, és ezt összekötjük az origóval. Az így kapott egyenes reprezentálja a projektív pontot:</p>
+<div class="arithmatex">\[
+\underbrace{(x,y)}_{\text{ Euklideszi pont}}
+\longrightarrow
+\underbrace{[x,y,1]}_{\substack{\text{Projektív síkra}\\
+                                \text{kerül}}}
+\sim
+\underbrace{[x \cdot w, y \cdot w, w]}_{\substack{\text{Ennek a pontnak az} \\
+                                                  \text{eltolása valami $\scriptsize w$} \\
+                                                  \text{konstanssal, egy} \\
+                                                  \text{egyenest adva.}}}
+= [X, Y, w]
+\]</div>
+<p>ahol <span class="arithmatex">\(\displaystyle x = \frac{X}{w}, y = \frac{Y}{w}\)</span> (ez az ún. <em>homogén osztás</em>) és <span class="arithmatex">\(w \neq 0\)</span>.</p>
+<p>Így ábrázolni tudunk minden euklideszi pontot, mint egyenest. Az ideális pontok pedig <span class="arithmatex">\([X,Y,0]\)</span> alakúak, azaz náluk <span class="arithmatex">\(w\)</span> lehet <span class="arithmatex">\(0\)</span>. Fontos még kiemelni, hogy az egyenes "két végén" ugyan az az ideális pont van, tehát mindegy, hogy melyik irányba indulunk el az eredeti ponttól ezen az egyenesen, a végén ugyan ahhoz a projektív ponthoz jutunk. Erre úgy is lehet gondolni, hogy ez az egyenes topológiailag egy kör.</p>
+<p>Ha már vannak projektív pontjaink, akkor tekintsünk <em>projektív egyeneseket</em>. Az egyenes továbbra is a legrövidebb távolság két pont között.</p>
+<div class="admonition info">
+<p class="admonition-title">1.17. Definíció (A projektív egyenes explicit/parametrikus képlete)</p>
+<p>Legyen két pontunk <span class="arithmatex">\(P_1 = [X_1, Y_1, w_1]\)</span> és <span class="arithmatex">\(P_2 = [X_2, Y_2, w_2]\)</span> alakban. Vegyünk fel egy <span class="arithmatex">\(t\)</span> futóváltozót. Ekkor a <span class="arithmatex">\(P_1\)</span> és <span class="arithmatex">\(P_2\)</span> által meghatározott egyenes parametrikus képlete:</p>
+<div class="arithmatex">\[
+[X(t),Y(t),w(t)] = [X_1,Y_1,w_1] \cdot (1-t) + [X_2,Y_2,w_2] \cdot t
+\]</div>
+</div>
+<p>Itt a <span class="arithmatex">\(t\)</span> futóváltozót ahogy elkezdjük növelni <span class="arithmatex">\(0\)</span> és <span class="arithmatex">\(1\)</span> között, úgy nagyobb arányban számolja bele az egyik pont koordinátáit egy adott pontba, mint a másikét. Ha vesszük az összes ilyen pontot <span class="arithmatex">\(t\)</span> minden értékére, akkor megkapjuk az egyenest <span class="arithmatex">\(P_1\)</span> és <span class="arithmatex">\(P_2\)</span> pontok között.</p>
+<p>Az implicit egyenletet is hasonlóan vissza tudjuk vezetni az euklideszi esetre. Egy euklideszi egyenest egy <span class="arithmatex">\(\underline{n}\)</span> normálvektorral és az eltolással írjuk le:</p>
+<div class="arithmatex">\[
+n_x x + n_y y + d = 0
+\]</div>
+<p>Ha homogén koordinátákra váltunk (<span class="arithmatex">\(x = \cfrac{X}{w}, y = \cfrac{Y}{w}\)</span>), akkor az alábbi alakot kapjuk:</p>
+<div class="arithmatex">\[
+n_x X / w + n_y Y / w + d = 0 \qquad (w \neq 0)
+\]</div>
+<p>Ebből az egyenletből pedig megkapjuk a projektív egyenes implicit egyenletét:</p>
+<div class="admonition info">
+<p class="admonition-title">1.18. Definíció (A projektív egyenes implicit egyenlete)</p>
+<p>Adott egy <span class="arithmatex">\(P\)</span> projektív pont <span class="arithmatex">\([X, Y, w]\)</span> alakban, és egy <span class="arithmatex">\(\underline{n}\)</span> normálvektor <span class="arithmatex">\(\displaystyle \begin{bmatrix}
+n_x \\
+n_y \\
+d\end{bmatrix}\)</span> alakban. Ekkor a projektív egyenes implicit egyenlete a következő:</p>
+<div class="arithmatex">\[
+n_x X + n_y Y + dw = 0 \qquad \bcancel{\cancel{(w \neq 0)}}
+\]</div>
+<p>azaz <span class="arithmatex">\(P \cdot \underline{n} = 0\)</span>.</p>
+</div>
+<p>Fontos megjegyezni, hogy a pont egy oszlopvektor, az egyenes pedig egy sorvektor, és <span class="arithmatex">\(w\)</span> lehet <span class="arithmatex">\(0\)</span>.</p>
+<p>A projektív tér esetében az euklideszi pontokra ugyan úgy <span class="arithmatex">\(w=1\)</span>, csak most <span class="arithmatex">\([x,y,z,1]\)</span> alakúak. Itt is beszorozhatunk <span class="arithmatex">\(w\)</span>-vel, teljesen analóg a síkban lévő projektív pontokkal.</p>
+<h2 id="182-dualitas-metszes-illeszkedes">1.8.2. Dualitás, metszés, illeszkedés</h2>
+<p>Ha egy tétel pontokról és egyenesekről szól (mint például a projektív egyenes implicit egyenlete), akkor a pontok és egyenesek szerepe felcserélhető benne, és a tétel igaz marad.</p>
+<p>Így a 2D egyenes egyenlete</p>
+<div class="arithmatex">\[
+p \cdot l = 0
+\]</div>
+<p>azaz <span class="arithmatex">\(\text{point} \cdot \text{line} = 0\)</span> alakú. Ezt át lehet vezetni 2D-ből 3D-be, ahol kényelmesebb a metszés és az illeszkedés példája erre:</p>
+<div class="admonition info">
+<p class="admonition-title">Tétel.</p>
+<p>A <span class="arithmatex">\(p_1\)</span> és <span class="arithmatex">\(p_2\)</span> pontokra illeszkedő <span class="arithmatex">\(l\)</span> egyenes:</p>
+<div class="arithmatex">\[
+\underbrace{p_1 \cdot l = 0}_{\displaystyle \hspace{6pt} l \perp p_1}, \quad \underbrace{p_2 \cdot l = 0}_{\displaystyle \hspace{6pt} l \perp p_2} \rightarrow l = p_1 \times p_2
+\]</div>
+</div>
+<p>Ennek az állításnak a duálisa:</p>
+<div class="admonition info">
+<p class="admonition-title">Tétel.</p>
+<p>A <span class="arithmatex">\(l_1\)</span> és <span class="arithmatex">\(l_2\)</span> egyenesekre illeszkedő <span class="arithmatex">\(p\)</span> pont (metszéspont):</p>
+<div class="arithmatex">\[
+\underbrace{l_1 \cdot p = 0}_{\displaystyle \hspace{2pt} p \perp l_1}, \quad \underbrace{l_2 \cdot p = 0}_{\displaystyle \hspace{2pt} p \perp l_2} \rightarrow p = l_1 \times l_2
+\]</div>
+</div>
+<p>Illetve még a metszésekhez kapcsolódó tétel:</p>
+<div class="admonition info">
+<p class="admonition-title">Tétel.</p>
+<p>A <span class="arithmatex">\(p\)</span> ponton átmenő <span class="arithmatex">\(L\)</span> egyenesre merőleges <span class="arithmatex">\(l\)</span> egyenes:</p>
+<div class="arithmatex">\[
+p \cdot l = 0, \quad l \cdot L^* = 0 \rightarrow l = p \times L^*
+\]</div>
+<p>ahol <span class="arithmatex">\(L^*\)</span>: <span class="arithmatex">\(L\)</span>-ből a <span class="arithmatex">\(w\)</span> törlése.</p>
+</div>
+<hr />
+<h1 id="kviz">Kvíz</h1>
+<div class="admonition question">
+<p class="admonition-title">1. Milyen messze van az <span class="arithmatex">\((-5, 4)\)</span> pont a <span class="arithmatex">\(3x + 4y + 5 = 0\)</span> implicit egyenletű egyenestől</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>1. Egyenesre normálvektort állítasz</p>
+<div class="arithmatex">\[
+(3, 4) \implies (4, -3)
+\]</div>
+<p>2. Normálvektorral új egyenes, ami átmegy a ponton</p>
+<div class="arithmatex">\[
+4 \cdot (-5) + (-3) \cdot 4 + d = 0 \implies d = 32 \implies 4x -3y + 32 = 0
+\]</div>
+<p>3. Az egyenesek metszéspontjának megtalálása</p>
+<div class="arithmatex">\[
+4x -3y + 32 = 0 \text{ és } 3x + 4y + 5 = 0
+\]</div>
+<p>Mondjuk hozzáadom <span class="arithmatex">\(3/4\)</span>-szer a másodikat az elsőhöz, de sok jó út van:</p>
+<div class="arithmatex">\[
+\frac{25}{4} x + \frac{133}{4} = 0 \implies x = \frac{-143}{25}
+\]</div>
+<p>Ebből következik, hogy <span class="arithmatex">\(y = \cfrac{76}{25}\)</span></p>
+<p>4. Metszés pont és eredeti pont távolságának kiszámítása</p>
+<div class="arithmatex">\[
+d = \sqrt{\left((-5) - \left(\frac{-143}{25}\right)\right)^2 + \left(4 - \frac{76}{25}\right)^2} = 1.2
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">2. Tekintsünk két várost <span class="arithmatex">\(A\)</span>-t és <span class="arithmatex">\(B\)</span>-t az északi szélesség (lattitude) <span class="arithmatex">\(45\)</span> fokán. Az <span class="arithmatex">\(A\)</span> város keleti hosszúsága <span class="arithmatex">\(150\degree\)</span>, a <span class="arithmatex">\(B\)</span> város keleti hosszúsága <span class="arithmatex">\(100\degree\)</span>. Mekkora az <span class="arithmatex">\(A\)</span> és <span class="arithmatex">\(B\)</span> város távolsága km-ben, ha a föld sugarát <span class="arithmatex">\(6000\)</span> km-nek vesszük?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Távolságot (jelölje <span class="arithmatex">\(x\)</span>) a főkörön mérjük, ott a legrövidebb.</p>
+<p>1. <span class="arithmatex">\(45\degree\)</span>-nál mekkora egy kör kerülete:</p>
+<div class="arithmatex">\[
+R' =  R \cdot \sin(\theta) = 6000 \cdot \sin(45\degree) \approx 4242.64
+\]</div>
+<p>2. Ezen a körön már tudjuk, hogy a közrezárt szög <span class="arithmatex">\(150\degree-100\degree = 50\degree\)</span>, azaz radiánban: <span class="arithmatex">\(\theta' = 50 \cdot \frac{\pi}{180} = 0.8727\)</span> radián.</p>
+<div class="arithmatex">\[
+x = R' \cdot \theta' = 3702.5519 \dots
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">3. A gömbi geometriánk Gauss görbülete <span class="arithmatex">\(0.8\)</span>. Mekkora a <span class="arithmatex">\(0.2\)</span> sugarú kör kerülete ebben a geometriában?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>1. Gauss görbületből a gömb sugara</p>
+<div class="arithmatex">\[
+K = 1/R^2 \implies R = 1 / \sqrt{K} = 1 / \sqrt{0.8} \approx 1.12
+\]</div>
+<p>2. A kör sugara most a gömbön található egyenesben mérve van megadva (a korábbi ábrán ez volt <span class="arithmatex">\(r\)</span>)</p>
+<div class="arithmatex">\[
+r = R * \theta \implies \theta = 0.2 / 1.12 \approx 0.18
+\]</div>
+<p>3. A kör kerülete pedig</p>
+<div class="arithmatex">\[
+2 \pi R \sin(\theta) = 2 \pi * 1.12 * \sin(0.18) = 1.2499
+\]</div>
+<p>Ha pontos értékekkel számolunk, ha kerekítve, akkor kb. <span class="arithmatex">\(1.26\)</span>.</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">4. Egy pont koordinátái a <span class="arithmatex">\(t\)</span> idő alábbi függvényei: <span class="arithmatex">\(x(t) = t*t, y(t) = \cfrac{1}{t}\)</span> mekkora a mozgás sebességének a négyzete az első másodpercben?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>1. A sebesség a mozgás idő szerinti első deriváltja</p>
+<div class="arithmatex">\[
+x'(t) = 2t \qquad y'(t) = -1 / t^2
+\]</div>
+<p>2. Ezt szeretnénk tudni az <span class="arithmatex">\(1\)</span> időpontban</p>
+<div class="arithmatex">\[
+x'(1) = 2 \qquad y'(1) = -1 / 1
+\]</div>
+<p>3. Ebből a sebesség</p>
+<div class="arithmatex">\[
+v = \sqrt{2^2 + (-1)^2} = \sqrt{5}
+\]</div>
+<p>4. Vagyis a sebesség négyzete</p>
+<div class="arithmatex">\[
+(\sqrt{5})^{2} = 5
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">5. Az alábbi műveletek közül melyek asszociatívak?</p>
+<ul>
+<li>Komplex számok szorzata</li>
+<li>Vektorok skaláris szorzata</li>
+<li>Vektorok elemenkénti szorzata</li>
+<li>Duális számok szorzata</li>
+<li>Vektorok elemenkénti szorzata</li>
+<li>Mátrixok szorzata</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Komplex számok szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Vektorok skaláris szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Vektorok elemenkénti szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Duális számok szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Vektorok elemenkénti szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Mátrixok szorzata</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">6. Az alábbi műveletek közül melyek kommutatívak?</p>
+<ul>
+<li>Vektorok skaláris szorzata</li>
+<li>Vektorok elemenkénti szorzata</li>
+<li>Duális számok szorzata</li>
+<li>Komplex számok szorzata</li>
+<li>Vektorok vektoriális szorzata</li>
+<li>Mátrixok szorzata</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Vektorok skaláris szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Vektorok elemenkénti szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Duális számok szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Komplex számok szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Vektorok vektoriális szorzata</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Mátrixok szorzata</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">7. Válassza ki az alábbiakból az igaz állításokat, euklideszi geometriát feltételezve.?</p>
+<ul>
+<li><span class="arithmatex">\(\sinh(3x + 4y + 5) = 0\)</span> egy egyenes</li>
+<li>A <span class="arithmatex">\(3x+4y+5=0\)</span> egyenletű egyenes különbözik a <span class="arithmatex">\(9x+12y+15=0\)</span> egyenletű egyenestől.  </li>
+<li><span class="arithmatex">\(3x + 4y + 5 = 0\)</span> egyenesre merőleges a <span class="arithmatex">\(4x -3y + 5 = 0\)</span></li>
+<li><span class="arithmatex">\(3x + 4y + 5 = 0\)</span> egyenes megegyezik a <span class="arithmatex">\(-3x -4y - 5 = 0\)</span>-tel</li>
+<li><span class="arithmatex">\(3x + 4y + 5 = 0\)</span> egyenes párhuzamos a <span class="arithmatex">\(9x 3y + 5 = 0\)</span>-tel</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <span class="arithmatex">\(\sinh(3x + 4y + 5) = 0\)</span> egy egyenes<ul>
+<li>Magyarázat: A <span class="arithmatex">\(\sinh\)</span> függvény pontosan akkor nulla, ha a bemenete is nulla, tehát csak azok a pontok teljesítik a <span class="arithmatex">\(\sinh\)</span> féle egyenletet, amik a bemenő egyenes egyenletét is.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A <span class="arithmatex">\(3x+4y+5=0\)</span> egyenletű egyenes különbözik a <span class="arithmatex">\(9x+12y+15=0\)</span> egyenletű egyenestől.  <ul>
+<li>Magyarázat: Ha <span class="arithmatex">\(e\)</span> jelöli az első egyenest, akkor a második <span class="arithmatex">\(3 \cdot e\)</span> alakú, és ez csak akkor nulla, ha <span class="arithmatex">\(e\)</span> nulla, azaz csak azok a pontok teljesítik a <span class="arithmatex">\(3 \cdot e = 0\)</span> egyenletet, amelyek az <span class="arithmatex">\(e = 0\)</span> egyenletet is.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <span class="arithmatex">\(3x + 4y + 5 = 0\)</span> egyenesre merőleges a <span class="arithmatex">\(4x -3y + 5 = 0\)</span><ul>
+<li>Magyarázat: Az első irányvektora <span class="arithmatex">\((3,4)\)</span>, a másodiké <span class="arithmatex">\((4,-3)\)</span>, és ezek merőleges vektorok.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <span class="arithmatex">\(3x + 4y + 5 = 0\)</span> egyenes megegyezik a <span class="arithmatex">\(-3x -4y - 5 = 0\)</span>-tel<ul>
+<li>Magyarázat: Ugyan az a logika mint korábban, ha az első egyenes <span class="arithmatex">\(e\)</span>, akkor a második egyenlet <span class="arithmatex">\(-e = 0\)</span>, ami csak akkor igaz, ha <span class="arithmatex">\(e=0\)</span>, azaz teljesül az első egyenlet.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <span class="arithmatex">\(3x + 4y + 5 = 0\)</span> egyenes párhuzamos a <span class="arithmatex">\(9x + 12y + 5 = 0\)</span>-tel<ul>
+<li>Magyarázat: Az első egyenes irányvektora <span class="arithmatex">\(v = (3,4)\)</span>, a másodiké pedig <span class="arithmatex">\(v' = (9, 12) = 3v\)</span>, és mivel <span class="arithmatex">\(v = \lambda v'\)</span>, ezért <span class="arithmatex">\(v \parallel v'\)</span>.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">8. Válassza ki az alábbiakból az euklideszi geometria érvényes műveleteit, azaz azokat, amelyeknél az eredmény értelmezhető euklideszi geometriában, ha az operandusok értelmesek voltak.</p>
+<ul>
+<li>pont szorzása vektorral</li>
+<li>két vektor összege</li>
+<li>pont és vektor összege</li>
+<li>két pont összege</li>
+<li>két vektor kombinációja</li>
+<li>két pont kombinációja</li>
+<li>vektor szorzása számmal</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> pont szorzása vektorral</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> két vektor összege</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> pont és vektor összege</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> két pont összege</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> két vektor kombinációja</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> két pont kombinációja</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> vektor szorzása számmal</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">9. Jelölje be az alábbi állítások közül azokat, amelyek igazak gömbi geometriában.</p>
+<ul>
+<li>Két különböző egyenes mindig egyetlen pontban metszi egymást</li>
+<li>Az egyenes két pont közötti legrövidebb út.</li>
+<li>A háromszög szögeinek összege <span class="arithmatex">\(180\)</span> fok</li>
+<li>A sík görbülete pozitív</li>
+<li>A Pitagorasz tétel igaz</li>
+<li>Két nem egybevágó háromszög lehet hasonló</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Két különböző egyenes mindig egyetlen pontban metszi egymást</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Az egyenes két pont közötti legrövidebb út.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A háromszög szögeinek összege <span class="arithmatex">\(180\)</span> fok</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A sík görbülete pozitív</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A Pitagorasz tétel igaz</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Két nem egybevágó háromszög lehet hasonló</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. május 29. 22:17:12 CEST"><span class="timeago" datetime="2026-05-29T22:17:12+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. május 29. 22:17:12 CEST">2026-05-29</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Számítógépes grafika">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Számítógépes grafika
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="2.html" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Grafikus hardver és szoftver">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Grafikus hardver és szoftver
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../../js/timeago.min.js"></script>
+      
+        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

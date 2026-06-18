@@ -1,0 +1,2574 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://levyry.github.io/grafika_biblia/notes/sem4/computer_graphics/lectures/11.html">
+      
+      
+        <link rel="prev" href="10.html">
+      
+      
+        <link rel="next" href="12.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>11. Vektorháború - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vektorhaboru" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11. Vektorháború
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../for_contributors/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="11.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_14" id="__nav_4_1_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Függelékek
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_14">
+            <span class="md-nav__icon md-icon"></span>
+            Függelékek
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix/math_appendix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A. Matematikai kifejezések
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<!-- NOTE: Ez a fejezet picit matekosabbra sikeredett, néhány helyen lehet, hogy rövidíteni kéne rajta, vagy legalább drop-down blokkba rakni pár részt, ami nem strictly releváns és a megértésben sem segít annyira. -levy04 -->
+
+<h1 id="vektorhaboru">Vektorháború <!-- vektorbékét! --></h1>
+<h2 id="vektoralgebra-alapjai">Vektoralgebra alapjai</h2>
+<p>Mi a vektor fogalmat jelenleg úgy fogjuk értelmezni, hogy egy hossz és egy távolság. Két pont viszonyát jellemzi; megmondja, hogy az egyik távol van a másiktól, és milyen irányban van. Úgy is fel lehet fogni, mint egy <em>eltolás</em>, hiszen megmondja, hogy egy pontot milyen módon kéne eltolni, hogy egy másik pontba kerüljünk. Koordinátákkal számolható, de szerkeszthető is (tenzor).</p>
+<details class="example">
+<summary>Tenzor? Azt eszik vagy isszák?</summary>
+<p>A tenzor egy eléggé nehezen felfogható fogalom tud lenni és bár ebben a tárgyban nem igazán fog felmerülni, ha valakit mégis mélyebben érdekelne a téma, akkor ajánljuk az <a href="https://www.youtube.com/watch?v=k2FP-T6S1x0">I never intuitively understood Tensors...until now! (FloatHeadPhysics)</a> videót, melyben egész érthetően, pár példán keresztül elmagyarázzák a fogalmat.</p>
+<p>TL;DR: a "skalár" és "vektor" kifejezések általánosítása</p>
+</details>
+<p>Szeretnénk műveleteket is értelmezni ezeken a vektorokon, kezdjük például az összeadással. Általánosságban a matematikai tanulmányunk során pár dolgot már megszoktunk az összeadással kapcsolatban (<a href="../appendix/math_appendix.html#gyuruk-testek-csoportok-stb">gyűrű axiómák</a>). Egy ilyen tulajdonság például, hogy legyen <em>zárt</em>: két szám összege egy szám, két mátrix összege egy mátrix. Hasonlóan, két vektor összegét is szeretnénk, ha egy vektor lenne. Ezen felül még nem bánjuk, ha a műveletünk kommutatív, és asszociatív. Ha a vektorokra úgy gondolunk, mint eltolások, akkor ez a művelet magától értetődő lesz: két eltolás összege az szimplán az, ha elvégezzük a két eltolást egymás után.</p>
+<p>Mivel figyeltünk arra, hogy egy "szép" műveletet válasszunk, ezért kipottyant az is, hogy ez az összeadás <em>invertálható</em>. Az eltolás inverze a "vissza tolás", tehát egy olyan vektor, mely ugyanolyan hosszú, de ellentétes irányú, mint az eredeti vektorunk.</p>
+<p>Általánosságban a vektorokat nem csak eltolni lehet, hanem forgatni, skálázni is. Ezeket összefoglalóan az alábbi alakban lehet felírni:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+x' \\
+y' \\
+1 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+a &amp; e &amp; 0\\
+b &amp; f &amp; 0\\
+c &amp; d &amp; 1\\
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y \\
+1 \\
+\end{bmatrix}
+\]</div>
+<p>Na már haladunk, van összeadásunk. Szeretnénk tudni szorozni is, viszont itt problémákba ütközünk. Vizsgáljuk meg az egyes "szorzásokat", amikről eddig hallhattunk a vektorok vonatkoztatásában:</p>
+<h3 id="skalaris-szorzas-dot-product">Skaláris szorzás (dot product)</h3>
+<p>Vegyünk két <span class="arithmatex">\(v, a\)</span> vektort. Jelölje ezek skaláris szorzatát <span class="arithmatex">\(b \in \R\)</span>. Ekkor ha <span class="arithmatex">\(\cdot\)</span> jelöli a skaláris szorzást:</p>
+<div class="arithmatex">\[
+v \cdot a = b \stackrel{\text{def}}{\iff} |v||a|\cos(\alpha) = b
+\]</div>
+<p>Ezzel több problémánk is van. Először is nem zárt, hiszen az eredmény egy skalár (<span class="arithmatex">\(v\)</span>-nek <span class="arithmatex">\(a\)</span>-ra vett vetületének hossza), és ezáltal nem is lehet asszociatív, hiszen <span class="arithmatex">\(x \cdot y \cdot z\)</span> esetén ha az elsőt végezzük el előbb, akkor egy <span class="arithmatex">\(z\)</span>-vel párhuzamos vektort kapunk, ha a másodikat, akkor pedig egy <span class="arithmatex">\(x\)</span>-el párhuzamosat.</p>
+<p>Nem is invertálható, mert ha megpróbálnánk, akkor nem teljesülne az <em>egyértelműség</em> feltétele (ugyan annak a műveletnek ugyan azokkal az értékekkel nem lehet két különböző eredménye). Nézzük, hogy miért:</p>
+<div class="arithmatex">\[
+v \cdot a = b
+\]</div>
+<p>inverze az lenne, ha ismerve a <span class="arithmatex">\(b \in \R\)</span> és <span class="arithmatex">\(a\)</span> vektort, meg akarnánk állapítani a <span class="arithmatex">\(v\)</span> vektort:</p>
+<div class="arithmatex">\[
+v = \frac{b}{a}
+\]</div>
+<p>alakban. Ezzel viszont az a baj, hogy túl sok ismeretlenünk van. Ismerjük a <span class="arithmatex">\(b\)</span> skalárt és az <span class="arithmatex">\(a\)</span> vektort méretét és hosszát, viszont ez eredmény vektor hosszát és irányát egyáltalán nem tudjuk. A definíciót tudjuk csak felhasználni, azaz csak egy egyenletünk van (<span class="arithmatex">\(|v||a|\cos(\alpha)\)</span>), de ebből se <span class="arithmatex">\(|v|\)</span>-t, se <span class="arithmatex">\(\alpha\)</span>-t nem ismerjük. Ez geometriailag azt jelenti, hogy több különböző olyan vektor is létezik, amelynek <span class="arithmatex">\(a\)</span> a merőleges vetülete. Egy műveletnek több eredménye még sem lehet, szóval ez nem igazán egy "rendes" szorzás.</p>
+<h3 id="vektorialis-szorzas-cross-product">Vektoriális szorzás (cross product)</h3>
+<p>Ez a művelet eleve csak háromdimenziós vektorokra van értelmezve, szóval eleve kizárt, hogy általános vektor szorzás lehessen, de azért vizsgáljuk meg. A jele <span class="arithmatex">\(\times\)</span>. Két <span class="arithmatex">\(a, b\)</span> vektor vektoriális (más szóval kereszt) szorzata azon <span class="arithmatex">\(c\)</span> vektor, melyre igazak az alábbiak:</p>
+<ul>
+<li><span class="arithmatex">\(|c| = |a||b|\sin(\alpha)\)</span>,</li>
+<li><span class="arithmatex">\(c\)</span> merőleges az <span class="arithmatex">\(a\)</span> és <span class="arithmatex">\(b\)</span> által kifeszített síkra,</li>
+<li><span class="arithmatex">\(c\)</span> irányát a jobbkéz-szabály alapján határozzuk meg.</li>
+</ul>
+<p>Ez a művelet zárt, nem asszociatív, és antikommutatív (<span class="arithmatex">\(a \times b = - b \times a\)</span>). Ez a művelet sem nem invertálható, hasonló okokból mint a skaláris szorzás.</p>
+<h4 id="tipp-a-kiszamitasara">Tipp a kiszámítására</h4>
+<p>Ha feladatokban meg kell határozni két vektor kereszt szorzatát, akkor van egy trükk hozzá, ami bár matematikailag nem igazán precíz, de annál hasznosabb:</p>
+<div class="arithmatex">\[
+a \times b =
+\begin{vmatrix}
+    \underline{i} &amp; \underline{j} &amp; \underline{k} \\
+    a_x &amp; a_y &amp; a_z \\
+    b_x &amp; b_y &amp; b_z
+\end{vmatrix}
+\]</div>
+<p>azaz egy olyan mátrix determinánsa, aminek az alsó két sora az <span class="arithmatex">\(a\)</span> és <span class="arithmatex">\(b\)</span> vektorok koordinátái, a felső sora pedig <span class="arithmatex">\(\R^3\)</span> bázisvektorai. Vegyesen kezelni számokat és vektorokat egy mátrixban, és determinánst számolni erre a mátrixra kicsit vadul hangzik, viszont ha mégis kiszámoljuk a determinánst (például a <a href="https://en.wikipedia.org/wiki/Rule_of_Sarrus">Sarrus-szabály</a> felhasznalasaval), utána pedig <span class="arithmatex">\(\underline{i}, \underline{j}\)</span> és <span class="arithmatex">\(\underline{k}\)</span> szerint csoportosítjuk a tagokat, akkor az eredmény vektor első koordinátája az <span class="arithmatex">\(\underline{i}\)</span> bázisvektor együtthatója lesz, a második a <span class="arithmatex">\(\underline{j}\)</span>, a harmadik pedig a <span class="arithmatex">\(\underline{k}\)</span>:</p>
+<div class="arithmatex">\[
+a \times b = [\overbrace{a_y b_z - b_y a_z}^{\displaystyle c_x}, \overbrace{a_z b_x - b_z a_x}^{\displaystyle c_y}, \overbrace{a_x b_y - b_x a_y}^{\displaystyle c_z}]
+\]</div>
+<h3 id="kulso-szorzat-wedge-product">Külső szorzat (wedge product)</h3>
+<p>A skaláris szorzat két vektorhoz egy alacsonyabb dimenziójú struktúrát rendelt, egy számot. A kereszt szorzat egy ugyan olyan dimenziójú objektumot rendel két vektorhoz. Tudnánk olyan műveletet értelmezni, ami két vektorhoz egy magasabb szintű objektumot rendel hozzá? A válasz az, hogy igen, ez pedig a külső szorzat lesz. A jele <span class="arithmatex">\(\wedge\)</span>.</p>
+<p>Ha <span class="arithmatex">\(\R^2\)</span> beli vektorokat nézünk, akkor <span class="arithmatex">\(v_1 \wedge v_2\)</span> egy <em>irányított terület</em> lesz. Mit értünk azon, hogy irányított terület? Az eredmény mérete, azaz <span class="arithmatex">\(|v_1 \wedge v_2|\)</span> megegyezik a <span class="arithmatex">\(v_1, v_2\)</span> által kifeszített paralelogramma területével, azaz visszaköszön a vektoriális szorzatnál megismert képlet: <span class="arithmatex">\(|v_1 \wedge v_2| = |v_1||v_2|\sin(\alpha)\)</span>. Az, hogy ez a terület "irányított" annyit jelent, hogy számít a körbejárásának sorrendje: <span class="arithmatex">\(v_1 \wedge v_2 = - v_2 \wedge v_1\)</span>. Természetesen <span class="arithmatex">\(\R^3\)</span> beli vektorok esetén egy irányított térfogatot kapnánk, és ez magasabb dimenziókra is kiterjeszthető.</p>
+<p>Az ilyen irányított területeket más szóval <em>bivektoroknak</em> nevezzük. Fontos még kiemelni, hogy a terület alakja egyáltalán nem érdekes, csak a nagysága, és a körüljárás iránya. Asszociatív, antikommutatív és disztributív.</p>
+<h3 id="szorzas-osszefoglalas">Szorzás összefoglalás</h3>
+<p>Láttuk, hogy se a skaláris, se a vektoriális szorzat nem igazán felel meg "igazi szorzásnak" az algebránkban. Az lesz a megoldás, hogy nem a sima vektorokat fogjuk az alap objektumainknak tekinteni, hanem az úgynevezett <em>multivektorokat</em>. Ehhez viszont előbb meg kell ismerkednünk a multivektorok algebrájával, a Clifford algebrával.</p>
+<h2 id="geometriai-clifford-algebra">Geometriai (Clifford) algebra</h2>
+<p>Mielőtt rátérünk a konkrét a geometriai algebrára, illetve az itt definiált "igazi szorzásra", előtte kell tartanunk egy kicsi szemléletformáló kitérőt.</p>
+<h3 id="szemleletformalo-kitero">Szemléletformáló kitérő</h3>
+<p>Az összeadásra és a skálázásra jól működtek a vektoraink, de ha belegondolunk, akkor ez nem meglepő, hiszen szinte bármilyen "nem szám" objektumra ez a két művelet könnyen értelmezhető. Például ha vannak narancsaink meg citromjaink, akkor ezeket is össze tudjuk adni: ha Aladárnak van két narancsa és egy citroma, Bélának meg egy narancsa és két citroma, akkor ha összeülnek, hogy vacsorázzanak, akkor három-három narancsuk és citromjuk lesz összesen. Annak a kijelentésnek is van értelme, hogy "megduplázom a citromjaid számát". Összegezve, ha az algebrai kifejezéseinkben csak összeadni, és skalárral szorozni szeretnénk, akkor egy cseppet sem zavar minket, ha "nem szám" objektumok is vannak a  kifejezésben.</p>
+<p>Viszont a szorzás már egy picit szigorúbb művelet: hogyan tudnánk összeszorozni Aladár és Béla uzsonnáit? Az eredményben milyen objektumok lehetnek egyáltalán? Számok, narancsok, citromok, citrancsok, ezek mind teljesen valid gondolatok. Ahhoz, hogy ezt pontosan meg tudjuk mondani, valami kapcsolatot kell teremtenünk az objektumaink és a valós számok között. A vektorok esetén ez a koordinátás alak:</p>
+<div class="arithmatex">\[
+\underline{v} = x \underline{e}_1 + y \underline{e}_2
+\]</div>
+<p>ahol <span class="arithmatex">\(x,y \in \R\)</span> számok, <span class="arithmatex">\(\underline{e}_1\)</span> és <span class="arithmatex">\(\underline{e}_2\)</span> pedig <span class="arithmatex">\(R^2\)</span> bázisvektorai. Ez egyféle kapcsolat a valós számok és az objektumaink között. Ezzel a kapcsolattal az volt a baj, hogy nem tudtunk rá elegáns szorzás műveletet definiálni. Próbáljunk meg kiindulni egy másik kapcsolatból, illetve azokból a tulajdonságokból, amiket tudjuk, hogy a műveletünknek birtokolnia kell, és próbáljunk meg ezekből levezetni egy szorzást.</p>
+<h3 id="geometriai-szorzas">Geometriai szorzás</h3>
+<p>Ez a művelet (jelölje <span class="arithmatex">\(\ast\)</span>) legyen asszociatív, disztributív és invertálható is. Induljunk ki abból a kapcsolatból, hogy bármely <span class="arithmatex">\(v\)</span> vektorra: <span class="arithmatex">\(v * v \in \R\)</span>, azaz az eredmény legyen egy valós szám. Ebből a kapcsolatból elindulva:</p>
+<div class="arithmatex">\[
+v * v = (x e_1 + y e_2) * (x e_1 + y e_2) = x^2 e_1 * e_1 + y^2 e_2 * e_2 + xy(e_1 * e_2 + e_2 * e_1)
+\]</div>
+<p>Mivel az <span class="arithmatex">\(e_1, e_2\)</span> bázisvektorok is vektorok, ezért ő rájuk is igaz, hogy <span class="arithmatex">\(e_1 * e_1\)</span> és <span class="arithmatex">\(e_2 * e_2\)</span> valós számok. Viszont mivel ezek bázisvektorok, ezért ennél egyszerűbb alakra már nem igazán hozhatóak, szóval itt muszáj döntést hoznunk: melyik valós számmal legyen egyenlő <span class="arithmatex">\(e_1 * e_1\)</span> és <span class="arithmatex">\(e_2 * e_2\)</span>? Nem igazán a szám értéke a fontos, hanem inkább az előjele. A lehetséges választásaink az <span class="arithmatex">\(1, 0, -1\)</span>. Mi most <span class="arithmatex">\(e_1 * e_1 = e_2 * e_2 = 1\)</span>-et fogunk választani a geometriai algebránkban, viszont a többi választásra is kitérünk majd. Elöljáróban annyit, hogy a duális számok esetén -- mellyekkel deriválni fogjuk megtanítani a CPU-t -- az <span class="arithmatex">\(e_1 * e_1 = e_2 * e_2 = 0\)</span>-át fogjuk választani, és komplex számok esetén pedig <span class="arithmatex">\(e_1 * e_1 = 1\)</span> és <span class="arithmatex">\(e_2 * e_2 = -1\)</span> (ez abból is látszik, hogy a komplex síkon az <span class="arithmatex">\(x\)</span>-tengely menti bázisvektor az <span class="arithmatex">\(1\)</span>, és <span class="arithmatex">\(1 * 1 = 1\)</span>, az <span class="arithmatex">\(y\)</span>-tengely menti bázisvektor pedig az <span class="arithmatex">\(i\)</span>, és <span class="arithmatex">\(i * i = -1\)</span>).</p>
+<p>Ha már kikötöttük, hogy <span class="arithmatex">\(e_1 * e_1 = e_2 * e_2 = 1\)</span>, akkor az első két tag az összegünkben valós, már csak a harmadik taggal kell kezdeni valamit. Itt megjelenik a bázisvektorok vegyes szorzata, <span class="arithmatex">\(e_1 * e_2\)</span>. Ha kikötnénk, hogy ezek is legyenek valós számok, akkor lényegében azt mondanánk, hogy bármely két vektor geometriai szorzata valós szám lenne, de ez a művelet már létezik, ez a skaláris szorzás.</p>
+<p>Mivel nem igazán tudunk mit kezdeni a vegyes szorzatok eredményével, ezért máshogy oldjuk meg a problémát: nekünk igazából elég lenne az, ha az utolsó tag (<span class="arithmatex">\(xy(e_1 * e_2 + e_2 * e_1)\)</span>) valahogy eltűnne. Ezt elérhetjük úgy, hogy azt mondjuk, hogy <span class="arithmatex">\(xy(e_1 * e_2 + e_2 * e_1) = 0\)</span>. Ekkor a fenti <span class="arithmatex">\(v * v\)</span> képletben az eredmény tényleg valós lesz, és elkerültük a problémánkat.</p>
+<p>Viszont ha azt mondjuk, hogy <span class="arithmatex">\(xy(e_1 * e_2 + e_2 * e_1) = 0\)</span>, akkor az csak akkor lehet igaz, ha <span class="arithmatex">\(e_1 * e_2 = - e_2 * e_1\)</span>, azaz a műveletünk antikommutatív.</p>
+<p>Az <span class="arithmatex">\(e_1 * e_2\)</span> művelet eredményét valahogy muszáj jelölnünk, szóval próbáljuk meg a legáltalánosabb módon, a legkevesebb dolgot feltételezve: <span class="arithmatex">\(e_1 * e_2\)</span> eredménye legyen <span class="arithmatex">\(e_{12}\)</span> bivektor, ez a területeket hivatott leírni. Ezek alapján próbáljuk meg meghatározni két tetszőleges vektor szorzatát:</p>
+<div class="arithmatex">\[
+\begin{align*}
+v_1 * v_2 &amp;= (x_1 e_1 + y_1 e_2) * (x_2 e_1 + y_2 e_2) \\
+&amp;= x_1 x_2 + y_1 y_2 + (x_1 y_2 - x_2 y_1)e_1 * e_2
+\end{align*}
+\]</div>
+<p>Azt látjuk, hogy két vektor geometriai szorzata egy valós részből (<span class="arithmatex">\(x_1 x_2 + y_1 y_2\)</span>) illetve egy bivektor részből (<span class="arithmatex">\((x_1 y_2 - x_2 y_1)e_1 * e_2\)</span>) áll, ahol a bivektor pontosan a <span class="arithmatex">\(v_1\)</span> és <span class="arithmatex">\(v_2\)</span> által kifeszített paralelogramma területével van megszorozva. Viszont ezek a műveletek ismerősek lehetnek, hiszen a valós rész az pont <span class="arithmatex">\(v_1 \cdot v_2\)</span>, a bivektoros rész pedig pont <span class="arithmatex">\(v_1 \wedge v_2\)</span>, tehát összegezve:</p>
+<div class="arithmatex">\[
+\boxed{
+    v_1 * v_2 = v_1 \cdot v_2 + v_1 \wedge v_2
+}
+\]</div>
+<h3 id="invertalas">Invertálás</h3>
+<p>Most, hogy van egy "jól viselkedő" szorzás műveletünk, nézzük meg, hogy ezt hogyan tudjuk invertálni. A gyűrű axiómákhoz visszanyúlva, a szorzás invertálhatósága alatt azt értjük, hogy minden <span class="arithmatex">\(v\)</span> vektornak létezik egy <span class="arithmatex">\(v^{-1}\)</span> <em>inverze</em>, melyre igaz, hogy <span class="arithmatex">\(v * v^{-1} = 1\)</span>. Mivel ebben a kifejezésben nincsen bivektoros tag, ezért gyanús, hogy valami olyasmi irányba kell elindulnunk, amely során a bivektoros tag nulla.</p>
+<p>Vizsgáljuk meg újra a <span class="arithmatex">\(v * v\)</span> kifejezést. A főképletbe behelyettesítve azt kapjuk, hogy:</p>
+<div class="arithmatex">\[
+v * v = v \cdot v + v \wedge v
+\]</div>
+<p>viszont <span class="arithmatex">\(v \wedge v\)</span>-ről tudjuk, hogy egy olyan irányított terület, aminek a nagysága a két operandusa által kifeszített paralelogramma területe. Viszont ha a két vektorunk egybevágó, akkor nem feszítenek ki egy paralelogrammát, vagy ha nagyon rá akarjuk erőltetni, akkor egy <span class="arithmatex">\(0\)</span> területű paralelogrammát feszítenek ki. Ez nekünk pont megfelelő, hiszen ebben a kifejezésben sincsen bivektoros tag.</p>
+<p>Láttuk, hogy <span class="arithmatex">\(v * v = v \cdot v = |v|^2\)</span>. Ha azt akarjuk, hogy <span class="arithmatex">\(v * v^{-1} = 1\)</span> teljesüljön, akkor a <span class="arithmatex">\(v^{-1} = \frac{v}{v*v}\)</span> választással elértük a célunkat:</p>
+<div class="arithmatex">\[
+v * v^{-1} = v * \frac{v}{v*v} = v * v * \frac{1}{|v|^2} = \frac{|v|^2}{|v|^2} = 1
+\]</div>
+<h3 id="belso-szorzas">Belső szorzás</h3>
+<p>A <span class="arithmatex">\(\underline{v}\)</span> vektor és <span class="arithmatex">\(\bm{I}\)</span> bivektor belső szorzatának eredménye egy olyan vektor, amely az <span class="arithmatex">\(\bm{I}\)</span> bivektor síkjában fekszik, és merőleges a <span class="arithmatex">\(\underline{v}\)</span> vektor <span class="arithmatex">\(\bm{I}\)</span> síkjára eső vetületére.</p>
+<p>Ez a művelet rendkívül hasznos, mert egyetlen, koordináta-rendszertől független operációban valósítja meg a vetítés és a síkbeli forgatás kombinációját. Hagyományos vektoralgebrában, ugyanehhez több lépésre és mátrixműveletre lenne szükség.</p>
+<p><img alt="belső szorzás" src="../img/chapter_11/11_mv_dot.png" width="100%" /></p>
+<h4 id="1-vetites-a-sikra">1. Vetítés a síkra</h4>
+<p>A kiindulási vektorunk a kék vektor, nevezzük <span class="arithmatex">\(v\)</span>-nek (a piros és a zöld vektor a bivektort alkotó vektorok). Ez a vektor általános esetben nem fekszik a bivektor által meghatározott síkban. A belső szorzat szempontjából a vektornak csak a bivektor síkjára eső része, vagyis a vetülete számít. A fekete vektor a <span class="arithmatex">\(v\)</span> merőleges vetülete a síkon. Ezt a vektorkomponenst <span class="arithmatex">\(v_{\parallel}\)</span>-nek nevezzük.</p>
+<p>A <span class="arithmatex">\(v\)</span> vektornak van egy síkra merőleges komponense is (<span class="arithmatex">\(v_{\perp}\)</span>), de a belső szorzat ezt a komponenst "figyelmen kívül hagyja". Matematikailag ez azért van, mert a merőleges komponens és a bivektor szorzata egy magasabb fokú objektumot, egy trivektort hozna létre, amit a belső szorzat (ami egy fokszám-csökkentő művelet) definíció szerint nulláz.</p>
+<h4 id="2-forgatas-a-sikban">2. Forgatás a síkban</h4>
+<p>Miután megvan a <span class="arithmatex">\(v\)</span> vektornak a bivektor síkjában fekvő <span class="arithmatex">\(v_{\parallel}\)</span> vetülete, a belső szorzat ezen a vetületen egy <span class="arithmatex">\(90\degree\)</span>-os forgatást hajt végre a bivektor síkján belül. Ezt a... másik fekete vektor jelöli... yeah...</p>
+<p>A forgatás iránya a bivektor orientációjától (elvégre egy irányított terület) függ.</p>
+<h3 id="2d-geometriai-algebra">2D geometriai algebra</h3>
+<p>Nézzük meg a Clifford algebra egy konkrét alkalmazását, arra az esetre, ha két dimenzióval dolgozunk. Láttuk, hogy két vektor geometriai szorzata egy valós számot és egy bivektort eredményez, de ha erre az eredményre tovább ismételgetjük a szorzást, akkor a végén vegyesen lesznek számaink, vektoraink, és bivektoraink. Az ezeket összefogó algebrai objektum, amivel dolgozunk, az a <em>multivektor</em>:</p>
+<div class="arithmatex">\[
+\mathbf{V} = s + xe_1 + ye_2 + Be_{12}
+\]</div>
+<p>ahol <span class="arithmatex">\(s\)</span> egy szám, <span class="arithmatex">\(e_1, e_2\)</span> a bázisvektoraink, <span class="arithmatex">\(e_{12}\)</span> pedig a bivektorunk, azaz egy irányított terület. Az összeadásuk, és a skálázásuk a szokásos módon történik, pont ugyan úgy, mint ahogy a sima vektorok koordinátáival járunk el: összeadni skalárt a skalárral, vektort a vektorral, bivektort a bivektorral, stb...</p>
+<p>Nézzük meg, hogy a szorzásra hogyan viselkednek a multivektorok:</p>
+<ul>
+<li>skalár szorzása skalárra, vektorral, illetve bivektorral: ez a szokásos módon történik</li>
+<li>két bivektor szorzata:</li>
+</ul>
+<div class="arithmatex">\[
+e_{12} * e_{12} = e_{1} * e_{2} * e_{1} * e_{2}
+\]</div>
+<p>a középső két tagot felcserélhetjük, de az antikommutativitás miatt bejön egy <span class="arithmatex">\(-1\)</span>-es szorzó:</p>
+<div class="arithmatex">\[
+e_{1} * e_{2} * e_{1} * e_{2} = -1 * e_{1} * e_{1} * e_{2} * e_{2} = -1 * (1) * (1) = -1
+\]</div>
+<p>Azt láttuk tehát, hogy ha úgy választjuk meg a multivektorainkat, hogy <span class="arithmatex">\(\underline{v} = \underline{0}\)</span>, akkor a komplex számokat kapjuk meg. Emiatt ezentúl a <span class="arithmatex">\(e_{12} = \bm{I}\)</span> jelölést fogjuk alkalmazni.</p>
+<ul>
+<li>bivektor és vektorok szorzata (jobbról és balról eltérő):</li>
+</ul>
+<div class="arithmatex">\[
+\underline{v} * \bm{I} = (x e_1 + y e_2) * e_{12} = x * e_1 * e_1 * e_2 + y * e_2 * e_1 * e_2 = e_2 x - e_1 y
+\]</div>
+<p>azaz elforgattuk a vektorunkat <span class="arithmatex">\(\pm 90 \degree\)</span>-al.</p>
+<p>Összegezve, az alábbi szorzótáblát állapítottuk meg:</p>
+<div class="arithmatex">\[
+\mathbf{V} = s + xe_1 + y e_2 + B \bm{I}
+\]</div>
+<p>esetén:</p>
+<div class="arithmatex">\[
+\def\arraystretch{1.5}
+\begin{array}{|c||c|c|c|c|}
+\hline
+&amp; 1 &amp; e_1 &amp; e_2 &amp; \bm{I} \\[-0.1ex] \hline \hline
+1 &amp; 1 &amp; e_1 &amp; e_2 &amp; \bm{I} \\ \hline
+e_1 &amp; e_1 &amp; 1 &amp; \bm{I} &amp; e_2 \\ \hline
+e_2 &amp; e_2 &amp; -\bm{I} &amp; 1 &amp; -e_1 \\ \hline
+\bm{I} &amp; \bm{I} &amp; -e_2 &amp; e_1 &amp; -1 \\ \hline
+\end{array}
+\]</div>
+<h3 id="projection-es-rejection">Projection és rejection</h3>
+<p>Hogyan tudjuk ezzel az eszköztárral például egy vektornak egy másik vektorral merőleges, és párhuzamos komponenseit meghatározni?</p>
+<p>Vegyük <span class="arithmatex">\(a\)</span> és <span class="arithmatex">\(v\)</span> nem egyirányú vektorokat. Keressük <span class="arithmatex">\(v_{\perp}\)</span> és <span class="arithmatex">\(v_{\parallel}\)</span> vektorokat, melyek rendre merőlegesek, és párhuzamosak <span class="arithmatex">\(a\)</span>-val, és <span class="arithmatex">\(v_{\perp} + v_{\parallel} = v\)</span>.</p>
+<p>Egy kis maszatolás után megkapjuk, hogy:</p>
+<div class="arithmatex">\[
+\begin{align*}
+v_{\perp} &amp;= (v \wedge a) * a^{-1} \\
+v_{\parallel} &amp;= (v \cdot a) * a^{-1}
+\end{align*}
+\]</div>
+<p>Továbbá mivel vektorok esetén <span class="arithmatex">\(v * a = v \cdot a + v \wedge a\)</span>, ezért ezt átrendezve azt kapjuk, hogy:</p>
+<div class="arithmatex">\[
+\begin{align*}
+v \cdot a &amp;= \frac{(v*a + a*v)}{2} \\
+v \wedge a &amp;= \frac{(v*a - a*v)}{2}
+\end{align*}
+\]</div>
+<p>De mire is megyünk ezzel? Sok bonyolultabb vektorműveletet, melyekhez eddig mátrixokhoz kellett nyúlnunk, szépen ki tudunk fejezni geometriai szorzatokkal. Nézzünk is pár ilyet:</p>
+<h3 id="tukrozes">Tükrözés</h3>
+<p>Ha egy <span class="arithmatex">\(v\)</span> vektort egy másik <span class="arithmatex">\(a\)</span> vektorra akarunk tükrözni, akkor geometriailag elég lenne <span class="arithmatex">\(v\)</span>-nek az <span class="arithmatex">\(a\)</span>-ra merőleges komponensét negálni. Ezt úgy is elérhetjük, hogy a párhuzamos komponensből kivonjuk a merőleges komponenst. Ezeket a komponenseket most már könnyen ki tudjuk fejezni, tehát ha <span class="arithmatex">\(v'\)</span>-vel jelöljük <span class="arithmatex">\(v\)</span> tükörképét, akkor:</p>
+<div class="arithmatex">\[
+\begin{align*}
+v' &amp;= v_{\parallel} - v_{\perp} = (v \cdot a) * a^{-1} - (v \wedge a) * a^{-1} \\
+&amp;= (v \cdot a - v \wedge a) * a^{-1} = (a \cdot v + a \wedge v) * a^{-1} \\
+\implies &amp;\boxed{v' = a * v * a^{-1}}
+\end{align*}
+\]</div>
+<h3 id="forgatas">Forgatás</h3>
+<p>A tükrözést felhasználva fogunk forgatni. Tegyük fel, hogy van két <span class="arithmatex">\(a_1, a_2\)</span> vektorunk, melyek <span class="arithmatex">\(\varphi\)</span> szöget zárnak be egymással. Ekkor bármely másik <span class="arithmatex">\(v\)</span> vektort el tudjuk forgatni <span class="arithmatex">\(2 \varphi\)</span> szöggel, ha először tükrözzük <span class="arithmatex">\(a_1\)</span>-re, utána pedig a keletkező <span class="arithmatex">\(v'\)</span> vektort tükrözzük <span class="arithmatex">\(a_2\)</span>-re.</p>
+<details class="failure">
+<summary>Ennek az állításnak a levezetése (<img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/26a0.svg" title=":warning:" />KEEP OUT<img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/26a0.svg" title=":warning:" />)</summary>
+<p>Na sziasztok, <span class="arithmatex">\(\lambda\)</span>evy vagyok, és ez itt egy forgatás levezetős bekezdés, mert ugye ti küldtétek, én végigjátszom!</p>
+<p><img alt="forgatás levezetés" src="../img/chapter_11/11_rotate_expl.png" width="100%" /></p>
+<p>Itt azt a feltételt, hogy <span class="arithmatex">\(a_1\)</span> és <span class="arithmatex">\(a_2\)</span> (melyekről feltesszük, hogy egységvektorok, annak ellenére, hogy az ábrán egyértelműen nem ugyan olyan hosszúak) bezárt szöge <span class="arithmatex">\(\varphi\)</span>, azt úgy tudjuk értelmezni, hogy visszavezetjük a geometriai szorzatot a skalár szorzatos és külső szorzatos definíciójához:</p>
+<div class="arithmatex">\[
+\begin{align*}
+R &amp;\coloneqq a_2 * a_1 = a_2 \cdot a_1 + a_2 \wedge a_1 = \cos(\varphi) - \bm{I}*\sin(\varphi) \\
+R^{-1} &amp;\coloneqq a_1 * a_2 = a_1 \cdot a_2 + a_1 \wedge a_2 = \cos(\varphi) + \bm{I}*\sin(\varphi)
+\end{align*}
+\]</div>
+<p>ahol <span class="arithmatex">\(R\)</span> egy <em>rotor</em>. Itt tényleg igaz, hogy <span class="arithmatex">\(R^{-1}\)</span> az <span class="arithmatex">\(R\)</span> inverze, hiszen feltettük, hogy <span class="arithmatex">\(a_1\)</span> és <span class="arithmatex">\(a_2\)</span> egységvektorok, és egységvektorok esetén <span class="arithmatex">\(a^{-1} = a\)</span>, tehát <span class="arithmatex">\((a_2 * a_1)^{-1} = a_1^{-1} * a_2^{-1} = a_1 * a_2\)</span>.</p>
+<p>Írjuk fel <span class="arithmatex">\(v''\)</span>-őt, és próbáljuk meg valahogy becsempészni a rotorunkat:</p>
+<div class="arithmatex">\[
+\begin{align*}
+v'' &amp;= a_2*v'*a_2^{-1} = a_2*a_1*v*a_1^{-1}*a_2^{-1} \\
+&amp;= (a_2*a_1)*v*(a_1^{-1}*a_2^{-1}) = R * v * R^{-1} \\
+&amp;= (\cos(\varphi) - \bm{I}*\sin(\varphi)) * v * (\cos(\varphi) + \bm{I}*\sin(\varphi))
+\end{align*}
+\]</div>
+<p>Ezután felbontjuk a baloldali zárójelet, kihasználjuk az antikommutativitást, utána pedig minden zárójelet felbontunk, végezetül pedig kihasználjuk, hogy <span class="arithmatex">\(\bm{I}^2 = -1\)</span>:</p>
+<div class="arithmatex">\[
+\begin{align*}
+v'' &amp;= (\cos(\varphi) - \bm{I}*\sin(\varphi)) * v * (\cos(\varphi) + \bm{I}*\sin(\varphi)) \\
+&amp;= (v*\cos(\varphi) - (\bm{I}*v)*\sin(\varphi)) * (\cos(\varphi) + \bm{I}*\sin(\varphi)) \\
+&amp;= (v*\cos(\varphi) - (-v*\bm{I})*\sin(\varphi)) * (\cos(\varphi) + \bm{I}*\sin(\varphi)) \\
+&amp;= (v*\cos(\varphi) + (v*\bm{I})*\sin(\varphi)) * (\cos(\varphi) + \bm{I}*\sin(\varphi)) \\
+&amp;= v*\cos^2(\varphi) + 2*v*\bm{I}*\sin(\varphi) * \cos(\varphi) + v*\bm{I}^2 \sin^2(\varphi) \\
+&amp;= v*\cos^2(\varphi) + 2*v*\bm{I}*\sin(\varphi) * \cos(\varphi) - v*\sin^2(\varphi) \\
+\end{align*}
+\]</div>
+<p>Felidézzük, hogy <span class="arithmatex">\(\cos(2\varphi) = \cos^2{\varphi} - \sin^2{\varphi}\)</span> és <span class="arithmatex">\(\sin(2\varphi) = 2\sin(\varphi)\cos(\varphi)\)</span>:</p>
+<div class="arithmatex">\[
+\begin{align*}
+v'' &amp;= v*\cos^2(\varphi) + 2*v*\bm{I}*\sin(\varphi)*\cos(\varphi) - v*\sin^2(\varphi) \\
+&amp;= v*\cos^2(\varphi) - v * \sin^2(\varphi) + 2*v*\bm{I}*\sin(\varphi)*\cos(\varphi) \\
+&amp;= v*[\cos^2(\varphi) - \sin^2(\varphi)] + v*\bm{I}*[2*\sin(\varphi)*\cos(\varphi)] \\
+&amp;= v* \cos(2\varphi) + v * \bm{I}*\sin(2\varphi) \\
+&amp;= v * (\cos(2\varphi) + \bm{I}*\sin(2\varphi))
+\end{align*}
+\]</div>
+<!-- I love it when my KaTeX engine works properly, and I don't have to resort to HTML for simple commands! -->
+<p>azaz <span class="arithmatex">\(\displaystyle v'' = v * e^{\bm{I}2\varphi}\)</span>, tehát <span class="arithmatex">\(v\)</span>-nek a <span class="arithmatex">\(2\varphi\)</span>-vel elforgatott képe. <span style="display: flex; justify-content: flex-end;"> <span class="arithmatex">\(\blacksquare\)</span> </span></p>
+</details>
+<h2 id="komplex-szamok-algebraja">Komplex számok algebrája</h2>
+<p>A kétdimenziós geometriát az előzőekben vektorokkal, és pontokkal alapoztuk meg: ezekből és az ezeken végrehajtott műveletekből állt az algebránk. Más utat is járhatunk, komplex számokkal is ki tudjuk fejezni a kétdimenziós geometriát.</p>
+<p>Emlékezzünk vissza a Clifford algebránkhoz, amikor azt akartuk eldönteni, hogy mi legyen <span class="arithmatex">\(e_1 * e_1\)</span> és <span class="arithmatex">\(e_2 * e_2\)</span> eredménye. Akkor mind a kettőt <span class="arithmatex">\(1\)</span>-nek választottuk, de ha <span class="arithmatex">\(e_2 * e_2\)</span>-t <span class="arithmatex">\(-1\)</span>-nek választottuk volna, az is egy valid algebrát eredményez: a komplex számok algebráját.</p>
+<h3 id="pontok-es-muveletek">Pontok és műveletek</h3>
+<p>A geometriánkban egy pontnak egy komplex szám felel meg:</p>
+<div class="arithmatex">\[
+z_p = x_p + y_p \bm{i} = R \cdot e^{\bm{i}\varphi} = R \cdot \cos(\varphi) + \bm{i} \cdot R \cdot \sin(\varphi)
+\]</div>
+<p>ahol <span class="arithmatex">\(x_p, y_p\)</span> valós számok, <span class="arithmatex">\(R\)</span> a pont origótól mért távolsága, <span class="arithmatex">\(\varphi\)</span> pedig a pontot és az origót összekötő félegyenesnek a <span class="arithmatex">\(x\)</span>-tengellyel bezárt szöge.</p>
+<p>Korábban vektorokkal modelleztük az eltolásokat, forgatásokat, stb. Ezeket viszont komplex számokkal is tudjuk: az eltolás komplex számok összeadása, és az, hogy mennyivel toljuk el a pontot, szintén egy komplex szám:</p>
+<div class="arithmatex">\[
+z_p' = z_p + z_t
+\]</div>
+<p>ahol <span class="arithmatex">\(z_t\)</span> egy tetszőleges komplex szám. Néha célszerű a komplex számokra nem mint pontokra, hanem mint <em>helyvektorokra</em> gondolni, azaz az origóból a pontba mutató vektorra. Ebben az értelmezésben egy pontot egy másik pont helyvektorával toljuk el, amikor összeadjuk őket.</p>
+<p>A skálázás műveletét is tudjuk ábrázolni, pontosabban az úgynevezett izotrop (irányfüggetlen) skálázást:</p>
+<div class="arithmatex">\[
+z_p' = z_p \cdot z_s
+\]</div>
+<p>ahol <span class="arithmatex">\(z_s\)</span> egy olyan komplex szám, aminek a képzetes része nulla. Ez a skálázás ugyanolyan mértékben skálázza az <span class="arithmatex">\(x\)</span>- és az <span class="arithmatex">\(y\)</span>-tengelyt is.</p>
+<p>Ha a szorzásban választott komplex számunknak nemnulla képzetes része van, akkor a <em>forgatva nyújtás</em> műveletét kapjuk. Ehhez szemléletesebb, ha az <span class="arithmatex">\(R \cdot e^{\bm{i}\varphi}\)</span> trigonometrikus alakját használjuk a komplex számoknak. Vegyük <span class="arithmatex">\(z_r = x_r + y_r \bm{i} = s \cdot e^{\bm{i} \alpha}\)</span> tetszőleges komplex számunkat. Ekkor ha a <span class="arithmatex">\(z_p\)</span> pontunkat ezzel megszorozzuk, egy <span class="arithmatex">\(s\)</span>-el megnyújtott, <span class="arithmatex">\(\alpha\)</span>-val elforgatott pontot kapunk:</p>
+<div class="arithmatex">\[
+z_p' = z_p \cdot z_r = (s R) \cdot e^{\bm{i} \cdot (\alpha + \varphi)}
+\]</div>
+<p>Ha csak forgatni szeretnénk, akkor elég <span class="arithmatex">\(s = 1\)</span> választás, azaz <span class="arithmatex">\(|z_r| = 1\)</span>.</p>
+<p>Ezekből a szép geometriai tulajdonságokból adódóan a fraktáloknál, illetve a kétdimenziós forgatások modellezésénél gyakran komplex számokat használunk.</p>
+<h3 id="implementacio-komplex-szamok">Implementáció (komplex számok)</h3>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Complex</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Complex</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">y0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">Complex</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="n">Complex</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">Complex</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Complex</span><span class="w"> </span><span class="k">operator</span><span class="o">/</span><span class="p">(</span><span class="n">Complex</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">l</span><span class="p">);</span><span class="w"> </span><span class="c1">// konjugálttal bővítjük</span>
+<span class="w">    </span><span class="p">}</span><span class="w">   </span>
+<span class="p">};</span>
+
+<span class="c1">// Második konstruktor, polárkoordinátákból</span>
+<span class="n">Complex</span><span class="w"> </span><span class="nf">Polar</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">phi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Complex</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosf</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sinf</span><span class="p">(</span><span class="n">phi</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="pelda">Példa</h3>
+<p>Ha kétdimenziós transzformációkat kell modelleznünk, akkor a komplex számoknál nem igazán találunk jobbat. Az alábbi példa is szemléleti ezt: a specifikációt lényegében szóról szóra kóddá tudjuk fordítani, nagyobb nehézségek nélkül.</p>
+<!-- Szirmay pride? -->
+<blockquote>
+<p>A <span class="arithmatex">\(p\)</span> pontot a <span class="arithmatex">\(\textcolor{red}{\text{\((1,-1)\) pivot pont}}\)</span> körül <span class="arithmatex">\(\textcolor{SpringGreen}{\text{nyújtsuk \(2\)-szeresére és forgassuk el \(t\)-vel}}\)</span>, <span class="arithmatex">\(\textcolor{cyan}{\text{majd toljuk el a \((2, 3)\) vektorral}}\)</span> és végül <span class="arithmatex">\(\textcolor{Violet}{\text{nyújtsuk az origó körül \(0.8\)-szorosára} \\ \text{és forgassuk \(–t/2\)-radiánnal}}\)</span>.</p>
+</blockquote>
+<p>A fenti transzformációt megvalósító kódrészlet:</p>
+<pre id="__code_1">
+<code>
+Complex p, tp;
+Complex <span style="color:red">pivot(1,-1)</span>;
+tp = (((p <span style="color:red">- pivot</span>) <span style="color:SpringGreen">* Polar(2,t)</span> <span style="color:red">+ pivot</span>) <span style="color:cyan">+ Complex(2,3)</span>) <span style="color:Violet">* Polar(0.8,-t/2)</span>;
+<span style="color:red"></span>
+</code>
+</pre>
+
+<h2 id="geometria-3d-ben">Geometria 3D-ben</h2>
+<p>Tudunk esetleg találni valami hasonló algebrát a komplex számokhoz, csak három dimenzióban? Nagyon kényelmes lenne, ha 3D-s alakzatok forgatását, eltolását, stb. ugyan úgy tudnánk szorzásokkal és összeadásokkal megvalósítani.</p>
+<p>Ha vissza emlékezünk a <a href="#szemleletformalo-kitero">szemléletformáló kitérőnkre</a>, akkor tudhatjuk, hogy altalanossagban az osszeadas, es a skalarral szorzas nem igazan torodnek azzal, hogy milyen objektumokon hajtjuk oket vegre. Pont ezert, az eltolas (osszeadas) es a skalazas (skalarral szorzas) műveleteket tetszőleges dimenziókba általánosíthatjuk, így három dimenzióba is.</p>
+<p>A gondot megint a szorzás (forgatás) jelenti. Szeretnénk megtartani azokat a jó tulajdonságokat, amiket elvárunk egy szorzástól, viszont ezért a Clifford algebrában és eléggé sokat küzdtünk. Sőt, mivel most a háromdimenziós forgatást szeretnénk modellezni, ezért a szorzásunknak annak a tulajdonságaival kel, hogy bírjon.</p>
+<p><img alt="forgás tulajdonság" src="../img/chapter_11/11_non_commutative_rot.png" width="100%" /></p>
+<p>Például ahogy a fenti képen is láthatjuk, a forgatás nem kommutatív.</p>
+<h3 id="naiv-megkozelites">Naiv megközelítés</h3>
+<div class="admonition quote">
+<p class="admonition-title">Idézet</p>
+<p><span class="arithmatex">\(\text{Hát ha 2D-ben elég volt az, hogy } z = x + y \bm{i} \text{, akkor 3D-ben} \\
+\text{legyen } h = x + y \bm{i} + z \bm{j}\text{, és annyi.} \\[-7ex]\)</span>
+<span class="arithmatex">\(\hspace{26em} \text{- Naiv kolléga}\)</span></p>
+</div>
+<p>Ötletnek nem rossz, viszont ha ezen az úton indulnánk el, akkor a végén oda jutunk, hogy nem tudunk egy olyan szorzást definiálni, amivel rendesen lehet forgatni.</p>
+<p>De akkor mégis hogyan forgassunk három dimenzióban?</p>
+<h3 id="matrixok">Mátrixok</h3>
+<p>Mivel a forgatás egy lineáris művelet, ezért kell legyen egy <span class="arithmatex">\(r' = \bm{R(r)}\)</span> lineáris transzformációhoz tartozó mátrix.</p>
+<div class="arithmatex">\[
+x'\bm{i} + y'\bm{j} + z'\bm{k} = R(x + y + z) = xR(\bm{i}) + yR(\bm{j}) + zR(\bm{k})
+\]</div>
+<div class="arithmatex">\[
+[x', y', z'] = [x, y, z]
+\begin{bmatrix}
+\bm{R(i)}_x &amp; \bm{R(i)}_y &amp; \bm{R(i)}_z \\
+\bm{R(j)}_x &amp; \bm{R(j)}_y &amp; \bm{R(j)}_z \\
+\bm{R(k)}_x &amp; \bm{R(k)}_y &amp; \bm{R(k)}_z
+\end{bmatrix}
+\]</div>
+<p>Ezzel lehetne forgatni, viszont mátrixokkal dolgozni nem éppen a legkényelmesebb, szóval kutakodjunk tovább.</p>
+<h3 id="rodriguez-formula">Rodriguez formula</h3>
+<p>Próbáljuk meg a lineáris algebra ismereteinket felhasználva kimaszatolni:</p>
+<p>Origón átmenő <span class="arithmatex">\(d\)</span> tengely körüli forgatás.
+<img alt="rodriguez" src="../img/chapter_11/11_rodrigues.png" width="100%" /></p>
+<p>Magyarázat:</p>
+<ul>
+<li><span class="arithmatex">\(d\)</span> (zöld): forgatási tengely</li>
+<li><span class="arithmatex">\(r\)</span> (piros): forgatni kívánt vektor</li>
+<li><span class="arithmatex">\(r_\parallel = r'_\parallel = d(r \cdot d)\)</span> (barna): <span class="arithmatex">\(d\)</span>-vel párhuzamos komponense <span class="arithmatex">\(r\)</span> és <span class="arithmatex">\(r'\)</span>-nek (egyenlők)</li>
+<li><span class="arithmatex">\(r_\perp = r - d(r \cdot d)\)</span> (sötétkék): <span class="arithmatex">\(r-r_\parallel\)</span>, azaz <span class="arithmatex">\(r\)</span>-ből kivonjuk a párhuzamos komponenst, ami marad az már biztosan merőleges</li>
+<li>
+<p><span class="arithmatex">\(r_{\perp\perp} = d \times r_\perp = d \times r\)</span> (világoskék): <span class="arithmatex">\(d\)</span>-re és <span class="arithmatex">\(r_{(\perp)}\)</span>-re merőleges</p>
+</li>
+<li>
+<p><span class="arithmatex">\(r' = r'_\parallel + r'_\perp\)</span> (lila): <span class="arithmatex">\(r\)</span> elforgatva, a párhuzamos és merőleges komponensek összege</p>
+</li>
+</ul>
+<p>A merőleges komponenst pedig <span class="arithmatex">\(r_\perp\)</span>, <span class="arithmatex">\(r_{\perp\perp}\)</span> és szögfüggvények segítségével az alábbi módon kaphatjuk meg:</p>
+<ul>
+<li><span class="arithmatex">\(r'_\perp = r_\perp \cos\varphi + r_{\perp\perp} \sin\varphi\)</span></li>
+</ul>
+<p>Tehát összegezve:</p>
+<div class="arithmatex">\[
+\boxed{
+\begin{align*}
+r' &amp;= \overbrace{d(r \cdot d)}^{\displaystyle r'_{\parallel}} + \overbrace{(r - d(r \cdot d))\cos(\varphi)}^{\displaystyle r_{\perp}} + \overbrace{d \times r \sin(\varphi)}^{\displaystyle r_{\perp\perp}} \\
+&amp;= r \cos(\varphi) + d(r \cdot d)(1 - \cos(\varphi)) + d \times r \sin(\varphi)
+\end{align*}
+}
+\]</div>
+<p>A végső képlettel már egy fokkal kényelmesebb dolgozni, mint egy mátrixszal, viszont még mindig nem az igazi. A megoldást az fogja jelenti, hogy egy dimenzióval feljebb lépünk.</p>
+<h3 id="kvaternio">Kvaternió</h3>
+<p>Egy kvaternió egy négydimenziós komplex szám, ami azt jelenti, hogy a valós része mellett van három képzetes része. Több alakban is szokás ábrázolni:</p>
+<ul>
+<li>mint egy négyes vektort: <span class="arithmatex">\(q = [s, x, y, z]\)</span></li>
+<li>mint egy valós szám és egy háromdimenziós képzetes vektor párt: <span class="arithmatex">\(q = [s, \bm{d}]\)</span></li>
+<li>algebrai alak: <span class="arithmatex">\(q = s + x \bm{i} + y \bm{j} + z \bm{k}\)</span></li>
+</ul>
+<p>A kvaterniókon végzett műveletek logikája ugyan az, mint a komplex számokon végzett műveleteké, csak most több képzetes rész van. Ez a gyakorlatban annyit jelent, hogy míg a komplex számoknál elég volt azt az egy "szabályt" megjegyezni, hogy <span class="arithmatex">\(i^2 = -1\)</span>, addig a kvaternióknál több ilyen "szabály" lesz, amit észben kell tartani.</p>
+<p>Ezáltal sok műveletet ugyan úgy végzünk el, mint a komplex számok esetén:</p>
+<ul>
+<li><span class="arithmatex">\(q_1 + q_2 = [s_1 + s_2, x_1 + x_2, y_1 + y_2, z_1 + z_2]\)</span></li>
+<li><span class="arithmatex">\(a \cdot q = q \cdot a = [as, ax, ay, az]\)</span> ahol <span class="arithmatex">\(a \in \R\)</span></li>
+<li><span class="arithmatex">\(|q| = \sqrt{s^2 + x^2 + y^2 + z^2}\)</span></li>
+</ul>
+<p>Az a nagy kérdés, hogy a szorzást hogyan definiáljuk, hogy 3D-s forgatást lehessen vele modellezni. Korábban ez nem ment, de itt már lehetséges:</p>
+<!-- I LOVE KATEX!! I LOVE BEING ABLE TO DRAW BOXES WITH COLORED EDGES WITHOUT HAVING TO SPECIFY THE BACKGROUND COLOR SO IT DOESN'T BREAK IN LIGHT MODE!! -->
+
+<div style="
+  padding: 1px 20px;
+  border: 1px solid red;
+  background-color: transparent;
+  border-radius: 4px;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;">
+
+$$
+i^2 = j^2 = k^2 = ijk = -1
+$$
+
+</div>
+
+<p>Ez a szorzás asszociatív, de <em>nem kommutatív</em>, összeadásra pedig disztributív. A fenti egyenlet átrendezésével megkapható az összes többi eset (pl. <span class="arithmatex">\(ij = k\)</span>, <span class="arithmatex">\(ki = j\)</span>, stb...)</p>
+<p>Invertálhatóságot is akarunk, de ahhoz először kell egy (multiplikatív) egység elem: <span class="arithmatex">\([1,0,0,0]\)</span>. Ha már ez megvan, felírhatjuk egy <span class="arithmatex">\(q\)</span> kvaternió inverzét, a következő képpen:</p>
+<div class="arithmatex">\[
+q^{-1} = \frac{[s, -d]}{|q|^2}
+\]</div>
+<p>Ez az inverz baloldali és jobboldali inverz is (nem feledkezünk meg arról, hogy a szorzás nem kommutatív), tehát <span class="arithmatex">\(q^{-1} \cdot q = q \cdot q^{-1} = [1, 0, 0, 0]\)</span>.</p>
+<h4 id="szorzas-geometriai-ertelmezese">Szorzás geometriai értelmezése</h4>
+<p>Ha nagyon sokáig bámulnánk a szorzási szabályokat, akkor észrevehetnénk, hogy azok megegyeznek a vektoriális szorzásban ismert összefüggésekkel. Ha a kvaterniókra <span class="arithmatex">\(q = [s, \bm{d}]\)</span> alakban gondolunk, akkor:</p>
+<div class="arithmatex">\[
+[s_1, \bm{d}_1] * [s_2, \bm{d}_2] = [\overbrace{s_1 s_2 - \bm{d}_1 \cdot \bm{d}_2}^{\text{valós}}, \overbrace{s_1 \bm{d}_2 + s_2 \bm{d}_1 + \bm{d}_1 \times \bm{d}_2}^{\text{képzetes}}]
+\]</div>
+<h4 id="forgatas-kvaterniokkal">Forgatás kvaterniókkal</h4>
+<p>A motivációnk az volt, hogy tudjunk 3D-ben könnyen forgást modellezni. Nézzük meg, hogy kvaterniókkal hogyan lehet.</p>
+<p>Egy <span class="arithmatex">\(\bm{d} \in \R^3\)</span> (egységhosszú) vektorral megadott tengely körüli <span class="arithmatex">\(\alpha\)</span> szöggel való forgatást az alábbi kvaternió írja le:</p>
+<div class="arithmatex">\[
+q = [\cos(\alpha/2), \bm{d} \cdot \sin(\alpha/2)]
+\]</div>
+<p>Viszont felmerülhet bennünk a gondolat, hogy hát ez egy négydimenziós vektor, és mi háromdimenziós vektorokat szeretnénk forgatni, de ezeket nem lehet összeszorozni. A forgatandó <span class="arithmatex">\(\bm{u} \in \R^3\)</span> vektorunkat be kell ágyaznunk egy kvaternióba, még pedig a következő képpen: <span class="arithmatex">\(p = [0, \bm{u}]\)</span>, azaz egy nulla valós részű kvaterniót csinálunk belőle. Ezután pedig már forgathatjuk:</p>
+<div class="arithmatex">\[
+q * p * q^{-1} = q * [0, \bm{u}] * q^{-1} = [0, \bm{v}]
+\]</div>
+<p>ahol a <span class="arithmatex">\(\bm{v}\)</span> háromdimenziós vektor az <span class="arithmatex">\(\bm{u}\)</span> elforgatottja <span class="arithmatex">\(\bm{d}\)</span> körül <span class="arithmatex">\(\alpha\)</span>-val. Az inverzet jelenleg könnyű előállítani, mivel <span class="arithmatex">\(q\)</span>-t pont úgy állítottuk elő, hogy egységhosszú legyen, és egységhosszú kvaterniók inverze megegyezik a konjugáltukkal:</p>
+<div class="arithmatex">\[
+q^{-1} = [\cos(\alpha/2), - \bm{d} \cdot \sin(\alpha/2)]
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">11.1 Tétel (kvaternió forgatás)</p>
+<p>Egy <span class="arithmatex">\(\bm{d} \in \R^3\)</span> egységhosszú vektorral megadott tengely körüli <span class="arithmatex">\(\alpha\)</span> szöggel való forgatást az alábbi kvaternió írja le:</p>
+<div class="arithmatex">\[
+q = [\cos(\alpha/2), \bm{d} \cdot \sin(\alpha/2)]
+\]</div>
+<p>mellyel egy <span class="arithmatex">\(\bm{u} \in \R^3\)</span> vektort az alábbi módon lehet elforgatni:</p>
+<div class="arithmatex">\[
+q * p * q^{-1} = q * [0, \bm{u}] * q^{-1} = [0, \bm{v}]
+\]</div>
+</div>
+<details class="abstract">
+<summary>Bizonyítás</summary>
+<p>A bizonyítás a kvaternió-szorzás algebrai definíciójának és a trigonometrikus azonosságoknak direkt alkalmazásán alapul.</p>
+<p>Ha be tudjuk látni, hogy a <span class="arithmatex">\(q * p * q^{-1}\)</span> kifejezés ekvivalens a Rodriguez formulával, akkor készen is vagyunk, hiszen az a formula ugyan azt csinálja, mint amit mi most szeretnénk.</p>
+<p>A Rodriguez formula ezt mondja ki:</p>
+<div class="arithmatex">\[
+v = u \cos(\alpha) + d(u \cdot d)(1 - \cos(\alpha)) + d \times u \sin(\alpha)
+\]</div>
+<p>Itt az <span class="arithmatex">\(u\)</span> vektort szeretnénk forgatni, de mivel a forgatás (és a kvaternió szorzás is) disztributív az összeadásra, csinálhatjuk azt, hogy felbontjuk <span class="arithmatex">\(u\)</span>-t egy <span class="arithmatex">\(d\)</span>-re merőleges, és egy <span class="arithmatex">\(d\)</span>-vel párhuzamos komponensre. Ezután ezeket külön-külön elforgatva, a végén pedig összeadva a keletkező két vektort ugyan azt kapjuk, mintha az eredeti <span class="arithmatex">\(u\)</span>-t forgattuk volna el. (Ha ez nem világos, hogy miért igaz, akkor próbáld meg 2D-ben végig gondolni, ott is működik ugyan ez feltéve, hogy egységhosszú vektorokkal dolgozunk.)</p>
+<p>Most pedig külön-külön bebizonyítjuk, hogy <span class="arithmatex">\(d\)</span>-re merőleges, illetve vele párhuzamos vektorok esetén a kvaterniós szorzás ekvivalens a Rodriguez formulával.</p>
+<details class="abstract">
+<summary>Első eset: <span class="arithmatex">\(d\)</span> merőleges <span class="arithmatex">\(u\)</span>-ra</summary>
+<p>Mivel <span class="arithmatex">\(d \perp u\)</span>, ezért <span class="arithmatex">\(u \cdot d = 0\)</span>, tehát picit egyszerűsödik a Rodriguez formulánk:</p>
+<div class="arithmatex">\[
+v = \bm{u} \cos(\alpha) + \bm{d} \times \bm{u} \sin(\alpha)
+\]</div>
+<p>Bontsuk szét a <span class="arithmatex">\(q * [0, \bm{u}] * q^{-1}\)</span> kifejezést, kezdve a <span class="arithmatex">\(q * [0, \bm{u}]\)</span> szorzattal:</p>
+<div class="arithmatex">\[
+\begin{align*}
+q * [0, \bm{u}] &amp;= [\cos(\alpha/2), \bm{d} \sin(\alpha/2)] * [0, \bm{u}] \\
+&amp;= [0, \bm{u} \cos(\alpha/2) + \bm{d} \times \bm{u} \sin(\alpha/2)] \\
+&amp;= [0, \bm{u}^{*}]
+\end{align*}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Szorzás emlékeztető</p>
+<div class="arithmatex">\[
+[s_1, \bm{d}_1] * [s_2, \bm{d}_2] = [\overbrace{s_1 s_2 - \bm{d}_1 \cdot \bm{d}_2}^{\text{valós}}, \overbrace{s_1 \bm{d}_2 + s_2 \bm{d}_1 + \bm{d}_1 \times \bm{d}_2}^{\text{képzetes}}]
+\]</div>
+</div>
+<p>Itt kihasználtuk azt, hogy mivel (a fenti szorzás emlékeztető jelöléseivel) esetünkben <span class="arithmatex">\(s_2 = 0\)</span>, és <span class="arithmatex">\(\bm{d}_1 \cdot \bm{d}_2\)</span> is nulla (hiszen <span class="arithmatex">\(d \perp u\)</span>), ezért az eredmény valós része biztosan <span class="arithmatex">\(0\)</span> lesz. A képzetes tagnál csak annyit tapasztaltunk, hogy mivel <span class="arithmatex">\(s_2\)</span> nulla, ezért kiesett a <span class="arithmatex">\(s_2 \bm{d}_1\)</span> tag.</p>
+<p>Vizsgáljuk meg picit az <span class="arithmatex">\(\bm{u}^{*}\)</span> tagot, és a Rodriguez formulát:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{Rodriguez:} \quad &amp;v = \bm{u} \cos(\alpha) + \bm{d} \times \bm{u} \sin(\alpha) \\
+\text{Kvaternió:} \quad &amp;\bm{u}^{*} = \bm{u} \cos(\alpha/2) + \bm{d} \times \bm{u} \sin(\alpha/2)
+\end{align*}
+\]</div>
+<p>A kettő pontosan megegyezik, azzal a különbséggel, hogy csak <span class="arithmatex">\(\alpha / 2\)</span> szöggel forgattunk!</p>
+<p>Nézzük a második szorzást. Hasonlóan érvelve mint a <span class="arithmatex">\(q * [0, \bm{u}]\)</span> esetben, itt is pár tag kiesik:</p>
+<div class="arithmatex">\[
+\begin{align*}
+[0, \bm{u}^{*}] * q^{-1} &amp;= [0, \bm{u}^{*}] * [\cos(\alpha/2), - \bm{d} \sin(\alpha/2)] \\
+&amp;= [0, \bm{u}^{*} \cos(\alpha/2) - \bm{u}^{*} \times \bm{d} \sin(\alpha/2)] \\
+&amp;= [0, \bm{u}^{**}]
+\end{align*}
+\]</div>
+<p>Vizsgáljuk meg itt is az eredmény képzetes részét:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{Rodriguez:} \quad &amp;v = \bm{u} \cos(\alpha) + \bm{d} \times \bm{u} \sin(\alpha) \\
+\text{Első kvaternió:} \quad &amp;\bm{u}^{*} = \bm{u} \cos(\alpha/2) + \bm{d} \times \bm{u} \sin(\alpha/2) \\
+\text{Második kvaternió:} \quad &amp;\bm{u}^{**} = \bm{u}^{*} \cos(\alpha/2) - \bm{u}^{*} \times \bm{d} \sin(\alpha/2)
+\end{align*}
+\]</div>
+<p>Jelen esetben az a különbség, hogy míg a Rodriguez formulában $ + \bm{d} \times \bm{u}$ van, nekünk most <span class="arithmatex">\(- \bm{u}^{*} \times \bm{d}\)</span>. Viszont mivel a keresztszorzat egy antikommutatív művelet, ezért <span class="arithmatex">\(- \bm{u}^{*} \times \bm{d} = \bm{d} \times \bm{u}^{*}\)</span>!</p>
+<p>Ezt a tulajdonságot kihasználva, már <span class="arithmatex">\(\bm{u}^{**}\)</span> is a Rodriguez formulával ekvivalens alakba került, tehát ez is egy <span class="arithmatex">\(\alpha/2\)</span>-vel való forgatás.</p>
+<p>Mivel a <span class="arithmatex">\(q\)</span>-val való balról szorzás, és a <span class="arithmatex">\(q^{-1}\)</span>-el való jobbról szorzás is külön-külön egy <span class="arithmatex">\(\alpha/2\)</span>-vel való forgatást eredményezett, így ha ezeket egymás után elvégezzük, akkor tényleg egy <span class="arithmatex">\(\alpha\)</span>-val való forgatást hajtunk végre, tehát <span class="arithmatex">\(\bm{u}^{**} = v\)</span>. <span style="display: flex; justify-content: flex-end;"> <span class="arithmatex">\(\blacksquare\)</span> </span></p>
+</details>
+<details class="abstract">
+<summary>Második eset: <span class="arithmatex">\(d\)</span> párhuzamos <span class="arithmatex">\(u\)</span>-val</summary>
+<p>Mivel <span class="arithmatex">\(d \parallel u\)</span>, és mind a kettő egységvektor (hiszen <span class="arithmatex">\(u\)</span>-t mi választjuk, <span class="arithmatex">\(d\)</span>-ről pedig a tétel kiköti, hogy egységvektor), ezért <span class="arithmatex">\(d = u\)</span>. Ezentúl <span class="arithmatex">\(d \times u = 0\)</span> és <span class="arithmatex">\(d \cdot u = |d| |u| = 1\)</span> is igazak, tehát egyszerűsödik a Rodriguez formulánk:</p>
+<div class="arithmatex">\[
+\begin{align*}
+v &amp;= \bm{u} \cos(\alpha) + \bm{d}(\bm{u} \cdot \bm{d})(1 - \cos(\alpha)) \\
+&amp;= \bm{u} \cos(\alpha) + \bm{d}(1 - \cos(\alpha)) \\
+&amp;= \bm{u} \cos(\alpha) + \bm{d} - \bm{d} \cos(\alpha) \\
+&amp;= \cos(\alpha)(\bm{u}-\bm{d}) + \bm{d} \\
+&amp;= \cos(\alpha)(0) + \bm{d} \\
+&amp;= \bm{d} = \bm{u}
+\end{align*}
+\]</div>
+<p>Ebből nekünk a legfontosabb rész az az, hogy <span class="arithmatex">\(v = u\)</span>. Ezzel lényegében azt mondjuk, hogy a kiinduló <span class="arithmatex">\(u\)</span> vektor a forgatás után (<span class="arithmatex">\(v\)</span>) változatlan marad. Tehát ha be tudjuk látni, hogy a kvaterniókkal való szorzás sem változtat az eredeti vektoron, akkor készen vagyunk.</p>
+<p>Nézzük a baloldali szorzatot:</p>
+<div class="arithmatex">\[
+\begin{align*}
+q * [0, \bm{u}] &amp;= [\cos(\alpha/2), \bm{d} \sin(\alpha/2)] * [0, \bm{u}] \\
+&amp;= [- \bm{u} \cdot \bm{d} \sin(\alpha/2), \bm{u} \cos(\alpha/2)] \\
+&amp;= [- \sin(\alpha/2), \bm{u} \cos(\alpha/2)]
+\end{align*}
+\]</div>
+<p>Folytassuk a jobboldali szorzattal:</p>
+<div class="arithmatex">\[
+\begin{align*}
+[- \sin&amp;(\alpha/2), \bm{u} \cos(\alpha/2)] * q^{-1} = \\
+&amp;= [- \sin(\alpha/2), \bm{u} \cos(\alpha/2)] * [\cos(\alpha/2), - \bm{d} \sin(\alpha/2)] \\
+&amp;= [- \sin(\alpha/2)\cos(\alpha/2) + \sin(\alpha/2)\cos(\alpha/2), \bm{d} \sin^2(\alpha/2) + \bm{u} \cos^2(\alpha/2)] \\
+&amp;= [0, \bm{d} (\sin^2(\alpha/2) + \cos^2(\alpha/2))] \\ 
+&amp;= [0, \bm{d}] = \boxed{[0, \bm{u}]}
+\end{align*}
+\]</div>
+<p>Tehát a két kvaterniós szorzat után visszakaptuk <span class="arithmatex">\([0, u]\)</span>-t, tehát ebből is az következik, hogy <span class="arithmatex">\(v = u\)</span>, szóval megfelelünk a Rodriguez formulának. <span style="display: flex; justify-content: flex-end;"> <span class="arithmatex">\(\blacksquare\)</span> </span></p>
+</details>
+<p>Beláttuk, hogy <span class="arithmatex">\(d\)</span>-re merőleges, és azzal párhuzamos vektorokra igaz az állítás. Ezt követően tetszőleges <span class="arithmatex">\(u\)</span> vektort el tudunk forgatni, ha felbontjuk a <span class="arithmatex">\(d\)</span>-re merőleges és párhuzamos komponenseire, azokat külön elforgatjuk, és az eredményt összeadjuk. <span style="display: flex; justify-content: flex-end;"> <span class="arithmatex">\(\blacksquare\)</span> </span></p>
+</details>
+<p>Természetesen ha tetszőleges 3D-s tengely körül tudunk forgatni, akkor bármilyen 3D-s forgatást tudunk modellezni.</p>
+<p>Ha valaki inkább vizuális típus, akkor nagyon tudom ajánlani <a href="https://eater.net/quaternions/video/intro">ezt</a> az angol nyelvű interaktív videót/szimulációt.</p>
+<h4 id="kvaternio-implementacio">Kvaternió implementáció</h4>
+<p>Nézzük meg, hogy kódban hogyan implementáljuk mindezt.</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">vec4</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Itt a `w` jelöli a valós részt, tehát </span>
+<span class="w">    </span><span class="c1">// q = w + xi + yj + zk</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// további műveletek...</span>
+<span class="p">};</span>
+
+<span class="c1">// Kvaternió szorzás a geometriai interpretációt felhasználva</span>
+<span class="n">vec4</span><span class="w"> </span><span class="nf">qmul</span><span class="p">(</span><span class="n">vec4</span><span class="w"> </span><span class="n">q1</span><span class="p">,</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">q2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">d1</span><span class="p">(</span><span class="n">q1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">z</span><span class="p">),</span><span class="w"> </span><span class="n">d2</span><span class="p">(</span><span class="n">q2</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">d2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cross</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="n">d2</span><span class="p">),</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dot</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="n">d2</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// Konstruálás egy szögből és egy tengelyből, azaz egy </span>
+<span class="c1">// 3D-s forgatást leíró mennyiségekből.</span>
+<span class="n">vec4</span><span class="w"> </span><span class="nf">quaternion</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">ang</span><span class="p">,</span><span class="w"> </span><span class="n">vec3</span><span class="w"> </span><span class="n">axis</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// `d` egységvektor, kell a `normalize`</span>
+<span class="w">    </span><span class="n">vec3</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sinf</span><span class="p">(</span><span class="n">ang</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">cosf</span><span class="p">(</span><span class="n">ang</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// Egy `u` vektor elforgatása. Ha akarnánk, akkor</span>
+<span class="c1">// paraméterként a szöget és a tengelyt is átadhatnánk.</span>
+<span class="n">vec3</span><span class="w"> </span><span class="nf">Rotate</span><span class="p">(</span><span class="n">vec3</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">vec4</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">vec4</span><span class="w"> </span><span class="n">qinv</span><span class="p">(</span><span class="o">-</span><span class="n">q</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">q</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">q</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">w</span><span class="p">);</span><span class="w"> </span><span class="c1">// q konjugált</span>
+<span class="w">    </span><span class="n">vec4</span><span class="w"> </span><span class="n">qr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qmul</span><span class="p">(</span><span class="n">qmul</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">vec4</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)),</span><span class="w"> </span><span class="n">qinv</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">vec3</span><span class="p">(</span><span class="n">qr</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">qr</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">qr</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="gpu-shader-programozas">GPU shader programozás</h4>
+<p>Ha a vertex shaderben szeretnénk kvaterniókat használni, ahhoz az alábbi kódrészlet nyújt példát:</p>
+<div class="highlight"><pre><span></span><code><span class="k">uniform</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w"> </span><span class="c1">// quaternion as uniform variable</span>
+<span class="k">in</span><span class="w"> </span><span class="kt">vec3</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"> </span><span class="c1">// Varying input: vertex</span>
+
+<span class="kt">vec4</span><span class="w"> </span><span class="n">qmul</span><span class="p">(</span><span class="kt">vec4</span><span class="w"> </span><span class="n">q1</span><span class="p">,</span><span class="w"> </span><span class="kt">vec4</span><span class="w"> </span><span class="n">q2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">vec3</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">xyz</span><span class="p">,</span><span class="w"> </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="n">xyz</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">vec4</span><span class="p">(</span><span class="n">d2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cross</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="n">d2</span><span class="p">),</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="n">w</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dot</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="n">d2</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">vec4</span><span class="w"> </span><span class="n">qinv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">vec4</span><span class="p">(</span><span class="o">-</span><span class="n">q</span><span class="p">.</span><span class="n">xyz</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">w</span><span class="p">);</span><span class="w"> </span><span class="c1">// conjugate</span>
+<span class="w">    </span><span class="kt">vec3</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qmul</span><span class="p">(</span><span class="n">qmul</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="kt">vec4</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="mo">0</span><span class="p">)),</span><span class="w"> </span><span class="n">qinv</span><span class="p">).</span><span class="n">xyz</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">gl_Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">vec4</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="automatikus-derivalas">Automatikus deriválás</h2>
+<p>A való világban sokkal többször kell egy mérnöknek deriválnia, mint az gondolnánk. A fizikusok a világ működését differenciálegyenletekkel írják le, tehát elkerülhetetlen, hogy egy mérnök deriváljon, ha a való világot szeretné modellezni (gondoljunk csak háromdimenziós grafikai szimulációkban a felületek normálvektoraira). Ahogy fejlődött a technológia, úgy egyre több számítást delegálunk a számítógépeknek, hiszen nagyságrendekkel gyorsabbak, mint mi emberek. Pontosan ezért felmerülhet az igény, hogy akkor tanítsuk meg a számítógépet is deriválni.</p>
+<h3 id="inverz-feladatok">Inverz feladatok</h3>
+<p>A deriválás akkor is előjöhet, ha egy úgynevezett <em>inverz feladatot</em> szeretnénk megoldani. Vegyük példának egy tórusz kirajzolását. Ha ismerjük az egyenletét, akkor a képszintézis feladatot elvégezve könnyen meg tudunk jeleníteni egy tóruszt. Viszont ennek a feladatnak az inverzét - egy kirajzolt kép alapján eldönteni, hogy az ott lévő alakzatnak mi az egyenlete - nagyságrendekkel nehezebb elvégezni. A tóruszos példában a gépi látás eszközeihez nyúlhatunk, de általánosságban az az igaz, hogy gyakran csak találgatni tudunk, és a tippjeinket leellenőrizni, ha meg akarjuk oldani az inverz feladatot.</p>
+<p>Amikor leellenőrizzük a tippünket, akkor valamekkora <em>hibát</em> állapítunk meg, azaz egy számot, ami leírja, hogy mennyire térünk el az eredeti feladat megoldásától. Ha az összes tippünkhöz hozzárendeljük, hogy mekkora annak a hibája, akkor egy úgynevezett <em>hiba függvényt</em> kapunk. Ennek a függvénynek mi nekünk a globális minimuma kéne, hiszen ott a legalacsonyabb a hiba. Viszont nem csak vaktában akarunk tippelgetni, szeretnénk azt is tudni, hogy milyen irányban és milyen mértékben változtassuk a tippünket, hogy csökkenjen a hiba. Ehhez a hiba függvény deriváltját kell vennünk. Ha ez az érték közel <span class="arithmatex">\(0\)</span> (és a második derivált is pozitív), akkor tudjuk, hogy közel járunk a minimumhoz, tehát kisebbeket éri meg változtatni, ha viszont nem <span class="arithmatex">\(0\)</span> közeli, akkor tudjuk, hogy nagyobbakat változtathatunk, hiszen még messze járunk a minimumtól.</p>
+<h3 id="naiv-modszer">Naiv módszer</h3>
+<p>Ha egy matematikust kérnénk meg, hogy implementálja a deriválást valamilyen programozási nyelven, akkor valószínűleg ehhez a képlethez nyúlna (numerikus differenciálás):</p>
+<div class="arithmatex">\[
+f'(x) \approx \cfrac{f(x + \Delta) - f(x)}{\Delta}
+\]</div>
+<p>és ezt alakítaná kóddá, valahogy így:</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.001</span><span class="p">;</span>
+
+<span class="kt">float</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ... }</span>
+
+<span class="kt">float</span><span class="w"> </span><span class="n">foo_Derivative</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Delta</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Delta</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ezzel viszont egy használhatatlan eredményt kapnánk. Nézzük meg, hogy miért:</p>
+<ul>
+<li>ha túl nagy <span class="arithmatex">\(\Delta\)</span>-t választanánk, akkor pontatlan becslést kapunk</li>
+<li>ha túl kicsi <span class="arithmatex">\(\Delta\)</span>-t választanánk, akkor pedig zajos becslést kapunk</li>
+</ul>
+<p>Ennek az az oka, hogy a számítógép véges számábrázolást használ, tehát egy bizonyos tizedesérték után már pontatlanok a számaink. Viszont amikor két nagyon közeli értékű számot kivonunk, akkor pont azokat a tizedesértékeket veszítjük el, amiket még pontosan tudunk ábrázolni, hiszen a <span class="arithmatex">\(\Delta\)</span>-ánk kicsi, azokon nem változtat. Tehát a végén lényegében kapunk egy nagyon pici számot, ami tele van random számjegyek különbségeivel: lényegében használhatatlan zaj.</p>
+<p>Ahhoz, hogy egy használható <span class="arithmatex">\(\Delta\)</span>-t válasszunk, ahhoz már kéne tudni a derivált függvényt, szóval ez a megközelítés nem vezet eredményre. Viszont akkor mégis mit tudunk tenni? A 2D-s és 3D-s forgatás esetében segített, ha visszanyúltunk a Clifford algebra eszközeihez, próbáljuk meg ezt most is.</p>
+<h3 id="dualis-szamok">Duális számok</h3>
+<p>Emlékezzünk ismét vissza a Clifford algebránkhoz, amikor azt akartuk eldönteni, hogy mi legyen <span class="arithmatex">\(e_1 * e_1\)</span> és <span class="arithmatex">\(e_2 * e_2\)</span> eredménye. Akkor mind a kettőt <span class="arithmatex">\(1\)</span>-nek választottuk, a komplex számok esetén pedig <span class="arithmatex">\(e_2 * e_2\)</span>-t <span class="arithmatex">\(-1\)</span>-nek, viszont mi történne, ha <span class="arithmatex">\(e_2 * e_2\)</span>-t <span class="arithmatex">\(0\)</span>-nek választjuk? Az így kapott algebrát a duális számok algebrájának hívjuk.</p>
+<p>Egy duális szám <span class="arithmatex">\(z = x + y \bm{i}\)</span> alakú, ahol <span class="arithmatex">\(x, y \in \R\)</span> illetve <span class="arithmatex">\(i^2 = 0\)</span>, viszont <span class="arithmatex">\(i\)</span> nem feltétlenül egyenlő <span class="arithmatex">\(0\)</span>-val. Nézzük meg az ezeken a számokon végzett aritmetikát:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{Összeadás:} \quad &amp;(x_1 + y_1 \bm{i}) \pm (x_2+y_2 \bm{i}) = (x_1 \pm x_2) + (y_1 \pm y_2) \bm{i} \\
+\text{Szorzás:} \quad &amp;(x_1+y_1 \bm{i}) \cdot (x_2+y_2 \bm{i}) = (x_1x_2) + (x_1y_2+y_1x_2) \bm{i} + \cancel{(y_1y_2) \bm{i}^2} \\
+\text{Osztás:} \quad &amp;\frac{x_1 + y_1 \bm{i}}{x_2 + y_2 \bm{i}} = \frac{(x_1 + y_1 \bm{i})(x_2 - y_2 \bm{i})}{(x_2 + y_2 \bm{i})(x_2 - y_2 \bm{i})}= \frac{x_1x_2 + (y_1x_2x_1y_2) \bm{i} - \cancel{(y_1y_2) \bm{i}^2}}{x^2_2 - \cancel{y^2_2 \bm{i}^2}} = \\
+&amp;= \frac{x_1}{x_2} + \frac{y_1x_2-x_1y_2}{x_2^2} \bm{i}
+\end{align*}
+\]</div>
+<p>Hasonlítsuk össze a kapott összefüggéseket a függvények deriválási szabályaival:</p>
+<div class="arithmatex">\[
+\def\arraystretch{1.5}
+\begin{array}{|c|c|c|}
+\hline
+&amp; \text{Duális számok képzetes része} &amp; \text{Deriválási szabályok} \\ \hline
+\text{Összeadás} &amp; (y_1 \pm y_2) \bm{i} &amp; (f \pm g)' = f' \pm g' \\ \hline
+\text{Szorzás} &amp; (x_1y_2+y_1x_2) \bm{i} &amp; (f \cdot g)' = (f \cdot g' + f' \cdot g) \\ \hline
+\text{Osztás} &amp; \cfrac{y_1x_2-x_1y_2}{x_2^2} \bm{i} &amp; \cfrac{f' \cdot g - f \cdot g'}{(g')^2} \\[1.75ex] \hline
+\end{array}
+\]</div>
+<p>Pontosan megegyeznek! Tehát ha egy <span class="arithmatex">\(z = x + y \bm{i}\)</span> duális számba egy <span class="arithmatex">\(f\)</span> függvény <span class="arithmatex">\(f(x)\)</span> értékét eltároljuk <span class="arithmatex">\(x\)</span>-ben, utána pedig ezzel a <span class="arithmatex">\(z\)</span> számmal összeadunk, szorzunk vagy osztunk, akkor az <span class="arithmatex">\(y\)</span> pontosan meg fog felelni <span class="arithmatex">\(f'(x)\)</span>-el, az összeadások, szorzások és osztások után, tehát <span class="arithmatex">\(z = f(x) + f'(x) \bm{i}\)</span>.</p>
+<h4 id="alap-implementacio">Alap implementáció</h4>
+<p>Nagyon hasonlít egy komplex szám osztályhoz, csak most <span class="arithmatex">\(i^2 = 0\)</span>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Dnum</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// function and derivative values</span>
+
+<span class="w">    </span><span class="c1">// Default konstruktorban a deriváltat nullának vesszük.</span>
+<span class="w">    </span><span class="c1">// Erre még később visszatérünk.</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">f0</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">d0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// constant derivative = 0</span>
+<span class="w">        </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f0</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="k">operator</span><span class="o">/</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Az így definiált Duális szám osztállyal már egyszerűbb függvényeket tudunk deriválni. Nézzük erre egy példát.</p>
+<p>Vegyük az <span class="arithmatex">\(f(x) = \cfrac{a \cdot x}{x^2 + b}\)</span> függvényt, valamilyen szabadon választott <span class="arithmatex">\(a, b\)</span> valós számokra.</p>
+<p>Ha valami konkrét <span class="arithmatex">\(x\)</span> értékre vagyunk kíváncsiak, akkor kódban ez így nézne ki:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+<p>Ha ezt naiv módon átírjuk, hogy duális számokat használjon, akkor az alábbi alakot kapjuk:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Dnum</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">Dnum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Ez már tökéletesen működik, mégis van egy szépséghibája a dolognak: a számítógép nem tudja, hogy mi <code>t</code>, <code>a</code> vagy <code>b</code> szerint akarunk deriválni, tehát a konstruktorban külön meg kell adni, hogy <code>t</code> deriváltja <span class="arithmatex">\(1\)</span>, a többié meg nulla. Így pontosan olyan, mintha <code>t</code> szerint deriválnánk. Viszont ki tudjuk használni a default konstruktort: a <code>Dnum(float f0, float d0 = 0)</code> konstruktor második paramétere alapértelmezetten legyen nulla. Ez azért kényelmes, mert a konstansok deriváltja nulla, így amikor egy kifejezésben konstansokat (<code>Dnum(a), Dnum(b)</code>) használunk, az osztály helyesen kezeli őket a deriválási szabályokban.</p>
+<p>Az így kapott kódrészletben már hozzá sem kell nyúlni az eredeti kifejezéshez, kihasználhatjuk a default konstruktort:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Dnum</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Eszerint deriválunk</span>
+<span class="n">Dnum</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+<p>Viszont ez a deriválás jelenleg csak a négy alapműveletre működik, nekünk viszont vannak egyéb deriválandó függvényeink, például <span class="arithmatex">\(\sin\)</span>, <span class="arithmatex">\(\cos\)</span>, <span class="arithmatex">\(\log\)</span>, <span class="arithmatex">\(\exp\)</span>, stb... Ezeknek is felvehetnénk a deriválási szabályaikat külön függvényekbe:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Dnum</span><span class="w"> </span><span class="nf">Sin</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">sinf</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">cosf</span><span class="p">(</span><span class="n">t</span><span class="p">));</span><span class="w"> </span><span class="p">}</span>
+<span class="n">Dnum</span><span class="w"> </span><span class="nf">Cos</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">cosf</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="o">-</span><span class="n">sinf</span><span class="p">(</span><span class="n">t</span><span class="p">));</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// ...</span>
+</code></pre></div>
+<p>és ezeket utána alkalmazhatnánk kifejezésekben:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Dnum</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Dnum</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Sin</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</code></pre></div>
+<p>viszont egy dolgot eddig a szőnyeg alá söpörtünk, ami ezt a megközelítést lehetetlenné teszi: az összetett függvények deriváltjait.</p>
+<h4 id="teljes-implementacio">Teljes implementáció</h4>
+<p>Az alap <code>Dnum</code> osztály nem változik, hiszen az már követi a láncszabályt, viszont az elemi függvényeink így fognak kinézni:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Dnum</span><span class="w"> </span><span class="nf">Sin</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">sinf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="n">cosf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="n">Dnum</span><span class="w"> </span><span class="nf">Cos</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">cosf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="o">-</span><span class="n">sinf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="n">Dnum</span><span class="w"> </span><span class="nf">Tan</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Sin</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">/</span><span class="n">Cos</span><span class="p">(</span><span class="n">g</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="n">Dnum</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">logf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="n">Dnum</span><span class="w"> </span><span class="nf">Exp</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">expf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="n">expf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="n">Dnum</span><span class="w"> </span><span class="nf">Pow</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">powf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">powf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">d</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Látható, hogy ezeknek a függvényeknek szintén duális számokat kell átadni, mert el kell érniük a <code>g.d</code> változót, azaz a belső függvény deriváltját.</p>
+<h4 id="tobbvaltozos-fuggvenyek">Többváltozós függvények</h4>
+<p>Ha felületi gradienst szeretnénk számolni, akkor ahhoz többváltozós függvényeket is kell tudnunk deriválni. Ehhez azt fogjuk csinálni, hogy a duális szám osztályban a deriváltakhoz nem egy értéket tárolunk, hanem változónként egyet, azaz egy tömböt.</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Dnum</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"> </span><span class="c1">// function value</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="c1">// derivatives</span>
+
+<span class="w">    </span><span class="n">Dnum</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">f0</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">d0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f0</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">f</span><span class="o">+</span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="o">+</span><span class="n">r</span><span class="p">.</span><span class="n">d</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">f</span><span class="o">*</span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="o">*</span><span class="n">r</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="o">*</span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="k">operator</span><span class="o">/</span><span class="p">(</span><span class="n">Dnum</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="err">–</span><span class="n">f</span><span class="o">*</span><span class="n">r</span><span class="p">.</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="o">/</span><span class="n">r</span><span class="p">.</span><span class="n">f</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">Dnum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Exp</span><span class="p">(</span><span class="n">Dnum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Dnum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">expf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="n">expf</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="n">d</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Nézzük egy példát ennek a többváltozós <code>Dnum</code> osztály használatára: az <span class="arithmatex">\(F(x,y,z)\)</span> skalármező gradiensének kiszámítását.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<span class="n">Dnum</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">vec3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)),</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)),</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="n">Dnum</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="o">*</span><span class="n">X</span><span class="o">/</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Y</span><span class="o">*</span><span class="n">Y</span><span class="o">/</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Z</span><span class="o">*</span><span class="n">Z</span><span class="o">/</span><span class="n">c</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">vec3</span><span class="w"> </span><span class="n">grad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="p">.</span><span class="n">d</span><span class="p">;</span>
+</code></pre></div>
+<p>a <code>Dnum&lt;vec3&gt; X(x, vec3(1, 0, 0))</code> azt jelenti, hogy konstruálunk egy olyan <code>Dnum&lt;vec3&gt;</code> típusú <code>X</code> változót, aminek a kezdeti értéke <code>x</code>, és ő az első deriválási változó. Hasonlóan <code>y</code> és <code>z</code> esetén is, csak ők a második illetve harmadik deriválási változók (hiszen például amikor <code>y</code> szerint deriválunk, akkor <code>x</code> és <code>z</code> <span class="arithmatex">\(0\)</span>, tehát a <code>vec3</code> második paraméterei <code>y</code>-nál <span class="arithmatex">\(1\)</span>, a többi változónál pedig <span class="arithmatex">\(0\)</span>).</p>
+<h4 id="osszetettebb-pelda">Összetettebb példa</h4>
+<p>Egy kétdimenziós pályán haladunk, és azt szeretnénk, hogy mindig a sebesség irányába nézzünk.</p>
+<p>A pálya egyenlete:</p>
+<div class="arithmatex">\[
+\begin{align*}
+x(t) &amp;= \frac{\sin(t)(\sin(t)+3)4}{\tan(\cos(t)+2)} \\[2ex]
+y(t) &amp;= \frac{(\cos(\sin(t))8+1)12+2}{(sin(t)sin(t))^3+2}
+\end{align*}
+\]</div>
+<p>A sebességvektor, azaz hogy merre nézünk:</p>
+<div class="arithmatex">\[
+v(t) = (\dot x(t), \dot y(t))
+\]</div>
+<p>Ha kézzel akarnánk kiszámolni és legépelni <span class="arithmatex">\(\dot x\)</span>-t és <span class="arithmatex">\(\dot y\)</span>-t, akkor eléggé keserves feladat elé néznénk:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\dot x(t) = &amp;\frac{48 \sin^2 (t) \sin^2 (\cos(t) + 2)}{(\cos(2 (\cos(t) + 2)) - 1)^2} + \frac{16 \sin^3 (t) \sin^2 (\cos(t) + 2)}{(\cos(2 (\cos(t) + 2)) - 1)^2} \\[2.5ex]
+&amp;- \frac{8 \sin(t) \cos(t) \sin(2 (\cos(t) + 2))}{\cos(2 (\cos(t) + 2)) - 1} - \frac{12 \cos(t) \sin(2 (\cos(t) + 2))}{\cos(2 (\cos(t) + 2)) - 1}
+\end{align*}
+\]</div>
+<p>és ez még csak <span class="arithmatex">\(\dot x\)</span>...</p>
+<p>Ezt spóroljuk meg, ha automatikus deriválást használunk. Nézzük ugyan ezt duális számokkal:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">Animate</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">tt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Idő szerint deriválunk</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">tt</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Pályafüggvények</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">Tan</span><span class="p">(</span><span class="n">Cos</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Dnum</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Cos</span><span class="p">(</span><span class="n">Sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">12</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Pow</span><span class="p">(</span><span class="n">Sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">Sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">vec2</span><span class="w"> </span><span class="n">position</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="n">velocity</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">d</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">vec2</span><span class="w"> </span><span class="n">heading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">velocity</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Draw</span><span class="p">(</span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">heading</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h1 id="kviz">Kvíz</h1>
+<div class="admonition quote">
+<p>A 2024/2025/II félévben nem voltak ebben a témában kvízek.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">1. Mi lesz a <span class="arithmatex">\(q * u * q^{-1}\)</span> kvaternió szorzás eredményének első képzetes része, azaz az <span class="arithmatex">\(i\)</span> szorzója, ha <span class="arithmatex">\(u=[0, 10, 0, 0]\)</span>, és <span class="arithmatex">\(q=[\sqrt{2}/2, (0, 0, \sqrt{2}/2)]\)</span> ?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Számítsuk ki <span class="arithmatex">\(q^{-1}\)</span>-et:</p>
+<div class="arithmatex">\[
+q^{-1} = [s, -d]/|q|^2 = [\sqrt{2}/2, (0, 0, -\sqrt{2}/2)]
+\]</div>
+<p>Emlékezzünk vissza az alábbi képletekre:</p>
+<div class="arithmatex">\[
+[s_1, \bm{d}_1] * [s_2, \bm{d}_2] = [\overbrace{s_1 s_2 - \bm{d}_1 \cdot \bm{d}_2}^{\text{valós}}, \overbrace{s_1 \bm{d}_2 + s_2 \bm{d}_1 + \bm{d}_1 \times \bm{d}_2}^{\text{képzetes}}]
+\]</div>
+<p>Végezzük el a baloldali szorzást:</p>
+<div class="arithmatex">\[
+\begin{align*}
+q * u &amp;= [\sqrt{2}/2, (0, 0, \sqrt{2}/2)] * [0, (10, 0, 0)] = \\
+&amp;= [0, \sqrt{2}/2 (10, 0, 0) + (0, 0, 0) + (0, 5\sqrt2, 0)] = \\
+&amp;= [0, (5\sqrt2, 5\sqrt2, 0)]
+\end{align*}
+\]</div>
+<p>Utána pedig a jobboldalit:</p>
+<div class="arithmatex">\[
+\begin{align*}
+[0, (5\sqrt2, 5\sqrt2, 0)] * q^{-1} &amp;= [0, (5\sqrt2, 5\sqrt2, 0)] * [\sqrt{2}/2, (0, 0, -\sqrt{2}/2)] \\
+&amp;= [0, (5, 5, 0) + (-5, 5, 0)] = \\
+&amp;= [0, (0, 10, 0)]
+\end{align*}
+\]</div>
+<p>Azaz <span class="arithmatex">\(i = 0\)</span>.</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">2. Mi lesz a <span class="arithmatex">\(q * u * q^{-1}\)</span> kvaternió szorzás eredményének második képzetes része, azaz a <span class="arithmatex">\(j\)</span> szorzója, ha <span class="arithmatex">\(q=[\sqrt{2}/2, 0, 0, \sqrt{2}/2]\)</span> és <span class="arithmatex">\(u=[0, 6, 0, 0]\)</span>?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Az előzővel teljesen analóg módon. Végeredmény: <span class="arithmatex">\(j = 6\)</span>.</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">3. Adott két kvaternió, <span class="arithmatex">\(q_1\)</span> és <span class="arithmatex">\(q_2\)</span>. Mi lesz a <span class="arithmatex">\(q_1 * q_2\)</span> első imaginárius része, azaz az <span class="arithmatex">\(i\)</span> szorzója?</p>
+<div class="arithmatex">\[
+\begin{align*}
+q_1 &amp;= 1+2i +2j + 3k \\
+q_2 &amp;= 1+0i +2j + 2k
+\end{align*}
+\]</div>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Átírhatók <span class="arithmatex">\([s, d(i , j, k)]\)</span> alakba:</p>
+<div class="arithmatex">\[
+\begin{align*}
+q_1 &amp;= 1+2i +2j + 3k = [1, (2,2,3)] \\
+q_2 &amp;= 1+0i +2j + 2k = [1, (0,2,2)]
+\end{align*}
+\]</div>
+<p>Innentől pedig teljesen analóg az előző kettővel.</p>
+<p>Végeredmény: <span class="arithmatex">\(i = 0\)</span>.</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">4. Adott két kvaternió, <span class="arithmatex">\(q_1\)</span> és <span class="arithmatex">\(q_2\)</span>. Mi lesz a <span class="arithmatex">\(q_1 * q_2\)</span> valós része?</p>
+<div class="arithmatex">\[
+\begin{align*}
+q_1=1+5i +3j + 1k \\
+q_2=4+4i +0j + 2k
+\end{align*}
+\]</div>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Az előzővel teljesen analóg módon. Végeredmény: <span class="arithmatex">\(s = -18\)</span>.</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">5. A 3D forgatás művelet mely tulajdonságokkal rendelkezik az alábbiak közül?</p>
+<ul>
+<li>Van egységelem, azaz olyan forgatás, amely nem változtatja meg az alakzatot.</li>
+<li>Invertálható</li>
+<li>Az összeadással disztributív</li>
+<li>Asszociatív</li>
+<li>Kommutatív</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Van egységelem, azaz olyan forgatás, amely nem változtatja meg az alakzatot.<ul>
+<li>Magyarázat: <span class="arithmatex">\([1,0,0,0]\)</span></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Invertálható<ul>
+<li>Magyarázat: <span class="arithmatex">\(q^{-1} = [s, -d]/|q|^2\)</span></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Az összeadással disztributív<ul>
+<li>Magyarázat: Lásd <a href="#kvaternio">fentebb</a></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Asszociatív<ul>
+<li>Magyarázat: Lásd <a href="#kvaternio">fentebb</a></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Kommutatív<ul>
+<li>Magyarázat: Nem az, szemléltetésnek a <a href="#geometria-3d-ben">fenti</a> dobókockás kép.</li>
+</ul>
+</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. március 8. 21:43:14 CET"><span class="timeago" datetime="2026-03-08T21:43:14+01:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. március 8. 21:43:14 CET">2026-03-08</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="10.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 10. Játékfejlesztés">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                10. Játékfejlesztés
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="12.html" class="md-footer__link md-footer__link--next" aria-label="Next: 12. Fraktálok és káosz">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                12. Fraktálok és káosz
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../../js/timeago.min.js"></script>
+      
+        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

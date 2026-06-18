@@ -1,0 +1,2087 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://levyry.github.io/grafika_biblia/notes/sem4/computer_graphics/lectures/2.html">
+      
+      
+        <link rel="prev" href="1.html">
+      
+      
+        <link rel="next" href="3.html">
+      
+      
+      <link rel="icon" href="/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>2. Grafikus hardver és szoftver - Notes-online</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/code.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#grafikus-hardver-es-szoftver" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../index.html" title="Notes-online" class="md-header__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes-online
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Grafikus hardver és szoftver
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../index.html" title="Notes-online" class="md-nav__button md-logo" aria-label="Notes-online" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.39 10.74 11 19.13V22H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h1v7l2.5-1.5L12 9V2h6a2 2 0 0 1 2 2v6.3c-.22.12-.43.26-.61.44M13 19.96V22h2.04l6.13-6.12-2.04-2.05zm9.85-6.49-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98 2.04 2.04.98-.98c.2-.19.2-.52 0-.72"/></svg>
+
+    </a>
+    Notes-online
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/levyry/grafika_biblia" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    levyry/grafika_biblia
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Üdvözlünk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../for_contributors/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Jegyzeteléshez
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Jegyzeteléshez
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../for_contributors/showcase.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Showcase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bevezetés a számításelméletbe 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bevezetés a számításelméletbe 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/tetelsor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tételek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sem1/theory_of_computing_1/17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17. Tétel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. félév
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            4. félév
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Számítógépes grafika
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Számítógépes grafika
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Geometriák és algebrák
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="2.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Grafikus hardver és szoftver
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Pontok és klasszikus görbék
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Affin transzformációk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 2D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. 2D textúrázás
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. 3D képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Sugárkövetés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Inkrementális képszintézis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Játékfejlesztés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. Vektorháború
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Fraktálok és káosz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_14" id="__nav_4_1_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Függelékek
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_14">
+            <span class="md-nav__icon md-icon"></span>
+            Függelékek
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix/math_appendix.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A. Matematikai kifejezések
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specializációk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Specializációk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algoritmikus játékelmélet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Algoritmikus játékelmélet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spec/game_theory/exam_notes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vizsgajegyzet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<!-- 
+
+NOTE: Ez az egész fejezet egy kicsit clunky, sok olyan fogalmat megemlítünk amit igazán csak később fogunk megérteni, amikor már jobban elmélyedünk a megjelenítési csővezetékben az 5. fejezet során. Mindenesetre ez az a fejezet, aminek szerintem a legnagyobb szüksége van egy átfogalmazásra/teljes újra írásra. -levy04
+
+-->
+
+<h1 id="grafikus-hardver-es-szoftver">Grafikus hardver és szoftver</h1>
+<h2 id="funkcionalis-modell">Funkcionális modell</h2>
+<p>A felhasználónak mutatunk egy virtuális világot, amivel interaktálni tud, és ennek hatásait láthatja is. Az alábbi grafikus csővezetékrendszer ezt mutatja be:</p>
+<p><img alt="Funkcionális modell" src="../img/chapter_2/2_func_model.png" width="100%" /></p>
+<p>A CPU-ra megírt program (amit mi írunk pl. C++-ban) a bemeneti csővezetéket irányítja. A GPU műveletei közül, ami pirossal van jelölve, azokhoz "fix hardver implementáció" tartozik, azaz mi nem tudunk belenyúlni. A zölddel jelölt műveleteket viszont mi is befolyásolhatjuk, úgynevezett <em>vertex</em> és <em>pixel shader</em>-ek írásával (csúcspontárnyaló, képpontárnyaló).</p>
+<p>A GPU csak pontokat, szakaszokat, és háromszögeket tud megjeleníteni. Minden ezekkel van közelítve, csak aprólékosan.
+A <em>vektorizáció</em> folyamán tetszőleges görbéket hozunk létre ezekből.</p>
+<h2 id="szoftver-architektura">Szoftver architektúra</h2>
+<p><img alt="IO" src="../img/chapter_2/2_io.png" width="100%" /></p>
+<p>Az eseménykezeléshez glutot használunk. A main függvénybenben regisztrálunk eseménykezelőket (event handler, pl. <code>onDisplay</code>) és az operációs rendszer eseményeire a glut callback-ként fogja meghívni a saját függvényünket. Ez az ún. eseményvezérelt programozás.</p>
+<h2 id="opengl">OpenGL</h2>
+<p><img alt="OpenGL pipeline" src="../img/chapter_2/2_opengl_pipeline.png" width="100%" /></p>
+<p>Elemezzük a pipelinet:</p>
+<ul>
+<li>VBO (vertex buffer object): ebben tárolunk pontokat és a hozzá tartozó alakzatokat</li>
+<li>VAO (vertex array object): ebben több VBO-t tárolhatunk, a műveletek (transzformációk, vágás) ezen történnek.</li>
+</ul>
+<p>Felmerülhet a kérdés, hogy hogyan éri meg a VBO-kat tárolni a VAO-ban? Több megközelítés lehet: csinálhatjuk például azt, hogy az egyik VBO csak a pontok koordinátáit tárolja el, a másik csak a pontok színeit, stb. Ezeket utána külön <code>AttribArray</code>-ekbe töltjük fel. Könnyebben kezelhető, hiszen a különböző adatok el vannak különítve, de nem túl hatékony. Egy másik lehetőség, hogy egy darab VBO van, és minden pont minden tulajdonsága ebben van. Egy picit bonyolultabb, mert egy pont adatai egymás mellett vannak, a tömb megfelelő "szeletelésre" (stride) és az értékek helyes "csúsztatására" (offset) nekünk kell odafigyelni, cserébe viszont lényegesebben hatékonyabb.</p>
+<details class="example">
+<summary>Bővebben a VBO/VAO-ról...</summary>
+<p>A VBO és VAO megértését segítő <a href="https://www.youtube.com/watch?v=Rin5Cp-Hhj8">videó</a>.</p>
+</details>
+<p>A <code>glDrawArrays</code> függvény juttatja el ezeket a VBO/VAO-kat a GPU-hoz. Ezek floating point regiszterekbe kerülnek. A vertex shader meghatározza a normalizált eszközkoordináta-rendszert (<span class="arithmatex">\((-1, -1)\)</span> és <span class="arithmatex">\((1, 1)\)</span> között). Ezután a <code>gl_Position</code> kimeneti regiszterben tárolja a normalizált eszközkoordinátákat, de további csúcspont tulajdonságokat is el tud tárolni egyéb regiszterekben, például színértéket.</p>
+<div class="admonition note">
+<p>A <code>gl_Position</code>-ben tárolt értékek mindig 4 dimenziósak lesznek és a 3D-s projektív geometriai szabályok szerint lesznek értelmezve.</p>
+</div>
+<!-- ez az állítás nem teljes így 1. mert beadhatok neki vec2/3-at és akkor nagyon jól érzem magam, de valójában akkor is vec4 lesz, 2. persze lehet csinálni másmilyen geometriát is, de a GPU ettől még nem fogja úgy számolni nem feltétlenül úgy fogja számolni -->
+
+<p>Ezt követően fix műveleti egységek mennek végbe (vágás, raszterizáció, stb.). Ezek optimalizált hardver műveletek.</p>
+<ul>
+<li>Vágás: kidobjuk ami "nem látszik".</li>
+<li>Viewport transzformáció: A normalizált eszközkoordinátákból a képernyő koordináta-rendszerévé (<span class="arithmatex">\((0, 0)\)</span> és pl. <span class="arithmatex">\((800, 600)\)</span> között) való transzformálás.</li>
+<li>Raszterizáció: Egy adott háromszög csúcspontjai ismeretében meghatározza az összes olyan pixelt, ami benne van a háromszögben, interpolálja a regiszterek értékeit (pl. szín).</li>
+</ul>
+<p>Ezeket követően már konkrét pixelekkel dolgozik a GPU. A fragment shader a pixelek tényleges színét határozza meg. Végezetül kompozitálás után a pixelek bekerülnek a rasztertárba (frame buffer), ahonnan már egyenesen a képernyőre kerülnek. A kompozitálás azért fontos, mert itt dől el, hogy melyik pixelek lennének más pixelek "mögött", ami az áttetszőség és a takarás kezeléséhez elengedhetetlen.</p>
+<h3 id="primitivek">Primitívek</h3>
+<p>Tekintsünk tetszőleges pontokat a VAO-ban (jelöljük őket <span class="arithmatex">\(x_i\)</span>-vel). Hogyan fogja ezeket a <code>gl_DrawArrays</code> függvény értelmezni? Nézzük meg először a függvény paramétereit:</p>
+<div class="highlight"><pre><span></span><code><span class="n">glDrawArrays</span><span class="p">(</span><span class="n">primitiveType</span><span class="p">,</span><span class="w"> </span><span class="n">startIdx</span><span class="p">,</span><span class="w"> </span><span class="n">numOfElements</span><span class="p">);</span>
+</code></pre></div>
+<p>A <code>startIdx</code> és <code>numOfElements</code> magukért beszélnek, viszont a <code>primitiveType</code>-ról részletesebben szót kell ejteni. Ez a jegyzet 7 darab ilyen primitívet tárgyal, ezek pedig:</p>
+<ul>
+<li><code>GL_POINTS</code>: külön pontokként jeleníti meg a VAO pontjait</li>
+<li><code>GL_LINES</code>: kettessével összeköti a megadott pontokat, így például az alábbi <em>szakaszok</em> jönnének létre: <span class="arithmatex">\((x_0, x_1), (x_2, x_3), ...\)</span></li>
+<li><code>GL_LINE_STRIP</code>: az adott pontot mindig a következő ponttal köti össze: <span class="arithmatex">\((x_0, x_1), (x_1, x_2), (x_2, x_3), ...\)</span></li>
+<li><code>GL_LINE_LOOP</code>: ugyan az mint a <code>GL_LINE_STRIP</code>, csak a legutolsó pontot a legelsővel is összeköti</li>
+<li><code>GL_TRIANGLES</code>: minden három egymás utáni pont egy háromszög: <span class="arithmatex">\((x_0, x_1, x_2), (x_3, x_4, x_5), ...\)</span></li>
+<li><code>GL_TRIANGLE_STRIP</code>: az utolsó pontot veszi hozzá az előző kettőhöz: <span class="arithmatex">\((x_0, x_1, x_2), (x_1, x_2, x_3), (x_2, x_3, x_4) ...\)</span></li>
+<li><code>GL_TRIANGLE_FAN</code>: az első ponthoz veszi a legutóbbi kettőt: <span class="arithmatex">\((x_0, x_1, x_2), (x_0, x_3, x_4), (x_0, x_5, x_6) ...\)</span></li>
+</ul>
+<h3 id="allapotgep-jelleg">Állapotgép jelleg</h3>
+<p>Az OpenGL egy állapotgép, azaz nem kell mindig minden függvénynek megadni minden paramétert, hanem ezeket "globálisan" beállítjuk, utána pedig a függvények ezekkel dolgoznak (például nem kell a pontok méretét megadni a <code>glDrawArrays</code>-ben, hanem a <code>glPointSize</code> függvénnyel beállítjuk ezt az értéket, utána pedig erre hivatkozik minden függvény).</p>
+<h2 id="pelda-programok">Példa programok</h2>
+<p>A hivatalos ppt-kben található pár példa program, amelyeken keresztül láthatjuk az imént tárgyaltakat kódban is.</p>
+<!-- 
+
+NOTE: Az alábbi jegyzetet az előadáson készítettem, de nem tartottam annyira fontosnak, hogy a végső jegyzetbe bele írjam. 
+
+Mindenesetre kommentként meghagyom, ha valaki gondolja akkor kiegészítheti és bekerülhet a jegyzetbe. - levy04
+
+---
+
+Zöld háromszög program:
+feladatnál a `glApp` osztályból származunk le a saját "x_app"-unkat.
+shadereket GLSL nyelven programozzuk (C jellegű)
+
+sokszor kell ugyan azt: erre van a framework.h és framework.cpp: ezekbe kiszervezzük a közös dolgokat
+
+példa: viktor vasarely (Vásárhelyi Győző) festményei: sok optikai trükk van bennük.
+- betüremkedő gömb: körök mozognak fel le, teljesen 2D. 1 körünk van, azt transzformálgatjuk. a középpont középen kezdődik, először felfele megy, aztán vissza középre (sin hullámzás). eközben nő a kör sugara, változik a színe. az illúzióhoz a középpont is mozog fel le.
+
+- konvex burok, interakció (legkisebb olyan sokszög, ami az összes pontot tartalmazza). a legalsó pontból indulunk, felveszünk egy vízszintes egyenes. a kövi pont az lesz, amihez a legkevesebbet kell elforgatni ezt az egyenest.
+
+- tessaract (4D kocka), animáció.
+
+-->
+
+<h2 id="input-kezelese">Input kezelése</h2>
+<p>Az operációs rendszer koordináta-rendszerének origója a bal felső sarokban van, tehát az <span class="arithmatex">\(y\)</span> tengely <strong>fejjel lefelé</strong> van, "<span class="arithmatex">\(y\)</span> lefele mutat". A <code>glViewport</code> viszont a <strong>bal alsó</strong> sarkot tekinti origónak, és az <span class="arithmatex">\(y\)</span> tengely "felfele mutat". Valahogy így kell elképzelni:</p>
+<p><img alt="viewport" src="../img/chapter_2/2_viewport.png" width="100%" /></p>
+<p>Tehát ha a normalizált eszközkoordinátákat szeretnénk megmondani az ablak koordinátái alapján akkor:</p>
+<div class="arithmatex">\[
+\begin{align*}
+x_{\text{ndc}} &amp;= \left(\frac{x − x_{\text{offset}}}{\text{viewWidth}}\right) \times 2 ​− 1 \\[2.75ex]
+y_{\text{ndc}} &amp;= \left(\frac{y_{\text{OpenGL}} − y_{\text{offset}}}{\text{viewHeight}}\right) \times 2 - 1
+\end{align*}
+\]</div>
+<p>ahol <span class="arithmatex">\(y_{\text{OpenGL}}\)</span> már az OpenGL szerint értelmezett koordináta! Azaz ha az ablakunk például <span class="arithmatex">\(1000 \times 1000\)</span> és az <code>onMouse</code> eseménykezelő szerint az egér <span class="arithmatex">\(y\)</span> koordinátája <span class="arithmatex">\(267\)</span>, akkor <span class="arithmatex">\(y_{\text{OpenGL}} = 1000 - 267 - 1\)</span>.</p>
+<h2 id="adatok-feldolgozasa">Adatok feldolgozása</h2>
+<div class="highlight"><pre><span></span><code><span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// engedélyezi az írást ezekbe a regiszterekbe</span>
+
+<span class="c1">// beállítja a regiszter tulajdonságait</span>
+<span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FALSE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"> </span>
+<span class="c1">// Paraméterek: id, hány darab számot tárol, milyen típusú, isFixedPoint, </span>
+<span class="c1">// stride, offset</span>
+
+<span class="c1">// adatok feltöltése</span>
+<span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">size_in_bytes</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">startOfArray</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">GL_STATIC_DRAW</span><span class="p">);</span>
+<span class="c1">// a mód lehet dinamikus is attól függően állítjuk, hogy gyakran cserélődik-e</span>
+<span class="c1">// az adat</span>
+</code></pre></div>
+<p>Az adatainkat uniform változókon keresztül is a GPU-hoz tudjuk juttatni. Ezek olyan változók, amik a CPU-ból (értsd: a C++ kódunkból) állíthatók a shader programban. Nem a pontok adatai közé tartoznak (pl. <a href="5.html#osszegzes">később</a> az MVP matrix).</p>
+<details class="example">
+<summary>Uniformok a gyakorlatban</summary>
+<p>Uniformokra tekinthetünk úgy, mint a jelenleg aktív shader program "globális változói". Például van egy pixel shader programunk, amiben az éppen kirajzolandó pixel színét állítjuk be (tekintsünk el attól, hogy ezt shader nélkül is meg tudnánk oldani). A pixel shader program az éppen rajzolt alakzat minden pixelére le fog futni, viszont az alakzat színe és egyéb paraméterei eltérhetnek alakzatonként. Ahelyett, hogy a lehetséges paramétereket beleégetnénk a shader program kódjába, felvehetünk uniform változókat, amiket CPU oldalról tudunk állítani. Ekkor használhatjuk ugyan azt a shadert egy zöld és egy piros háromszög kirajzolásához is, csak a hozzá tartozó uniform paramétert kell megfelelően beállítani.</p>
+<p>Általában a legtöbb objektumot kirajzolhatjuk ugyan azzal a programmal, csak néhány tulajdonságuk tér el, amiket uniform paraméterekkel meg tudunk adni. Vertex shadernek például az objektum transzformációs mátrixát tudjuk megadni, pixel shadereknek pedig az objektum textúráját, anyagának tulajdonságait stb. </p>
+</details>
+<p>Mi a megvalósításnál dupla bufferelést használtunk (két frame bufferünk van, a háttér bufferbe rajzolunk, a előtér buffert pedig a usernek mutatjuk és ezt a kettőt cserélgetjük, ezzel elkerülve az inkonzisztens/"félkész" képkockákat). Ezt a <code>glutSwapBuffers();</code> függvényhívással értük el.</p>
+<details class="example">
+<summary>Konvex burok</summary>
+<p>Ezen a programon lett bemutatva az OpenGL használata
+<img alt="konvex burok" src="../img/chapter_2/2_kovex_burok.png" width="100%" />
+(ez nem az optimális algoritmus, de egészen használható)</p>
+</details>
+<hr />
+<h1 id="kviz">Kvíz</h1>
+<div class="admonition question">
+<p class="admonition-title">1. Hány háromszöget próbál kirajzoltatni az alábbi programsor?</p>
+<p><code>glDrawArrays(GL_TRIANGLE_FAN, 5, 7);</code></p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Öt darabot (Első három pont alkot egy háromszöget, utána minden maradék pont egy újabb háromszöget eredményez.).</p>
+<p><code>glDrawArrays(MODE, start, count)</code> <span class="arithmatex">\(\Rightarrow\)</span> az 5-ös rész csak azt jelenti, hogy az 5. től kezdve szeretnénk kirajzolni 7 pontnyit.</p>
+<p>A GL_TRIANGLE_FAN az első 2 pontból még nem tud háromszöget rajzolni, úgyhogy csak a 3.-tól kezdve, viszont akkor minden új ponttal rajzol egy darab háromszöget</p>
+<p>Vagyis 7-2 = 5 darabot tud rajzolni</p>
+<p><a href="https://i.sstatic.net/G0JGo.png"><em>(Másik számokkal szemléltető kép)</em></a></p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">2. Az <code>onMouse</code> eseménykezelő egy eseményt kapott, amelyben az átadott koordináták <span class="arithmatex">\((916, 54)\)</span> volt. Mi ennek a pontnak a normalizált eszközkoordináta-rendszerbeli <span class="arithmatex">\(y\)</span> koordinátája, ha az alkalmazásablak felbontása <span class="arithmatex">\(1000 \times 1000\)</span> az utolsó nézeti beállítás pedig a <code>glViewport(100, 200, 800, 700)</code> volt.</p>
+<p>Kis segítség: <code>glViewport(x, y, width, height)</code>, és a bal alsó sarokból veszi az offsetet, az egér viszont bal felülről számol.</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>1. Az egér koordinátáinak átalakítása OpenGL ablakkordinátákká</p>
+<p>Az ablak felbontása <span class="arithmatex">\(1000 \times 1000\)</span>, ahol az egér <span class="arithmatex">\(y\)</span> koordinátája <span class="arithmatex">\(54\)</span> (az ablak felső sarkából számítva).</p>
+<p>OpenGL-ben az <span class="arithmatex">\(y\)</span> koordináta az ablak alsó sarkából indul, így az átváltás:</p>
+<div class="arithmatex">\[
+y_{\text{OpenGL}} = 1000 - 54 - 1 = 945
+\]</div>
+<p>2. Normalizált koordináták számítása</p>
+<p>A fenti képletbe helyettesítve:</p>
+<div class="arithmatex">\[
+y_{\text{ndc}} = \left(\frac{945 - 200}{700}\right) \times 2 - 1 \approx 1.1286
+\]</div>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">3. Egészítsük ki egész számokkal az alábbi programot úgy, hogy a 10 elemű <code>vtxData</code> tömb teljes egészébe a VBO-ba másolódjon.</p>
+<p>A <code>pos</code> adattag a csúcspont árnyaló 0. regiszterébe, a <code>norm</code> adattag az 1. regiszterébe, a <code>tex</code> adattag a 2. regiszterébe.
+<img alt="kvíz" src="../img/chapter_2/2_kviz.png" width="100%" /></p>
+</div>
+<details class="tip">
+<summary>Magyarázat</summary>
+<p>Az elején a struktúrát megnézzük, akkor látjuk, hogy:
+1 db <code>vec3</code> az 3 float-ból
+1 db <code>VertexData</code> az 3 <code>vec3</code>-ból áll</p>
+<p>A <span class="arithmatex">\(360\)</span> azért annyi, mert byte-okban kell megadni és egy float az 4 byte, vagyis <span class="arithmatex">\(4 \cdot 3 \cdot 3 \cdot 10\)</span> byte lesz feltöltve.</p>
+<p>A <span class="arithmatex">\(3\)</span> azért annyi, mert egy <code>vec3</code> valójában 3 floatból áll, a <span class="arithmatex">\(36\)</span> az a <code>VertexData</code> mérete, az offset pedig szintén byte-ban az adat pozíciójának offset-je</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">4. Mik igazak a <code>gl_Position</code> regiszterre?</p>
+<p>Ha 3D euklideszi geometriában dolgozik a vertex shader, akkor ide a Descartes koordinátákat kell írni kiegészítve a <span class="arithmatex">\(w=1\)</span>-gyel</p>
+<p>Az ebbe pakolt pont koordinátáit a GPU a 3D projektív geometria szabályai szerint értelmezi, azzal a megkötéssel, hogy a nemnegatív <span class="arithmatex">\(w\)</span> koordinátájú pontokat tartja meg csak a vágás.</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>Első állítás: magyarázat picit korábban volt, de a lényeg annyi, hogy perspektív térábrázolásra van kitalálva a GPU, ezért érdemes úgy használni <span class="arithmatex">\(\implies\)</span> <code>gl_Position = (vp.x, vp.y, vp.z, 1)</code>) <!-- igen tudom, hogy van ennél kompaktabb forma, de nem várom el, hogy mindenki tudja --></p>
+<p>Második állítás: ezt csak későbbi előadáson részleteztük, de érdemes megjegyezni, hogy ami nem látszik az le lesz vágva.</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">5. Az alábbiak közül melyik OpenGL programokkal befolyásolhatjuk a pixel shader program működését?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>A <code>glUniform</code> - ez volt az egyetlen felsorolva, amire igaz volt.</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">6. Válasszuk ki az igaz állításokat. Feltételezzük, hogy a GPU háromszögeket dolgoz fel és a <code>glDrawArrays(GL_TRIANGLES, 0, 30)</code> OpenGL hívás hatására.</p>
+<ul>
+<li>Lehet olyan csúcspontárnyalót írni, amely esetén a GPU nem rajzol ki semmit a vbo tartalmától függetlenül</li>
+<li>A GPU csúcspont árnyaló programjában ki tudjuk számítani egy háromszög súlypontját.</li>
+<li>A csúcspontárnyaló dönthet arról, hogy a pontokat a háromszög csúcspontjaiként vagy háromszög legyezőként (<code>GL_TRIANGLE_FAN</code>) értelmezze.</li>
+<li>Ha a háromszög súlypontját a pixel árnyalóban számoljuk ki, akkor azt elég egyetlen pixelre, és az eredményt át lehet adni a többi pixel árnyalójának.</li>
+<li>A vágás során a primitív típusa (<code>GL_TRIANGLES</code>) lényegtelen.</li>
+<li>A GPU pixel árnyaló programja eldönti, hogy melyik pixelt színezze ki a kért színre.</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Lehet olyan csúcspontárnyalót írni, amely esetén a GPU nem rajzol ki semmit a vbo tartalmától függetlenül<ul>
+<li>Magyarázat: Például: <code>void main() { gl_Position = vec4(0, 0, 0, 0); }</code></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A GPU csúcspont árnyaló programjában ki tudjuk számítani egy háromszög súlypontját.<ul>
+<li>Magyarázat: Nem tudjuk, egyszerre mindig csak egy csúcsponttal foglalkozunk egy számítási egységen.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A csúcspontárnyaló dönthet arról, hogy a pontokat a háromszög csúcspontjaiként vagy háromszög legyezőként (<code>GL_TRIANGLE_FAN</code>) értelmezze.<ul>
+<li>Magyarázat: Nem, ezt mi állítjuk be. Az OpenGL állapotgép</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ha a háromszög súlypontját a pixel árnyalóban számoljuk ki, akkor azt elég egyetlen pixelre, és az eredményt át lehet adni a többi pixel árnyalójának.<ul>
+<li>Magyarázat: Nem így működik...</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A vágás során a primitív típusa (<code>GL_TRIANGLES</code>) lényegtelen.<ul>
+<li>Magyarázat: Nem lényegtelen, mert ettől függ mit rajzolunk ki, és különböző alakzatokat különböző módon kell vágni</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A GPU pixel árnyaló programja eldönti, hogy melyik pixelt színezze ki a kért színre.<ul>
+<li>Magyarázat: Az OpenGL egy állapotgép, nem "dönt" semmiről.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">7. Válassza ki a helyes állításokat az OpenGL körrajzoló képességével kapcsolatban.</p>
+<ul>
+<li>Az OpenGL nem tud kört rajzolni, mert a művelet felesleges, hiszen a kör közelíthető szabályos sokszöggel.</li>
+<li>Az OpenGL nem tud kört rajzolni, mert a GPU fejlesztők nem ismerték a kör egyenletét.</li>
+<li>Az OpenGL nem tud kört rajzolni, mert projektív geometriában nincs távolság, ezért nincs kör sem, helyette keletek lehetnek, azok viszont túl bonyolultak lennének a vágás és raszterizáció hw. implementációjához.</li>
+<li>Az OpenGL nem tud kört rajzolni, hogy kitoljon a programozókkal.</li>
+<li>Az OpenGL-nek a kör középpontját és sugarát kell átadni, hogy ki tudja rajzolni.</li>
+</ul>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Az OpenGL nem tud kört rajzolni, mert a művelet felesleges, hiszen a kör közelíthető szabályos sokszöggel.<ul>
+<li>Magyarázat: Lásd <a href="#funkcionalis-modell">fentebb</a></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Az OpenGL nem tud kört rajzolni, mert a GPU fejlesztők nem ismerték a kör egyenletét.<ul>
+<li>Magyarázat: Szerintem a <span class="arithmatex">\(8\)</span> általánost elvégezték azért a GPU fejlesztők.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Az OpenGL nem tud kört rajzolni, mert projektív geometriában nincs távolság, ezért nincs kör sem, helyette kúpszeletek lehetnek, azok viszont túl bonyolultak lennének a vágás és raszterizáció hw. implementációjához.<ul>
+<li>Magyarázat: Projektív geometria nem egy <a href="https://hu.wikipedia.org/wiki/Metrikus_ter">metrikus tér</a>, mivel nincsen távolság definiálva.</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Az OpenGL nem tud kört rajzolni, hogy kitoljon a programozókkal.<ul>
+<li>Magyarázat: Néha olyan érzés, mintha igaz lenne...</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Az OpenGL-nek a kör középpontját és sugarát kell átadni, hogy ki tudja rajzolni.<ul>
+<li>Magyarázat: Eleve nem tud kört rajzolni, tök mindegy, hogy mit adunk meg neki. Legfeljebb háromszögekkel közelíti.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">8. Jelöljük be az alábbi programra vonatkozó igaz állításokat:</p>
+<div class="admonition quote">
+<p>A 2024/2025/II. félévet követően feltehetően már nem kérdez rá erre, mert azóta más a <code>framework.h</code></p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;windows.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;GL/glew.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;GL/freeglut.h&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">onDisplay</span><span class="p">(),</span><span class="w"> </span><span class="n">onInitialization</span><span class="p">();</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">glutInit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="n">glutInitContextVersion</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span>
+
+<span class="w">    </span><span class="n">glutInitWindowSize</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glutInitWindowPosition</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_RGBA</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GLUT_DOUBLE</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">glutCreateWindow</span><span class="p">(</span><span class="err">“</span><span class="n">Hi</span><span class="w"> </span><span class="n">Graphics</span><span class="s">&quot;);</span>
+
+<span class="w">    </span><span class="n">glewExperimental</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">glewInit</span><span class="p">();</span><span class="w"> </span>
+<span class="w">    </span><span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">onInitialization</span><span class="p">();</span>
+<span class="w">    </span><span class="n">glutDisplayFunc</span><span class="p">(</span><span class="n">onDisplay</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="n">glutMainLoop</span><span class="p">();</span><span class="w"> </span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Csak Microsoft Windows operációs rendszer alatt fordul le. (Hiszen <code>#include &lt;windows.h&gt;</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> A rajzolás célterülete a teljes alkalmazó ablak. (Hiszen a viewportot teljesen kitöltjük, nincs offset)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Egy pixelt 64 biten fog a hardver tárolni a rasztertárban (hiszen <code>glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);</code> emiatt 2 buffer, 4 channel, 8 bit / szín <span class="arithmatex">\(\Rightarrow 2 \cdot 4 \cdot 8 = 64\)</span>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Egyetlen sor törlésével a program Unix alatt is fordíthatóvá válik. (A kérdéses sor a <code>#include &lt;windows.h&gt;</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ha Visual Studio-t használunk, akkor semmit sem kell installálni és a Web-ről letölteni, hogy leforduljon.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A nézeti téglalap <span class="arithmatex">\(100 \times 100\)</span> pixelből áll.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A <code>glutCreateWindow</code> után hívhatunk OpenGL függvényeket. (nem, csak akkor hívhatóak, ha inicializáltuk az OpenGL-t, ami az <code>onInitialization</code>-ban történik a framework-ben)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Hibás, hogy az <code>opengl.h</code> nincs beincludeolva. (nem hibás, mert ezért van nekünk a glew könyvtár - ez segít eldönteni, hogy az OpenGL melyik verzióját vagyunk képesek használni)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ez OpenGL 3.0-ás verzióra készül fel. (nem, a glew eldönti)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ez OpenGL 1.0-ás verzióra készül fel. (nem, a glew eldönti)</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">9. Az alábbi program szándéka szerint egy zöld háromszöget rajzolna ki <span class="arithmatex">\(\varphi\)</span> radiánnal elforgatva, de nem működik. Mely sorokban van hiba?</p>
+<div class="admonition quote">
+<p>A 2024/2025/II. félévet követően feltehetően már nem kérdez rá erre, mert azóta más a <code>framework.h</code></p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">onDisplay</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">glClearColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">   </span><span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="p">);</span><span class="w"> </span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glGetUniformLocation</span><span class="p">(</span><span class="n">shaderProgram</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;color&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">glUniform3f</span><span class="p">(</span><span class="n">location</span><span class="p">,</span><span class="w"> </span><span class="n">vec3</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">));</span>
+
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">MVPtransf</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">                        </span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span>
+<span class="w">                        </span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span><span class="w"> </span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span>
+<span class="w">                        </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                        </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+<span class="w">                    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glGetUniformLocation</span><span class="p">(</span><span class="n">shaderProgram</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MVP&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">glUniformMatrix4fv</span><span class="p">(</span><span class="n">location</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FALSE</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MVPtransf</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+
+<span class="w">    </span><span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">vao</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">glDrawArrays</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">glutSwapBuffers</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<ul>
+<li><code>glUniform3f(location, vec3(0.0f, 1.0f, 0.0f));</code><ul>
+<li>Hiba: <span class="arithmatex">\(3\)</span> <code>float</code> változót vár paraméternek</li>
+</ul>
+</li>
+<li><code>glUniformMatrix4fv(location, 1, GL_FALSE, &amp;MVPtransf[0][0]);</code><ul>
+<li>Hiba: A mátrix a kódban sorfolytonos formában van megadva, de az OpenGL alapértelmezetten oszlopfolytonos mátrixokat vár. Ahhoz, hogy a mátrixunk helyesen töltődjön fel, a transzponálást jelző paraméternek <code>GL_TRUE</code>-nak kellene lennie.</li>
+</ul>
+</li>
+<li><code>glDrawArrays(GL_TRIANGLES, 1, 3 );</code><ul>
+<li>Hiba: Ez a hívás <span class="arithmatex">\(3\)</span> csúcspontot dolgoz fel az 1-es indextől kezdve, ami egyetlen háromszöget (az {1, 2, 3} csúcsokból) rajzol ki. Ez nem feltétlenül hiba, de ha a VBO-ban lévő első háromszöget ({0, 1, 2}) szeretnénk kirajzolni, a helyes hívás <code>glDrawArrays(GL_TRIANGLES, 0, 3)</code> lenne.</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">10. Mely könyvtárak szükségesek feltétlenül, azaz nem csupán opcionálisak, az GPU OpenGL könyvtáron keresztüli programozásához?</p>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p>OpenGL (nincs további helyes opció)</p>
+</details>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">11. Hány csúcspontot fog tartalmazni az alábbi VBO?</p>
+<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">vbo</span><span class="p">;</span>
+<span class="n">glGenBuffers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vbo</span><span class="p">);</span>
+<span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">vbo</span><span class="p">);</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="n">vertices</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span>
+<span class="n">glBufferData</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">vertices</span><span class="p">),</span><span class="w"> </span><span class="n">vertices</span><span class="p">,</span><span class="w"> </span><span class="n">GL_STATIC_DRAW</span><span class="p">);</span><span class="w">   </span>
+
+<span class="n">glEnableVertexAttribArray</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// AttribArray 0</span>
+<span class="n">glVertexAttribPointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FLOAT</span><span class="p">,</span><span class="w"> </span><span class="n">GL_FALSE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<details class="tip">
+<summary>Megoldás</summary>
+<p><span class="arithmatex">\(16\)</span>, mert nagyon trükkösen <code>double</code> arraybe lettek pakolva a pontok, de <code>float</code>-ként lesznek feltöltve. Mivel a <code>double</code> kétszer annyi helyet használ fel, mint a <code>float</code>, ezért 16 float-nyi helyet fognak elfoglalni.</p>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026. május 29. 22:17:12 CEST"><span class="timeago" datetime="2026-05-29T22:17:12+02:00" locale="hu"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026. május 29. 22:17:12 CEST">2026-05-29</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="1.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Geometriák és algebrák">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. Geometriák és algebrák
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="3.html" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Pontok és klasszikus görbék">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3. Pontok és klasszikus görbék
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.suggest", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../../js/timeago.min.js"></script>
+      
+        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>
